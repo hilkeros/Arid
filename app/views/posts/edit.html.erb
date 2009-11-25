@@ -1,3 +1,5 @@
+<%= wym_editor_initialize %>
+
 <h1>Edit <%= @post.title %></h1>
 <div>
 	<% form_for @post do |form| %>
@@ -8,11 +10,11 @@
 		
 		<p>
 			<%= form.label :body %>
-			<%= form.text_area :body %>
+			<%= form.text_area :body, :class => 'wymeditor' %>
 		</p>
 		
 		<p>
-			<%= form.submit 'Update' %>
+			<%= form.submit 'Update', :class => 'wymupdate' %>
 		</p>
 		
 	<% end %>
