@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @session = UserSession.new(params[:user_session])
     @session.save!
-    redirect_back
+    redirect_to root_path
   rescue Authlogic::Session::Existence::SessionInvalidError
     render 'new'
   end

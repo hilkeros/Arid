@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :login_required, :except => [:show, :index]
+  
   def index
     @posts = Post.all
   end
@@ -33,5 +35,5 @@ class PostsController < ApplicationController
     flash[:notice] = "Deleted post #{@post.title}"
     redirect_to posts_path
   end
-
+  
 end

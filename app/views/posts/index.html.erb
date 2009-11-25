@@ -1,5 +1,7 @@
 <h1>Post index</h1>
-
+<% if current_user %>
+ welcome <%= current_user.username %>
+<% end %>
 <table>
 	<thead>
 		<tr>
