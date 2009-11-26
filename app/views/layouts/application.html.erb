@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+											"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+					
+<html>
+<head>
+	<title>Arid</title>
+	<%= stylesheet_link_tag "depot", :media => "all" %>
+	<%= javascript_include_tag :defaults %>
+</head>
+<body id="application">
+
+	<div id="banner">
+		
+		Arid
+                <div id="user_navigation">
+                  <%= link_to "admin", admin_posts_path %>
+                  <%= link_to "login", login_path %>
+                  <%= link_to "register", signup_path %>
+                </div>
+	</div>
+	<div id="columns">
+		<div id="side">
+
+                  <div id="menu">
+                    <h2>Navigation</h2>
+			<%= link_to "News", posts_path %> <br />
+			<a href="http://www.../tour">Tour Calendar</a><br />
+			<a href="http://www.../music">Music</a><br />
+                        <a href="http://www.../videos">Videos</a><br />
+                        <a href="http://www.../photos">Photos</a><br />
+                        <a href="http://www.../shop">Shop</a><br />
+			<a href="http://www.../exclusives">Exclusives</a><br />
+                        <a href="http://www.../contact">Contact</a><br />
+                  </div>
+                  <br><br>
+                  <div id="badges">
+                    <h2>Social</h2>
+                    <a target="_blank" href="http://www.myspace.com/colorlessgreenideasbe" title="Myspace"><img src="images/IconMySpaceSml.png"/></a>
+                    <a target="_blank" href="http://www.facebook.com/pages/Colorless-Green-Ideas/7001368721" title="Facebook"><img src="images/IconFacebookSml.png"/></a>
+                    <a target="_blank" href="http://www.twitter.com/colorlessgreen" title="Twitter"><img src="images/IconTwitterSml.png"/></a>
+                    <a target="_blank" href="http://www.youtube.com/vocalistix" title="Youtube"><img src="images/IconYoutubeSml.png"/></a>
+                    <a target="_blank" href="http://www.last.fm/music/Colorless+Green+Ideas" title="Last.fm"><img src="images/IconLastfmSml.png"/></a>
+                    <a target="_blank" href="http://www.ilike.com/artist/Colorless+Green+Ideas" title="iLike"><img src="images/IconIlikeSml.png"/></a>
+                   </div> <br><br>
+                   <div id="facebook_badge">
+                        <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script><script type="text/javascript">FB.init("5f09ca15d65cdb0ba72523835015bf6b");</script><fb:fan profile_id="21485402588" stream="" connections="10" width="300"></fb:fan><div style="font-size:8px; padding-left:10px"><a href="http://www.facebook.com/pages/Arid/21485402588">Arid on Facebook</a> </div>
+                   </div> <br><br>
+                   <div id=""twitter_badge>
+                        <a href="http://twitstamp.com"><img src="http://twitstamp.com/colorlessgreen/minichrome.png" border="0" alt="twitstamp.com" /></a>
+                   </div><br><br>
+                    <h2>Next shows</h2>
+                  </div>
+
+		<div id="main">
+			<% if flash[:notice] -%>
+				<div id="notice"><%= flash[:notice] %></div>
+			<% end -%>
+			<%= yield :layout %>
+		</div>
+	</div>
+</body>
+</html>
