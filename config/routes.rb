@@ -26,10 +26,11 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route within a namespace:
   map.namespace :admin do |admin|
-    # Directs /admin/posts/* to Admin::PostsController (app/controllers/admin/posts_controller.rb)
-       admin.resources :posts
-       
-     end
+    admin.resources :posts
+    admin.resources :gigs
+    admin.resources :users
+    admin.root :controller => "posts"
+  end
   
   map.resources :posts, :has_many => :comments
   map.root :controller => "posts"
@@ -37,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
+  map.resources :gigs
   
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'

@@ -1,24 +1,31 @@
 bespreken met Joren
 
-	posts omgekeerd chronologisch
-	user roles
+	OK posts omgekeerd chronologisch
+	OK user roles
 		types
 			admin
 			(editor)
 			user 'fan'
 			not logged in
-		user navigation daaraan aanpassen: login/logout/subscribe
+		OK user navigation daaraan aanpassen: login/logout/subscribe
 		access aanpassen
-		comments bevatten username
+		OK comments bevatten username
+		=> controllers in admin map overerven van admincontroller
 	posts editor
 		Wordpress = html code met buttons voor <strong>,...
 		= veiligst voor verschillende soorten embeds: YouTube, Soundcloud, Vimeo, enz.
+		=> enkele knoppen voor basis layout, embedden via code pasten van de externe website
+		=> http://markitup.jaysalvat.com/home/
 	mailinglist
 		relatie met user profiles?
 		reeds bestaande database met emails
 		nieuwsbrieven versturen?
 	Facebooker plugin?
+	=> http://github.com/kalasjocke/authlogic_facebook_connect
 	al ergens online zetten?
 
 eigen roadmap
 	gigs controller
+	
+	
+	paginering: will_paginate => zie github

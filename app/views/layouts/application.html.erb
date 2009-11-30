@@ -13,10 +13,13 @@
 		
 		Arid
                 <div id="user_navigation">
-                  
-                  <%= link_to "admin", admin_posts_path %>
-                  <%= link_to "login", login_path %>
-                  <%= link_to "register", signup_path %>
+                  <% if current_user %>
+	                  <%= link_to "admin", admin_posts_path if current_user.admin? %>
+										<%= link_to "logout", logout_path %>
+									<% else %>
+	                  <%= link_to "login", login_path %>
+	                  <%= link_to "register", signup_path %>
+									<% end %>
                 </div>
 	</div>
 	<div id="columns">

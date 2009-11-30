@@ -8,16 +8,23 @@
 <h4>Comments</h4>
 <div>
 	<% @post.comments.each do |comment| %>
-		<div><%= comment.body %></div>
+		<div>
+			door <%= comment.user.username %>
+			<%= comment.body %>
+		</div>
 	<% end %>
 </div>
 <div>
-	<% form_for :comment, :url => post_comments_path(@post) do |form| %>
-		<p>
-			<%= form.text_area :body %>
-		</p>
-		<p>
-			<%= form.submit 'Add Comment' %>
-		</p>
+	<% if current_user %>
+		<% form_for :comment, :url => post_comments_path(@post) do |form| %>
+			<p>
+				<%= form.text_area :body %>
+			</p>
+			<p>
+				<%= form.submit 'Add Comment' %>
+			</p>
+		<% end %>
+	<% else %>
+		You need to be logged in
 	<% end %>
 </div>

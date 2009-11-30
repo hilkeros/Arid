@@ -1,7 +1,5 @@
-class Admin::PostsController < ApplicationController
-
-  before_filter :login_required, :except => [:show, :index]
-
+class Admin::PostsController < AdminController
+  
   def index
     @posts = Post.all
   end
