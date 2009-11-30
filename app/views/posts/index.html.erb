@@ -6,8 +6,8 @@
 
   <div id ="post_info">
     written on <%= post.created_at %><br>
-    <%= link_to "x comments - Comment on this post", post_path(post) %><br>
-    addthis_share_button
+    <%= link_to(pluralize(post.comments.size, "comment"), post_path(post)) %><br><br>
+    <%=  addthis_share_button %>
   </div>
 <% end %>
 	

@@ -1,0 +1,24 @@
+bespreken met Joren
+
+	posts omgekeerd chronologisch
+	user roles
+		types
+			admin
+			(editor)
+			user 'fan'
+			not logged in
+		user navigation daaraan aanpassen: login/logout/subscribe
+		access aanpassen
+		comments bevatten username
+	posts editor
+		Wordpress = html code met buttons voor <strong>,...
+		= veiligst voor verschillende soorten embeds: YouTube, Soundcloud, Vimeo, enz.
+	mailinglist
+		relatie met user profiles?
+		reeds bestaande database met emails
+		nieuwsbrieven versturen?
+	Facebooker plugin?
+	al ergens online zetten?
+
+eigen roadmap
+	gigs controller

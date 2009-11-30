@@ -1,0 +1,4 @@
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+wrong number of arguments (1 for 2)

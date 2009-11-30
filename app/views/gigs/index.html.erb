@@ -1,0 +1,28 @@
+<h1>Gig index</h1>
+<% if current_user %>
+ welcome <%= current_user.username %>
+<% end %>
+ <p>
+  # <%= link_to 'add new gig', new_admin_gig_path %>
+ </p>
+<table>
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Venue</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @gigs.each do |gig| %>
+		<tr>
+			<td><%= gig.date %></td>
+			<td><%= gig.venue %></td>
+			<td>
+			#	<%= link_to 'edit', edit_admin_gig_path(gig) %>
+			#	<%= link_to 'delete', admin_gig_path(gig), :method => :delete, :confirm => "Sure you cant to delete #{gig.title}"  %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

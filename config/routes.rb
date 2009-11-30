@@ -26,8 +26,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route within a namespace:
   map.namespace :admin do |admin|
-    # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
+    # Directs /admin/posts/* to Admin::PostsController (app/controllers/admin/posts_controller.rb)
        admin.resources :posts
+       
      end
   
   map.resources :posts, :has_many => :comments
