@@ -9,8 +9,9 @@
 <div>
 	<% @post.comments.each do |comment| %>
 		<div>
-			door <%= comment.user.username %>
-			<%= comment.body %>
+			by <%= comment.user.username %> (<%= comment.created_at.strftime('%d %B, %H:%M') %>)
+                        <p><%= comment.body %></p>
+			
 		</div>
 	<% end %>
 </div>
@@ -25,6 +26,6 @@
 			</p>
 		<% end %>
 	<% else %>
-		You need to be logged in
+		You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "register", signup_path %>.
 	<% end %>
 </div>
