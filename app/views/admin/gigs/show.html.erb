@@ -1,7 +1,7 @@
 <h1><%= @gig.venue %></h1>
 
 <table>
-
+  
   <tr>
     <td>Date:</td>          <td><%= @gig.date %> </td>
   </tr>
@@ -12,7 +12,7 @@
     <td>Venue:</td>         <td><%= @gig.venue %> </td>
   </tr>
   <tr>
-    <td>Tickets:</td>       <td><%= url_for @gig.venue_url %> </td>
+    <td>Tickets:</td>       <td><%= @gig.venue_url %> </td>
   </tr>
   <tr>
     <td>City:</td>           <td><%= @gig.city %> </td>
@@ -22,4 +22,5 @@
   </tr>
 
 </table><br />
-<%= link_to "Back to Tour Calendar", gigs_path %>
+<%= link_to "Back to gigs overview", admin_gigs_path %>
+<%= link_to "Edit this gig", edit_admin_gig_path %>

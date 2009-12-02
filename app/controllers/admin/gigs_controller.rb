@@ -1,11 +1,12 @@
 class Admin::GigsController < AdminController
   
   def index
-    @gigs = Gig.all
+    @gigs = Gig.all(:order => "date DESC")
   end
   
   def show
     @gig = Gig.find(params[:id])
+    @posts = Post.all(:order => "created_at DESC")
   end
   
   def new
@@ -15,7 +16,9 @@ class Admin::GigsController < AdminController
   def create
     @gig = Gig.new(params[:gig])
     @gig.save!
-    redirect_to @gig
+    redirect_to admin_gig_path(@gig)
+  rescue ActiveRecord::RecordInvalid
+    render :new
   end
 
   def edit
@@ -25,13 +28,14 @@ class Admin::GigsController < AdminController
   def update
     @gig = Gig.find(params[:id])
     @gig.update_attributes!(params[:gig])
-    redirect_to @gig
+    flash[:notice] = "Updated gig #{@gig.venue}"
+    redirect_to admin_gigs_path
   end
 
   def destroy
     @gig = Gig.find(params[:id])
     @gig.destroy
-    flash[:notice] = "Deleted gig #{@gig.title}"
-    redirect_to gigs_path
+    flash[:notice] = "Deleted gig #{@gig.venue}"
+    redirect_to admin_gigs_path
   end
 end

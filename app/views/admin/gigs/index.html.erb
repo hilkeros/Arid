@@ -1,5 +1,9 @@
-<h1>Tour Calendar</h1>
+<h1>Gig administration</h1>
+<% if current_user %>
+ welcome <%= current_user.username %>
+<% end %><br />
 
+<%= link_to 'add new gig', new_admin_gig_path %>
 
 <table>
 	<thead>
@@ -9,18 +13,21 @@
                         <th>Tickets</th>
                         <th>City</th>
                         <th>Country</th>
-
+			<th>Actions</th>
 		</tr>
 	</thead>
 	<tbody>
 	<% @gigs.each do |gig| %>
 		<tr>
 			<td><%= gig.date %></td>
-			<td><%= link_to gig.venue, gig_path(gig) %></td>
+			<td><%= link_to gig.venue, admin_gig_path(gig) %></td>
                         <td><%= gig.venue_url %></td>
                         <td><%= gig.city %></td>
                         <td><%= gig.country %></td>
-			
+			<td>
+				<%= link_to 'edit', edit_admin_gig_path(gig) %>
+				<%= link_to 'delete', admin_gig_path(gig), :method => :delete, :confirm => "Sure you want to delete #{gig.venue}"  %>
+			</td>
 		</tr>
 	<% end %>
 	</tbody>

@@ -1,5 +1,6 @@
 <h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+
+<%= @user.username %>
 
 <% form_for @user, :url => admin_user_path(@user), :html => {:method => :put} do |form| %>
 

@@ -1,0 +1,36 @@
+
+
+<h1>New gig</h1>
+<% form_for @gig, :url => admin_gigs_path  do |form| %>
+<%= form.error_messages %>
+	<p>
+		<%= form.label :date %><br />
+		<%= form.date_select :date %>
+	</p>
+	<p>
+		<%= form.label :time %><br />
+		<%= form.time_select :time %>
+	</p>
+
+	<p>
+		<%= form.label :venue %><br />
+		<%= form.text_field :venue %>
+	</p>
+        <p>
+		<%= form.label :venue_url  %><br />
+		<%= form.text_field :venue_url %>
+	</p>
+        <p>
+		<%= form.label :city %><br />
+		<%= form.text_field :city %>
+	</p>
+        <p>
+		<%= form.label :country %><br />
+		<%= form.country_select :country, "Belgium"%>
+	</p>
+	
+	<p>
+		<%= form.submit 'Create new gig' %>
+	</p>
+	
+<% end %>
