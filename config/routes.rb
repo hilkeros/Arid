@@ -32,13 +32,16 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "posts"
   end
   
-  map.resources :posts, :has_many => :comments
+  map.resources :posts, :as => "news" do |post|
+    post.resources :comments
+  end
   map.root :controller => "posts"
   
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
   map.resources :gigs
+  map.resources :mailing_adresses
   
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'
