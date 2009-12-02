@@ -3,16 +3,16 @@
 <table>
   
   <tr>
-    <td>Date:</td>          <td><%= @gig.date %> </td>
+    <td>Date:</td>          <td><%= @gig.date.strftime('%d-%m-%Y') %> </td>
   </tr>
   <tr>
-    <td>Time:</td>          <td><%= @gig.time %> </td>
+    <td>Time:</td>          <td><%= @gig.time.strftime('%H:%M') %> </td>
   </tr>
   <tr>
     <td>Venue:</td>         <td><%= @gig.venue %> </td>
   </tr>
   <tr>
-    <td>Tickets:</td>       <td><%= @gig.venue_url %> </td>
+    <td>Tickets:</td>       <td><%= link_to @gig.venue_url, @gig.venue_url %> </td>
   </tr>
   <tr>
     <td>City:</td>           <td><%= @gig.city %> </td>

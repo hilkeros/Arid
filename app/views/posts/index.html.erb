@@ -5,7 +5,7 @@
   <%= simple_format(post.body) %><br>
 
   <div id ="post_info">
-    written on <%= post.created_at %><br>
+    written on <%= post.created_at.strftime('%d %B') %><br>
     <%= link_to(pluralize(post.comments.size, "comment"), post_path(post)) %><br><br>
     <%=  addthis_share_button %>
   </div>
