@@ -8,13 +8,10 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   filter_parameter_logging :password, :password_confirmation
-  helper_method :current_user_session, :current_user, :login_required, :upcoming_gigs, :new_mailing_adress
+  helper_method :current_user_session, :current_user, :login_required, :upcoming_gigs
 
   def upcoming_gigs
     @gigs = Gig.upcoming.all(:limit => 4, :order => "date ASC" )
-  end
-  def new_mailing_adress
-    @new_mailing_adress = MailingAdress.new
   end
 
   private

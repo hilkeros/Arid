@@ -1,6 +1,6 @@
 subscribe to our newsletter
-<% form_for new_mailing_adress, :url => mailing_adresses_path  do |form| %>
-	<%= form.error_messages %>
+<%= content_tag(:div, flash[:error]) if flash[:error].present? %>
+<% form_for :mailing_address, :url => mailing_addresses_path  do |form| %>
 	<p>
 		<%= form.label :email, "name@domain.com", :class => 'example' %><br />
 		<%= form.text_field :email %>
