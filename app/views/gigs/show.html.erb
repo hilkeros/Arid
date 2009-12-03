@@ -12,7 +12,7 @@
     <td>Venue:</td>         <td><%= link_to @gig.venue, @gig.venue_url %> </td>
   </tr>
   <tr>
-    <td>Tickets:</td>       <td><%= link_to @gig.tickets_url, @gig.tickets_url %> </td>
+    <td>Tickets:</td>       <td><%= gig_ticket_link(@gig) %> </td>
   </tr>
   <tr>
     <td>City:</td>           <td><%= @gig.city %> </td>
