@@ -1,19 +1,11 @@
-<%= wym_editor_initialize %>
+
 
 <h1>New post</h1>
-<% form_for @post, posts_path do |form| %>
-	<p>
-		<%= form.label :title %>
-		<%= form.text_field :title %>
-	</p>
+<% form_for @post, :url => admin_posts_path do |form| %>
+	<%= render form %>
 	
 	<p>
-		<%= form.label :body %><br />
-		<%= form.text_area :body, :class => 'wymeditor' %>
-	</p>
-	
-	<p>
-		<%= form.submit 'Create new post', :class => 'wymupdate' %>
+        <%= form.submit 'Create new post', :class => 'wymupdate' %>
 	</p>
 	
 <% end %>
