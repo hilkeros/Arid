@@ -38,44 +38,14 @@
                   </div>
                   <br><br>
                   <div id="newsletter">
-                    subscribe to our newsletter
-                    <% form_for new_mailing_adress, :url => mailing_adresses_path  do |form| %>
-                          <%= form.error_messages %>
-                            <p>
-                                    <%= form.label :email %><br />
-                                    <%= form.text_field :email %>
-                            </p>
-
-                                    <%= form.submit 'Subscribe' %>
-                            </p>
-
-                    <% end %>
-                    
+                    <%= render "/layouts/newsletter_sidebar" %>
+                                    
                   </div><br />
 
                   <div id="badges">
-                    <h2>Social</h2>
-                    <a target="_blank" href="http://www.myspace.com/aridencentral" title="Myspace"><img src="images/IconMySpaceSml.png"/></a>
-                    <a target="_blank" href="http://www.facebook.com/pages/Arid/21485402588" title="Facebook"><img src="images/IconFacebookSml.png"/></a>
-                    <!--<a target="_blank" href="http://www.twitter.com/colorlessgreen" title="Twitter"><img src="images/IconTwitterSml.png"/></a>
-                    <a target="_blank" href="http://www.youtube.com/vocalistix" title="Youtube"><img src="images/IconYoutubeSml.png"/></a>-->
-                    <a target="_blank" href="http://www.last.fm/music/Arid" title="Last.fm"><img src="images/IconLastfmSml.png"/></a>
-                    <!--<a target="_blank" href="http://www.ilike.com/artist/Colorless+Green+Ideas" title="iLike"><img src="images/IconIlikeSml.png"/></a>-->
-                   </div> <br><br>
-                   <div id="facebook_badge">
-                        <script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script><script type="text/javascript">FB.init("5f09ca15d65cdb0ba72523835015bf6b");</script><fb:fan profile_id="21485402588" stream="" connections="10" width="200"></fb:fan><div style="font-size:8px; padding-left:10px"></div>
-                   </div> <br><br>
-                   <!--<div id=""twitter_badge>
-                        <a href="http://twitstamp.com"><img src="http://twitstamp.com/colorlessgreen/minichrome.png" border="0" alt="twitstamp.com" /></a>
-                   </div><br><br>-->
-                    <h2>Next shows</h2>
-
-                        <%  upcoming_gigs.each do |gig| %>
-
-                            <%= gig.date.strftime('%d-%m-%Y') %>: <%= link_to gig.venue, gig_path(gig) %><br />
-                            
-                        <%  end %>
-
+                    <%= render "/layouts/social_sidebar" %>
+                    <%= render "/layouts/shows_sidebar" %>
+                  </div>
 
                   </div>
 

@@ -1,0 +1,7 @@
+<h2>Next shows</h2>
+
+        <%  upcoming_gigs.each do |gig| %>
+
+            <%= gig.date.strftime('%d-%m-%Y') %>: <%= link_to gig.venue, gig_path(gig) %><br />
+
+        <%  end %>
