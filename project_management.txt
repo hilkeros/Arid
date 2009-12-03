@@ -1,3 +1,9 @@
+laatste loodjes voor eerste online versie
+	html/css design implementatie
+	forgot password
+	if tickets_url = empty --> = venue_url
+	mailinglist_adress validatie => melding bij unvalid, dubbele adressen
+
 bespreken met Joren
 
 	OK posts omgekeerd chronologisch

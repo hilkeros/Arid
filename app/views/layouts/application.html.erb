@@ -39,9 +39,20 @@
                   <br><br>
                   <div id="newsletter">
                     subscribe to our newsletter
+                    <% form_for new_mailing_adress, :url => mailing_adresses_path  do |form| %>
+                          <%= form.error_messages %>
+                            <p>
+                                    <%= form.label :email %><br />
+                                    <%= form.text_field :email %>
+                            </p>
+
+                                    <%= form.submit 'Subscribe' %>
+                            </p>
+
+                    <% end %>
                     
-	
                   </div><br />
+
                   <div id="badges">
                     <h2>Social</h2>
                     <a target="_blank" href="http://www.myspace.com/aridencentral" title="Myspace"><img src="images/IconMySpaceSml.png"/></a>
