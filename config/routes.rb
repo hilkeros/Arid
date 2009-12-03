@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :gigs
     admin.resources :users
     admin.root :controller => "posts"
+    admin.resources :comments
   end
   
   map.resources :posts, :as => "news" do |post|
