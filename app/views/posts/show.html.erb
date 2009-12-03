@@ -1,6 +1,9 @@
 <h1><%= @post.title %></h1>
 <div>
-	<%= simple_format(@post.body) %>
+	<%= raw simple_format(@post.body) %>
+</div>
+<div>
+	<%=  raw addthis_share_button %>
 </div>
 
 
@@ -8,24 +11,24 @@
 <h4>Comments</h4>
 <div>
 	<% @post.comments.each do |comment| %>
-		<div>
-			by <%= comment.user.username %> (<%= comment.created_at.strftime('%d %B, %H:%M') %>)
-                        <p><%= comment.body %></p>
-			
-		</div>
+	<div>
+		by <%= comment.user.username %> (<%= comment.created_at.strftime('%d %B, %H:%M') %>)
+		<p><%= comment.body %></p>
+
+	</div>
 	<% end %>
 </div>
 <div>
 	<% if current_user %>
-		<% form_for :comment, :url => post_comments_path(@post) do |form| %>
-			<p>
-				<%= form.text_area :body %>
-			</p>
-			<p>
-				<%= form.submit 'Add Comment' %>
-			</p>
-		<% end %>
+	<% form_for :comment, :url => post_comments_path(@post) do |form| %>
+	<p>
+		<%= form.text_area :body %>
+	</p>
+	<p>
+		<%= form.submit 'Add Comment' %>
+	</p>
+	<% end %>
 	<% else %>
-		You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "register", signup_path %>.
+	You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "register", signup_path %>.
 	<% end %>
 </div>
