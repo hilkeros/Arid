@@ -1,13 +1,5 @@
 	
-<% @posts.each do |post| %>
-  <h1><%= link_to post.title, post_path(post) %></h1>
 
-  <%= raw simple_format(post.body) %><br>
+  <%= render @posts %>
 
-  <div id ="post_info">
-    written on <%= post.created_at.strftime('%d %B') %><br>
-    <%= link_to(pluralize(post.comments.size, "comment"), post_path(post)) %><br><br>
-    <%=  raw addthis_share_button(post_url(post)) %>
-  </div>
-<% end %>
 	
