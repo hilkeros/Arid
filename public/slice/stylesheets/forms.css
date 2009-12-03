@@ -1,11 +1,5 @@
 /* =forms
 ------------------------------------------------------------------*/
-.form{
-  background:#f9f9f7;
-  border:1px solid #EEE;
-  color:#333;
-  padding:1em;
-}
 form, fieldset, legend, form h3{
   border:0; 
   margin:0; 
@@ -18,7 +12,7 @@ form p{
   padding-bottom:9px;
 }
 fieldset{
-  border-top:1px dotted #333;
+  border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
   margin-top:1.5em;
   padding-top:1.5em;
 }
@@ -33,10 +27,7 @@ form h3{
 }
 label{
   display: block;
-  float:left;
-  line-height:1.6;
-  margin-right:10px;
-  width:120px;
+  margin-bottom:5px;
 }
 input.input_text, textarea{
   color:#CCC;
@@ -46,6 +37,10 @@ input.input_text, textarea{
   font-size:14px;
   padding:6px;  
   width:250px;
+}
+textarea{
+  height:120px;
+  width:360px;
 }
 abbr{ 
   cursor:help; 
