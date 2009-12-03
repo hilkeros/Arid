@@ -1,7 +1,7 @@
 <%= title "Contact" %>
-<p>Management: <%= link_to "info@arid.be", "mailto:info@arid.be" %>  </p>
-<p>Bookings: Peter Verstraelen (<%= link_to "peter@peterverstraelen.com", "mailto:peter@peterverstraelen.com" %> )</p>
-<p>Promotion: Listenup - Carolien De Bie (<%= link_to "carolien@listenup.be", "mailto:carolien@listenup.be" %>) </p>
-<p>Label Benelux: Sander Graumans (<%= link_to "sander.graumans@pias.be", "mailto:sander.graumans@pias.be" %>) </p>
+<p>Management: <%= mail_to "info@arid.be", "info@arid.be" %>  </p>
+<p>Bookings: Peter Verstraelen (<%= mail_to "peter@peterverstraelen.com", "peter@peterverstraelen.com" %> )</p>
+<p>Promotion: Listenup - Carolien De Bie (<%= mail_to "carolien@listenup.be", "carolien@listenup.be" %>) </p>
+<p>Label Benelux: Sander Graumans (<%= mail_to "sander.graumans@pias.be", "sander.graumans@pias.be" %>) </p>
 <p>PIAS Belgium (<%= link_to "www.pias.be", "http://www.pias.be" %>) </p>
 
