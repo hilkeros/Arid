@@ -1,12 +1,12 @@
 subscribe to our newsletter
-        <% form_for new_mailing_adress, :url => mailing_adresses_path  do |form| %>
-              <%= form.error_messages %>
-                <p>
-                        <%= form.label :email %><br />
-                        <%= form.text_field :email %>
-                </p>
+<% form_for new_mailing_adress, :url => mailing_adresses_path  do |form| %>
+	<%= form.error_messages %>
+	<p>
+		<%= form.label :email, "name@domain.com", :class => 'example' %><br />
+		<%= form.text_field :email %>
+	</p>
+	<p>
+	<%= form.submit 'Subscribe' %>
+	</p>
 
-                        <%= form.submit 'Subscribe' %>
-                </p>
-
-        <% end %>
+<% end %>
