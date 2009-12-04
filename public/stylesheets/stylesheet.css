@@ -140,6 +140,11 @@ th{
   background:#000 none repeat scroll 0 0;
 }
 
+/* Video (trying to add a bottom margin to youtube embeds…) */
+embed{
+  margin-bottom:22px;
+}
+
 /* Generic classes */
 
 .fl{
@@ -174,7 +179,7 @@ body{
   background:#000 url(../images/body_bg_blur.jpg) no-repeat center 0;
 }
 .container{
-  width: 730px;
+  width: 770px;
   margin: 0 auto;
   text-align:left;
 }
@@ -189,7 +194,7 @@ body{
   background: rgba(0, 0, 0, 0.6);/* @todo werken met transprante PNG background voor IE */
   margin-top:44px;
   padding:20px;
-  width:390px;
+  width:430px;
 }
 
 /* Header
