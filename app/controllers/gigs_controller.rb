@@ -2,6 +2,10 @@ class GigsController < ApplicationController
   
   def index
     @gigs = Gig.all
+    respond_to do |format|
+      format.html
+      format.atom
+    end
   end
 
   def show
