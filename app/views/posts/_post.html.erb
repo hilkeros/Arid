@@ -1,7 +1,7 @@
 <div class="news_entry <%= "first" if post == @posts.first %>">
 	<h1><%= link_to post.title, post_path(post) %></h1>
 	<p class="meta clearfix">
-		<span class="date"><%= post.created_at.strftime('%d %B') %></span> 
+		<span class="date"><%= post.created_at.strftime('%e %B').lstrip %></span> 
 		<%= link_to(post.comments.size, post_path(post, :anchor => "comments"), :class => "jump_to_comments") %>
 	</p>
 

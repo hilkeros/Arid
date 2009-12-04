@@ -1,7 +1,7 @@
 <div class="news_entry first">
   <h1><%= title "#{@post.title}" %></h1>
   <p class="meta clearfix">
-		<span class="date"><%= @post.created_at.strftime('%d %B') %></span> 
+		<span class="date"><%= @post.created_at.strftime('%e %B').lstrip %></span> 
 		<a href="#comments" class="jump_to_comments" href="#"><%= @post.comments.size %></a>
 	</p>
   <p>
