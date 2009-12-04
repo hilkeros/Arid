@@ -16,11 +16,11 @@ h1, h2, h3, h4, p, ul, blockquote{
 }
 h1{
   color:#FFF;
-  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-family:helvetica, arial, serif;
   font-size:24px;
-  font-weight:normal;
+  font-weight:bold;
   line-height:26px;
-  text-transform:lowercase;
+  text-transform:uppercase;
 }
 h2{
   color:#FFF;
@@ -177,8 +177,9 @@ body{
 }
 #logo a{
   border:none;
-  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-family:helvetica, arial, serif;
   font-size:30px;
+  font-weight:bold;
   color:#FFF;
   text-transform:uppercase;
 }
@@ -191,7 +192,8 @@ body{
 }
 #nav_main li a{
   border:none;
-  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-family:helvetica, arial, serif;
+  font-weight:bold;
   font-size:18px;
   color:#999999;
   display:block;
@@ -212,7 +214,6 @@ body{
 /* Content
 --------------------------------------------- */
 ul.button_list{
-  float:left;
   margin-right:0;
   padding:0;
   width:100%;

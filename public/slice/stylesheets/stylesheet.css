@@ -73,17 +73,15 @@ a{
 }
 a:link{
 	color:#FFF;
-	border-color:#CCC;
 }
 a:visited{
 	color:#CCC;
-	border-color:#DDD;
 }
 a:hover,
 a:active,
 a:focus{
 	color:#FFF;
-	border-color:#FFF;
+	text-decoration:none;
 }
 
 /* Defaults */

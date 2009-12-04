@@ -9,7 +9,7 @@
   </p>
 	<ul class="button_list clearfix">
 		<li id="sharethis_btn"><%=  raw addthis_share_button{"SHARE THIS"} %></li>
-		<li><%= link_to "Back to news" %></li>
+		<li><%= link_to "Back to news", "/news" %></li>
 	</ul>
 	<div id="comments">
 	  <h2><span class="comment_count"><%= pluralize(@post.comments.size, "comment" )%></span></h2>
