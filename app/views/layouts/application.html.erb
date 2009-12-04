@@ -24,8 +24,8 @@
 				<p id="logo"><%= link_to "Arid", root_path %></p>
 				<ul id="nav_main">
 					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to "News", posts_path %></li>
-					<li><%= link_to "Tour Calendar", gigs_path %></li>
-					<li><%= link_to "Contact", contact_path %></li>
+					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to "Tour Calendar", gigs_path %></li>
+					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to "Contact", contact_path %></li>
 					<% if current_user && current_user.admin? %>
 						<li><%= render '/admin/shared/admin_navigation' if current_user.admin? %></li>
 					<% end %>
