@@ -1,18 +1,22 @@
-<h1>Login</h1>
-<div>
+<%= title 'Login' %>
 	<% form_for :user_session, :url => user_session_path do |form| %>
+	<fieldset class="first">
 		<p>
 			<%= form.label :email %>
-			<%= form.text_field :email %>
+			<%= form.text_field :email, :class => "input_text" %>
 		</p>
+		
 		<p>
 			<%= form.label :password %>
-			<%= form.password_field :password %>
+			<%= form.password_field :password, :class => "input_text" %>
 		</p>
-		<p>
-			<%= form.submit 'Login' %>
-		</p>
-	<% end %>
+	</fieldset>
 	
-	<%= link_to('forgot password', new_password_reset_path ) %>
-</div>
+	<fieldset class="submit">
+		<%= form.submit 'Login', :class => "input_submit"%>
+	</fieldset>
+<% end %>
+
+<ul class="button_list clearfix">
+	<li><%= link_to('forgot password', new_password_reset_path ) %></li>
+</ul>

@@ -1,0 +1,396 @@
+/*	Wireframing classes
+--------------------------------------------- */
+
+/* Use a .box to create a padded box inside a column.  */ 
+.box { 
+  padding: 1.5em; 
+  margin-bottom: 1.5em; 
+  background: #E5ECF9; 
+}
+
+/* Use this to create a horizontal ruler across a column. */
+hr {
+  background: #ddd; 
+  color: #ddd;
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: .1em;
+  margin: 0 0 1.45em;
+  border: none; 
+}
+
+hr.space {
+  background: #fff;
+  color: #fff;
+}
+
+/*	Typography
+--------------------------------------------- */
+
+/* General */
+
+body{
+  color:#999;
+  font: 15px/1.5 Georgia, serif;
+  text-shadow: 1px 1px 1px #000;
+}
+
+/* Headers */
+
+h1, h2, h3, h4, p, ul, blockquote{
+	margin:0 20px 22px 0;
+}
+h1{
+  color:#FFF;
+  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-size:24px;
+  font-weight:normal;
+  line-height:26px;
+  text-transform:lowercase;
+}
+h2{
+  color:#FFF;
+  font-family:arial, sans-serif;
+  font-size:12px;
+  line-height:18px;
+  text-transform:uppercase;
+  letter-spacing: 0.045em;
+}
+h3{
+  color:#FFF;
+  font-family:arial, sans-serif;
+  font-size:12px;
+  line-height:18px;
+  text-transform:uppercase;
+  letter-spacing: 0.025em;}
+
+/* Links */
+
+a{
+	border-bottom:1px solid #666;
+	text-decoration:none;
+}
+a:link{
+	color:#FFF;
+	border-color:#CCC;
+}
+a:visited{
+	color:#CCC;
+	border-color:#DDD;
+}
+a:hover,
+a:active,
+a:focus{
+	color:#FFF;
+	border-color:#FFF;
+}
+
+/* Defaults */
+
+strong{
+  font-weight:bold;
+}
+em{
+  font-style:italic;
+}
+sup, sub{
+  line-height:0;
+}
+abbr, acronym{
+  border-bottom: 1px dotted #666;
+}
+
+/* Code blocks */
+
+pre{
+  margin: 1.5em 0; 
+  white-space: pre;
+}
+pre,code,tt{
+  font: 1em 'andale mono', 'lucida console', monospace;
+  line-height: 1.5;
+}
+
+/* Lists */
+
+.content ul, .content ol{
+	padding-left: 24px;
+}
+.content ul li{
+	list-style: inside url(../images/bullet.gif);
+}
+.content ol li{
+	list-style: inside decimal;
+}
+
+/* Tables */
+
+table{
+  margin-bottom:1.5em;
+}
+td, th{
+  border-collapse:collapse;
+  font-size:14px;
+  padding:6px;
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  background:#000 none repeat scroll 0 0;
+}
+
+/* Generic classes */
+
+.fl{
+  float:left;
+  margin-right:9px;
+}
+.fr{
+  float:left;
+  margin-left:9px;
+}
+.clear{
+  clear:both;
+}
+.content img{
+  border:5px solid #343434;
+}
+
+/* Clearfix */
+
+.clearfix:after, .container:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
+
+/* Layout
+--------------------------------------------- */
+
+body{
+  background:#000 url(../images/body_bg_blur.jpg) no-repeat center 0;
+}
+.container{
+  width: 730px;
+  margin: 0 auto;
+  text-align:left;
+}
+#sidebar{
+  float:left;
+  margin-right:30px;
+  padding-top:50px;
+  width:270px;
+}
+#content{
+  float:left;
+  background: rgba(0, 0, 0, 0.6);/* @todo werken met transprante PNG background voor IE */
+  margin-top:44px;
+  padding:20px;
+  width:390px;
+}
+
+/* Header
+--------------------------------------------- */
+#header{
+  padding-left:20px;
+}
+#logo a{
+  border:none;
+  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-size:30px;
+  color:#FFF;
+  text-transform:uppercase;
+}
+
+/* Nav main */
+
+#nav_main{
+  margin-bottom:44px;
+  list-style-type:none;
+}
+#nav_main li a{
+  border:none;
+  font-family:"Bank Gothic", helvetica, arial, serif;
+  font-size:18px;
+  color:#999999;
+  display:block;
+  font-weight:normal;
+  line-height:28px; 
+  text-transform:uppercase;
+}
+#nav_main li a:hover{
+  color:#FFF;
+}
+#nav_main li.current a,
+#nav_main li.current a:hover,
+#nav_main li.parent_of_current a,
+#nav_main li.parent_of_current a{
+  color:#FFF;
+}
+
+/* Content
+--------------------------------------------- */
+ul.button_list{
+  margin-right:0;
+}
+.content ul.button_list li{
+  list-style:none;
+  float:right;
+}
+.button_list a{
+  display:block;
+  float:right;
+  margin-left:10px;
+}
+/* Buttons */
+.input_submit, .button_list a{
+  background:#323636;
+  border:none;
+  color:#999;
+  display:block;
+  font-family:arial, sans-serif;
+  font-size:12px;
+  font-weight:bold;
+  padding:6px;
+  text-transform:uppercase;
+  letter-spacing: 0.045em;
+  text-shadow: 1px 1px 1px #000;
+}
+.input_submit:hover, .button_list a:hover{
+  color:#FFF;
+}
+
+/* News entries */
+.news_entry{
+  border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
+  margin-bottom:33px;
+  padding-top:22px;
+}
+.news_entry h1 a{
+  border-bottom:none;
+}
+.news_entry h1 a:hover{
+  border-bottom:1px solid;
+}
+.first{
+  border:none;
+  padding:0;
+}
+.news_entry h1{
+  margin-bottom:5px;
+}
+.news_entry .meta .date{
+  border-right:1px solid #343434;
+  margin-right:8px;
+  padding-right:8px;
+  float:left;
+}
+.news_entry .meta .jump_to_comments{
+  background:url(../images/icons/comments_small_sprite.png) no-repeat 0 0;
+  border:none;
+  display:block;
+  float:left;
+  height:22px;
+  padding:0 20px;
+}
+.news_entry .meta .jump_to_comments:hover{
+  color:#FFF;
+  background-position:0 -22px;
+}
+
+/* Comments */
+#comments{
+  padding-top:22px;
+}
+.comment{
+  border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
+  padding-top:22px;
+}
+.posted{
+  color:#676767;
+  font-family:arial, sans-serif;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:3px;
+  text-transform:uppercase;
+  letter-spacing: 0.045em;
+}
+.posted .date{
+  color:#ccc;
+  font-family:georgia, serif;
+  font-size:13px;
+  font-weight:bold;
+}
+
+#comment_form h2{
+  margin-bottom:10px;
+}
+#comment_form textarea{
+  height:170px;
+  width:370px;
+}
+
+
+/* Sidebar
+--------------------------------------------- */
+.box{
+  background: rgba(0, 0, 0, 0.6);/* @todo werken met transprante PNG background voor IE */
+  margin-bottom:20px;
+  padding:20px;
+}
+#sidebar h2{
+  margin-bottom:10px;
+}
+
+#maillist_signup .input_text{
+  margin-bottom:5px;
+  width:220px;
+}
+
+#socialmedia{
+  /* Add extra space for margin on last image li*/
+  overflow:hidden;
+  padding-bottom:15px;/* Accomodate for 5px bottom margin on li's */
+}
+#socialmedia ul{
+  margin:0;
+  width:240px;
+}
+#socialmedia li{
+  margin:0 10px 5px 0;
+  float:left;
+}
+#socialmedia a{
+  border:none;
+  opacity:0.75;
+}
+#socialmedia a:hover{
+  opacity:1;
+}
+
+#dates table{
+  border:none;
+  margin-bottom:0;
+  width:100%;
+}
+#dates td{
+  border-top:1px solid rgba(255, 255, 255, 0.075);
+  border-width:1px 0 0 0;
+  padding:5px 0;
+}
+#dates .first td{
+  border-top:none;
+}
+#dates td.date{
+  width:30%;
+}
+#dates td.venue{
+  width:70%;
+}
+#dates td.venue a{
+  display:block;
+  border:none;
+}
