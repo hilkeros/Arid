@@ -5,7 +5,7 @@ class Admin::GigsController < AdminController
   end
   
   def show
-    @gig = Gig.find(params[:id])
+    @gig = Gig.find_by_permalink!(params[:id])
     @posts = Post.all(:order => "created_at DESC")
   end
   
@@ -22,18 +22,18 @@ class Admin::GigsController < AdminController
   end
 
   def edit
-    @gig = Gig.find(params[:id])
+    @gig = Gig.find_by_permalink!(params[:id])
   end
 
   def update
-    @gig = Gig.find(params[:id])
+    @gig = Gig.find_by_permalink!(params[:id])
     @gig.update_attributes!(params[:gig])
     flash[:notice] = "Updated gig #{@gig.venue}"
     redirect_to admin_gigs_path
   end
 
   def destroy
-    @gig = Gig.find(params[:id])
+    @gig = Gig.find_by_permalink!(params[:id])
     @gig.destroy
     flash[:notice] = "Deleted gig #{@gig.venue}"
     redirect_to admin_gigs_path

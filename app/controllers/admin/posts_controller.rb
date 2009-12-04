@@ -5,7 +5,7 @@ class Admin::PostsController < AdminController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find_by_permalink!(params[:id])
   end
 
   def new
@@ -19,17 +19,17 @@ class Admin::PostsController < AdminController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.find_by_permalink!(params[:id])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.find_by_permalink!(params[:id])
     @post.update_attributes!(params[:post])
     redirect_to @post
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.find_by_permalink!(params[:id])
     @post.destroy
     flash[:notice] = "Deleted post #{@post.title}"
     redirect_to admin_posts_path
