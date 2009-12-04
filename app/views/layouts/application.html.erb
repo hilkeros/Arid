@@ -11,7 +11,7 @@
 	<title><%= title :site_name => 'Arid' %></title>
 	<%= stylesheet_link_tag 'screen', :media => "all" %>
 	<%= stylesheet_link_tag 'print', :media => "print" %>
-	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag :defaults, :cache => true %>
 
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" /><![endif]-->
@@ -28,8 +28,9 @@
 					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to "News", posts_path %></li>
 					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to "Tour Calendar", gigs_path %></li>
 					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to "Contact", contact_path %></li>
-					<% if current_user && current_user.admin? %>
+					<% if current_user %>
 						<li><%= render '/admin/shared/admin_navigation' if current_user.admin? %></li>
+						<li><%= link_to "logout", logout_path %></li>
 					<% end %>
 				</ul>
 			</div>
@@ -49,11 +50,20 @@
 		</div>  
 
 		<div id="content" class="content clearfix">
-			<%= content_tag(:div, flash[:notice], :id => 'notice') if flash[:notice].present? %>
-			<%= content_tag(:div, flash[:error]) if flash[:error].present? %>
+			<%= content_tag(:div, flash[:notice], :class => 'notice') if flash[:notice].present? %>
+			<%= content_tag(:div, flash[:error], :class => 'error') if flash[:error].present? %>
 
 			<%= yield :layout %>
 		</div>    
 	</div>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-11912564-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
 </body>
 </html>

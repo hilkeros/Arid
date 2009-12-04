@@ -9,5 +9,11 @@ class Gig < ActiveRecord::Base
     named_scope :upcoming, :conditions => ["date > ?", Time.now.midnight]
 
     acts_as_url :venue_url
+    
+    has_permalink [:date, :venue]
+    
+    def to_param
+      permalink
+    end
 
 end

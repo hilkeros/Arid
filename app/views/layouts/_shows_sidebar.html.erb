@@ -1,10 +1,10 @@
 <div id="dates" class="box">
-	<h2>Arid is playing on</h2>
+	<h2>Arid on stage</h2>
 	<table>
 		<%  upcoming_gigs.each do |gig| %>
 			<tr class="<%= "first" if gig == upcoming_gigs.first %>">
 				<td class="date"><%= gig.date.strftime('%d/%m/%y') %></td>
-				<td class="venue"><%= link_to gig.venue.humanize, gig_path(gig) %></td>
+				<td class="venue"><%= link_to gig.venue.titleize, gig_path(gig) %></td>
 			</tr>
 		<%  end %>
 	</table>

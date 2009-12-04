@@ -5,6 +5,6 @@ class GigsController < ApplicationController
   end
 
   def show
-    @gig = Gig.find(params[:id])
+    @gig = Gig.find_by_permalink!(params[:id])
   end
 end
