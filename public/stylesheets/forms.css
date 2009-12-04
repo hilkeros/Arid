@@ -9,10 +9,10 @@ form p{
   clear:left;
   margin-left:0;
   margin-right:0;
-  padding-bottom:9px;
+  margin-bottom:9px;
 }
 fieldset{
-  border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
+  border-top:1px solid rgba(255, 255, 255, 0.075);
   margin-top:1.5em;
   padding-top:1.5em;
 }

@@ -1,8 +1,4 @@
-/* Internet Explorer 7 specific styles */
-
-.clearfix {
-	zoom: 1; /*height: 1%;*/
-}
+/* Internet Explorer 8 specific styles */
 
 .box, #content{
   background: url(/images/box-trans.png);
