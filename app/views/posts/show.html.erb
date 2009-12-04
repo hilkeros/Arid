@@ -8,21 +8,14 @@
   	<%= raw simple_format(@post.body) %>
   </p>
 	<ul class="button_list clearfix">
-		<li id="sharethis_btn"><%=  raw addthis_share_button %></li>
+		<li id="sharethis_btn"><%=  raw addthis_share_button{"SHARE THIS"} %></li>
 		<li><%= link_to "Back to news" %></li>
 	</ul>
 	<div id="comments">
 	  <h2><span class="comment_count"><%= pluralize(@post.comments.size, "comment" )%></span></h2>
     <div class="comment">
-      <p class="posted"><span class="author">Jelle</span> | <apsn class="date">16/11/09</apsn></p>
-      <div class="comment_content">
-        <p>Ian quarrels et gorilla congolium sic ad nauseum. Defacto lingo est igpay atinlay.  Souvlaki ignitus carborundum e pluribus unum.</p> 
-      </div>
-    </div>
-
-    <div class="comment">
 			<% @post.comments.each do |comment| %>
-				<p class="posted"><span class="author"><%= comment.user.username %></span> | <apsn class="date"><%= comment.created_at.strftime('%d %B, %H:%M') %></apsn></p>
+				<p class="posted"><span class="author"><%= comment.user.username %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
 	      <div class="comment_content">
 					<p><%= comment.body %></p>
 	      </div>
