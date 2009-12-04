@@ -48,8 +48,8 @@
 		</div>  
 
 		<div id="content" class="content clearfix">
-			<%= content_tag(:div, flash[:notice], :id => 'notice') if flash[:notice].present? %>
-			<%= content_tag(:div, flash[:error]) if flash[:error].present? %>
+			<%= content_tag(:div, flash[:notice], :class => 'notice') if flash[:notice].present? %>
+			<%= content_tag(:div, flash[:error], :class => 'error') if flash[:error].present? %>
 
 			<%= yield :layout %>
 		</div>    

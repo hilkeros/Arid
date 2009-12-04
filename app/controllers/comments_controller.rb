@@ -6,6 +6,6 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(params[:comment])
     @comment.post = @post
     @comment.save
-    redirect_to @post
+    redirect_to post_path(@post, :anchor => "comments")
   end
 end

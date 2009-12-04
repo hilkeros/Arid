@@ -10,6 +10,6 @@
 	</p>
 	<ul class="button_list clearfix">
 		<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){"SHARE THIS"} %></li>
-		<li><a href="#">Add comment</a></li>
+		<li><%= link_to "Add comment", post_path(post, :anchor => "comments") %></a></li>
 	</ul>
 </div>
