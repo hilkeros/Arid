@@ -1,7 +1,11 @@
-<h2>Next shows</h2>
-
-        <%  upcoming_gigs.each do |gig| %>
-
-            <%= gig.date.strftime('%d-%m-%Y') %>: <%= link_to gig.venue, gig_path(gig) %><br />
-
-        <%  end %>
+<div id="dates" class="box">
+	<h2>Arid is playing on</h2>
+	<table>
+		<%  upcoming_gigs.each do |gig| %>
+			<tr class="<%= "first" if gig == upcoming_gigs.first %>">
+				<td class="date"><%= gig.date.strftime('%d/%m/%y') %></td>
+				<td class="venue"><%= link_to gig.venue.humanize, gig_path(gig) %></td>
+			</tr>
+		<%  end %>
+	</table>
+</div>

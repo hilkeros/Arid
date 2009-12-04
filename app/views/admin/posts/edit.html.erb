@@ -2,7 +2,8 @@
 
 <h1>Edit <%= @post.title %></h1>
 <div>
-	<% form_for @post do |form| %>
+	<% form_for @post, :url => admin_post_path(@post), :html => {:method => :put} do |form| %>
+	
           <%= render form %>
         <p>
         <%= form.submit 'Update', :class => 'wymupdate' %>

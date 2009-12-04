@@ -1,60 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-											"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-					
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
 <head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
+	<meta http-equiv="content-language" content="nl" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
 	<title><%= title :site_name => 'Arid' %></title>
-	<%= stylesheet_link_tag "depot", :media => "all" %>
+	<%= stylesheet_link_tag 'screen', :media => "all" %>
+	<%= stylesheet_link_tag 'print', :media => "print" %>
 	<%= javascript_include_tag :defaults %>
+
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="stylesheets/ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="stylesheets/ie7.css" /><![endif]-->
 </head>
-<body id="application">
+<body>
 
-	<div id="banner">
-		
-		Arid
-                <div id="user_navigation">
-                  <% if current_user %>
-	                  <%= render '/admin/shared/admin_navigation' if current_user.admin? %>
-										<%= link_to "logout", logout_path %>
-									<% else %>
-	                  <%= link_to "login", login_path %>
-	                  <%= link_to "register", signup_path %>
-									<% end %>
-                </div>
-	</div>
-	<div id="columns">
-		<div id="side">
+	<div class="container">
+		<div id="sidebar">
+			<div id="header" class="clearfix">
+				<p id="logo"><%= link_to "Arid", root_path %></p>
+				<ul id="nav_main">
+					<li><%= link_to "News", posts_path %></li>
+					<li><%= link_to "Tour Calendar", gigs_path %></li>
+					<li><%= link_to "Contact", contact_path %></li>
+					<% if current_user %>
+						<li><%= render '/admin/shared/admin_navigation' if current_user.admin? %></li>
+						<li><%= link_to "logout", logout_path %></li>
+					<% else %>
+						<li><%= link_to "login", login_path %></li>
+						<li><%= link_to "register", signup_path %></li>
+					<% end %>
+				</ul>
+			</div>
 
-                  <div id="menu">
-                    <h2>Navigation</h2>
-			<%= link_to "News", posts_path %> <br />
-			<%= link_to "Tour Calendar", gigs_path %><br />
-			<!--<a href="http://www.../music">Music</a><br />
-                        <a href="http://www.../videos">Videos</a><br />
-                        <a href="http://www.../photos">Photos</a><br />
-                        <a href="http://www.../shop">Shop</a><br />
-			<a href="http://www.../exclusives">Exclusives</a><br />-->
-                        <%= link_to "Contact", contact_path %><br />
-                  </div>
-                  <br><br>
-                  <div id="newsletter">
-                    <%= render "/layouts/newsletter_sidebar" %>
-                                    
-                  </div><br />
+			<%= render "/layouts/newsletter_sidebar" %>
 
-                  <div id="badges">
-                    <%= render "/layouts/social_sidebar" %>
-                    <%= render "/layouts/shows_sidebar" %>
-                  </div>
+			<%= render "/layouts/social_sidebar" %>
 
-                  </div>
+			<%= render "/layouts/shows_sidebar" %>
 
-		<div id="main">
-			<% if flash[:notice] -%>
-				<div id="notice"><%= flash[:notice] %></div>
-			<% end -%>
+
+			<div id="facebook_badge" class="box">
+				<div id="facebook_badge">
+					<script type="text/javascript" src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php/en_US"></script><script type="text/javascript">FB.init("5f09ca15d65cdb0ba72523835015bf6b");</script><fb:fan profile_id="21485402588" stream="" connections="6" width="200"></fb:fan><div style="font-size:8px; padding-left:10px"></div>
+				</div>
+			</div>
+		</div>  
+
+		<div id="content" class="content clearfix">
+			<%= content_tag(:div, flash[:notice], :id => 'notice') if flash[:notice].present? %>
+			<%= content_tag(:div, flash[:error]) if flash[:error].present? %>
+
 			<%= yield :layout %>
-		</div>
+		</div>    
 	</div>
 </body>
 </html>

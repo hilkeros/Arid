@@ -1,0 +1,96 @@
+/* =forms
+------------------------------------------------------------------*/
+form, fieldset, legend, form h3{
+  border:0; 
+  margin:0; 
+  padding:0; 
+}
+form p{
+  clear:left;
+  margin-left:0;
+  margin-right:0;
+  padding-bottom:9px;
+}
+fieldset{
+  border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
+  margin-top:1.5em;
+  padding-top:1.5em;
+}
+fieldset.first{
+  border-top:none;
+  margin-top:0;
+  padding-top:0;
+}
+form h3{
+  font-size:14px;
+  margin-bottom:1.5em;
+}
+label{
+  display: block;
+  margin-bottom:5px;
+}
+input.input_text, textarea{
+  color:#CCC;
+  background:#0f1212;
+  border:1px solid #323536;
+  font-family:arial, sans-serif;
+  font-size:14px;
+  padding:6px;  
+  width:250px;
+}
+textarea{
+  height:120px;
+  width:360px;
+}
+abbr{ 
+  cursor:help; 
+  font-style:normal; 
+  border:0; 
+}
+
+/* radio & checkbox fieldsets */
+.radio, .checkbox{
+  padding-left:130px;
+}
+.radio h3, .checkbox h3{
+  font-size:1em;
+}
+label input{
+  background:transparent;
+  margin-right:4px;
+  width:auto;
+}
+.radio label,
+.checkbox label{
+  display:inline;
+  float:none;
+  margin:0;
+  text-align:left;
+  width:auto;
+}
+
+/* notes & error handling */
+.validation-advice{
+  font-family:arial;
+  background:url(/images/bullet-error.png) no-repeat 0 0;
+  color:#CC0000;
+  font-size:11px;
+  font-style:italic;
+  font-weight:normal;
+  margin:6px 0 0 130px;
+  padding:0 3px 0 16px;
+}
+.note{
+  font-size:0.8333em;
+  font-weight:normal;
+}
+.contact_form_notice{
+  clear:left;
+  font-size:11px;
+}
+.mailer-error{/* when somebody enters a non-existent e-mail adress */
+  background:#f7f7b5;
+  border:1px solid red;
+  padding:9px;
+  margin-bottom:18px
+}

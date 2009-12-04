@@ -1,9 +1,15 @@
-<h1><%= link_to post.title, post_path(post) %></h1>
+<div class="news_entry <%= "first" if post == @posts.first %>">
+	<h1><%= link_to post.title, post_path(post) %></h1>
+	<p class="meta clearfix">
+		<span class="date"><%= post.created_at.strftime('%d %B') %></span> 
+		<%= link_to(post.comments.size, post_path(post, :anchor => "comments"), :class => "jump_to_comments") %>
+	</p>
 
-  <%= raw simple_format(post.body) %><br>
-
-  <div id ="post_info">
-    written on <%= post.created_at.strftime('%d %B') %><br>
-    <%= link_to(pluralize(post.comments.size, "comment"), post_path(post)) %><br><br>
-    <%=  raw addthis_share_button(post_url(post)) %>
-  </div>
+	<p>
+		<%= raw simple_format(post.body) %>
+	</p>
+	<ul class="button_list clearfix">
+		<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)) %></li>
+		<li><a href="#">Add comment</a></li>
+	</ul>
+</div>
