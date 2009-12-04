@@ -9,10 +9,7 @@
     <td>Time:</td>          <td><%= @gig.time.strftime('%H:%M') %> </td>
   </tr>
   <tr>
-    <td>Venue:</td>         <td><%= link_to @gig.venue, @gig.venue_url %> </td>
-  </tr>
-  <tr>
-    <td>Tickets:</td>       <td><%= gig_ticket_link(@gig) %> </td>
+    <td>Venue:</td>         <td><%= link_to @gig.venue, @gig.venue_url %> (<%= gig_ticket_link(@gig) %>) </td>
   </tr>
   <tr>
     <td>City:</td>           <td><%= @gig.city %> </td>
