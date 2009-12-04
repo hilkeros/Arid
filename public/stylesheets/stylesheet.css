@@ -68,22 +68,19 @@ h3{
 /* Links */
 
 a{
-	border-bottom:1px solid #666;
 	text-decoration:none;
 }
 a:link{
 	color:#FFF;
-	border-color:#CCC;
 }
 a:visited{
 	color:#CCC;
-	border-color:#DDD;
 }
 a:hover,
 a:active,
 a:focus{
 	color:#FFF;
-	border-color:#FFF;
+  text-decoration:underline;
 }
 
 /* Defaults */
@@ -261,6 +258,7 @@ ul.button_list{
 }
 .input_submit:hover, .button_list a:hover{
   color:#FFF;
+  text-decoration:none;
 }
 
 /* News entries */
@@ -268,12 +266,6 @@ ul.button_list{
   border-top:1px solid rgba(255, 255, 255, 0.075);/*@todo, hier een semi-transparente PNG border opsteken */
   margin-bottom:33px;
   padding-top:22px;
-}
-.news_entry h1 a{
-  border-bottom:none;
-}
-.news_entry h1 a:hover{
-  border-bottom:1px solid;
 }
 .first{
   border:none;
@@ -299,6 +291,11 @@ ul.button_list{
 .news_entry .meta .jump_to_comments:hover{
   color:#FFF;
   background-position:0 -22px;
+}
+
+/* Remove text-shadow for addThis */
+#at20mc{
+  text-shadow:none;
 }
 
 /* Comments */
