@@ -1,5 +1,6 @@
 <%= title 'Login' %>
-	<% form_for :user_session, :url => user_session_path do |form| %>
+	<% form_for @session, :url => user_session_path do |form| %>
+	<%= form.error_messages %>
 	<fieldset class="first">
 		<p>
 			<%= form.label :email %>
