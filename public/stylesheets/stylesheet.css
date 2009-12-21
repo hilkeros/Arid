@@ -152,7 +152,7 @@ body{
   background:#000 url(../images/body_bg_blur.jpg) no-repeat center 0;
 }
 .container{
-  width: 770px;
+  width: 815px;
   margin: 0 auto;
   text-align:left;
 }
@@ -167,7 +167,7 @@ body{
   background: rgba(0, 0, 0, 0.6);
   margin-top:44px;
   padding:20px;
-  width:430px;
+  width:475px;
 }
 
 /* Header
