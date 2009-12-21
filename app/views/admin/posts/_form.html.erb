@@ -1,10 +1,14 @@
-    <p>
-            <%= form.label :title %>
-            <%= form.text_field :title %>
-    </p>
+<p>
+	<%= form.label :title %>
+	<%= form.text_field :title, :class => "input_text" %>
+</p>
 
-    <p>
-            <%= form.label :body %>
-            <%= form.text_area :body, :class => 'wymeditor' %>
-    </p>
+<p>
+	<%= form.label :body %>
+	<%= form.text_area :body, :class => 'wymeditor' %>
+</p>
 
+<div class="checkbox">
+	<%= form.label :exclusive %>
+	<%= form.check_box :exclusive %>
+</div>

@@ -49,7 +49,7 @@ abbr{
 }
 
 /* radio & checkbox fieldsets */
-.radio, .checkbox{
+.radio{/*, .checkbox{*/
   padding-left:130px;
 }
 .radio h3, .checkbox h3{
