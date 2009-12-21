@@ -7,6 +7,7 @@ def new
   def create
     @mailing_address = MailingAddress.new(params[:mailing_address])
     @mailing_address.save!
+    MailinglistNotifier.deliver_new_subscription!(@mailing_address.email)
     flash[:notice] = "Thanks, you are now subscribed to the Arid newsletter."
     redirect_to :back
   rescue ActiveRecord::RecordInvalid
