@@ -4,12 +4,16 @@
 		<span class="date"><%= post.created_at.strftime('%e %B').lstrip %></span> 
 		<%= link_to(post.comments.size, post_path(post, :anchor => "comments"), :class => "jump_to_comments") %>
 	</p>
-
 	<p>
-		<%= raw simple_format(post.body) %>
+		<%- if post.exclusive && !current_user -%>
+			You need to be logged in to view this post. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
+		<%- else -%>
+			<%= raw simple_format(post.body) %>
+			
+			<ul class="button_list clearfix">
+				<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){"SHARE THIS"} %></li>
+				<li><%= link_to "Add comment", post_path(post, :anchor => "comments") %></a></li>
+			</ul>
+		<%- end -%>
 	</p>
-	<ul class="button_list clearfix">
-		<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){"SHARE THIS"} %></li>
-		<li><%= link_to "Add comment", post_path(post, :anchor => "comments") %></a></li>
-	</ul>
 </div>

@@ -15,6 +15,6 @@ class UserSessionsController < ApplicationController
   
   def destroy
     current_user_session.destroy
-    redirect_to login_path
+    redirect_to root_path
   end
 end

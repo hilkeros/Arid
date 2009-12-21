@@ -4,41 +4,48 @@
 		<span class="date"><%= @post.created_at.strftime('%e %B').lstrip %></span> 
 		<a href="#comments" class="jump_to_comments" href="#"><%= @post.comments.size %></a>
 	</p>
-  <p>
-  	<%= raw simple_format(@post.body) %>
-  </p>
-	<ul class="button_list clearfix">
-		<li id="sharethis_btn"><%=  raw addthis_share_button{"SHARE THIS"} %></li>
-		<li><%= link_to "Back to news", "/news" %></li>
-	</ul>
-	<div id="comments">
-	  <h2><span class="comment_count"><%= pluralize(@post.comments.size, "comment" )%></span></h2>
-    <div class="comment">
-			<% @post.comments.each do |comment| %>
-				<p class="posted"><span class="author"><%= comment.user.username %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
-	      <div class="comment_content">
-					<p><%= comment.body %></p>
-	      </div>
-			<% end %>
-    </div>
+	<%- if @post.exclusive && !current_user -%>
+		<p>
+			You need to be logged in to view this post. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
+		</p>
+	<%- else -%>
+		<p>
+	 		<%= raw simple_format(@post.body) %>
+	
+	  </p>
+		<ul class="button_list clearfix">
+			<li id="sharethis_btn"><%=  raw addthis_share_button{"SHARE THIS"} %></li>
+			<li><%= link_to "Back to news", "/news" %></li>
+		</ul>
+		<div id="comments">
+		  <h2><span class="comment_count"><%= pluralize(@post.comments.size, "comment" )%></span></h2>
+	    <div class="comment">
+				<% @post.comments.each do |comment| %>
+					<p class="posted"><span class="author"><%= comment.user.username %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
+		      <div class="comment_content">
+						<p><%= comment.body %></p>
+		      </div>
+				<% end %>
+	    </div>
 
-  </div>
-  <div id="comment_form">
-    <h2>Leave a comment</h2>
-		<div>
-			<% if current_user %>
-			<% form_for :comment, :url => post_comments_path(@post) do |form| %>
-			<p>
-				<%= form.text_area :body %>
-			</p>
-			<p>
-				<%= form.submit 'Add Comment', :class => "input_submit" %>
-			</p>
-			<% end %>
-			<% else %>
-				You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
-			<% end %>
-		</div>
-  </div>
+	  </div>
+	  <div id="comment_form">
+	    <h2>Leave a comment</h2>
+			<div>
+				<% if current_user %>
+				<% form_for :comment, :url => post_comments_path(@post) do |form| %>
+				<p>
+					<%= form.text_area :body %>
+				</p>
+				<p>
+					<%= form.submit 'Add Comment', :class => "input_submit" %>
+				</p>
+				<% end %>
+				<% else %>
+					You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
+				<% end %>
+			</div>
+	  </div>
+	<%- end -%>
 </div>
 
