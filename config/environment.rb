@@ -41,4 +41,5 @@ Rails::Initializer.run do |config|
 
   config.gem 'jaap3-addthis', :lib => 'addthis',
 		:source => 'http://gems.github.com'
+	config.gem "facebooker"
 end
