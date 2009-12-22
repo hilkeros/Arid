@@ -27,4 +27,16 @@ $(document).ready(function(){
 
 		input.blur();
 	});
+	
+	$('div.signup').hide();
+	
+	$('a.signup_link').click(function(){
+		$('div.login').hide();
+		$('div.signup').show();
+	})
+	
+	$('a.login_link').click(function(){
+		$('div.login').show();
+		$('div.signup').hide();
+	})
 })

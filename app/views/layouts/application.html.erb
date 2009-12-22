@@ -33,10 +33,12 @@
 					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to "News", posts_path %></li>
 					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to "Tour Calendar", gigs_path %></li>
 					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to "Contact", contact_path %></li>
-					<% if current_user %>
+					<%- if current_user -%>
 						<li><%= render '/admin/shared/admin_navigation' if current_user.admin? %></li>
 						<li><%= link_to "logout", logout_path %></li>
-					<% end %>
+					<%- else -%>
+						<li><%= link_to 'login/register', login_path %></li>
+					<%- end -%>
 				</ul>
 			</div>
 
