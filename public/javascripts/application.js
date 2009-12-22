@@ -32,11 +32,11 @@ $(document).ready(function(){
 	
 	$('a.signup_link').click(function(){
 		$('div.login').hide();
-		$('div.signup').show();
+		$('div.signup').appear();
 	})
 	
 	$('a.login_link').click(function(){
-		$('div.login').show();
+		$('div.login').appear();
 		$('div.signup').hide();
 	})
 })
