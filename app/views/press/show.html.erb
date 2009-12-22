@@ -1,0 +1,10 @@
+<div class="news_entry first">
+	<%= title "Press - #{@post.title}" %>
+	<p class="meta clearfix">
+		<span class="date"><%= @post.created_at.strftime('%e %B').lstrip %></span> 
+	</p>
+	<p>
+		<%= raw simple_format(@post.body) %>
+	</p>
+</div>
+

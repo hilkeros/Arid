@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :title
   
   named_scope :public, :conditions => {:press => false}
+  named_scope :press, :conditions => {:press => true}
   
   def to_param
     permalink

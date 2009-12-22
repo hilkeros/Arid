@@ -44,6 +44,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :gigs
   map.resources :mailing_addresses
   map.resources :password_resets
+  map.resources :press
   
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'

@@ -1,0 +1,13 @@
+<%= title('Press') %>
+
+<% @posts.each do |post| %>
+	<div class="news_entry <%= "first" if post == @posts.first %>">
+		<h1><%= link_to post.title, press_path(post) %></h1>
+		<p class="meta clearfix">
+			<span class="date"><%= post.created_at.strftime('%e %B').lstrip %></span> 
+		</p>
+		<p>
+				<%= raw simple_format(post.body) %>
+		</p>
+	</div>
+<% end %>
