@@ -6,7 +6,7 @@
 	</p>
 	<%- if @post.exclusive && !current_user -%>
 		<p>
-			You need to be logged in to view this post. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
+			You need to be logged in to view this post. <%= link_to "Log in or Register", login_path %>.
 		</p>
 	<%- else -%>
 		<p>
@@ -42,7 +42,7 @@
 				</p>
 				<% end %>
 				<% else %>
-					You need to be logged in to comment. <%= link_to "Log in", login_path %> or <%= link_to "Register", signup_path %>.
+					You need to be logged in to comment. <%= link_to "Log in or Register", login_path %>.
 				<% end %>
 			</div>
 	  </div>
