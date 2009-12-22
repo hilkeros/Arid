@@ -388,6 +388,9 @@ div.facebook_connect{
 div.facebook_connect h1{
 	margin-right:0px;
 }
+div.facebook_connect img{
+	border:none;
+}
 
 div.signup, div.login{
 	border-right:1px #FFF solid;
