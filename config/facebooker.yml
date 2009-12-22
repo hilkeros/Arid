@@ -35,9 +35,10 @@ test:
     local_port: 3000
     server_alive_interval: 0
 production:
-  api_key:
-  secret_key:
-  canvas_page_name:
+  api_key: bb11a85b7484f60a0894138c62bf1ce6
+  secret_key: 2274b3b5a256652a18b365ab004bd534
+  canvas_page_name: Arid
+  callback_url: http://arid.be
   pretty_errors: true
   set_asset_host_to_callback_url: true
   tunnel:
