@@ -65,7 +65,7 @@
 		<h1>Facebook</h1>
 		<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
 		<% end %>
-		<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email', function() {$('#facebook_connect_form').submit(); }); }); return false;">
+		<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email,publish_stream,read_stream', function() {$('#facebook_connect_form').submit(); }); }); return false;">
 	      <img id="fb_login_image" src="/images/fb_connect.png" alt="Connect" />
 	    </a>
 	</div>
