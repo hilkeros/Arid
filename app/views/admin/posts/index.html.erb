@@ -1,6 +1,6 @@
 <h1>Post index</h1>
 <% if current_user %>
- welcome <%= current_user.username %>
+ welcome <%= current_user.name %>
 <% end %>
  <p>
   <%= link_to 'add new post', new_admin_post_path %>

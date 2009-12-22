@@ -18,3 +18,11 @@
 	</fieldset>
 <% end %>
 <p><%= link_to('forgot password?', new_password_reset_path ) %></p>
+
+<p>
+	<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
+	<% end %>
+	<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email', function() {$('#facebook_connect_form').submit(); }); }); return false;">
+      <img id="fb_login_image" src="http://static.ak.fbcdn.net/images/fbconnect/login-buttons/connect_light_medium_long.gif" alt="Connect" />
+    </a>
+</p>

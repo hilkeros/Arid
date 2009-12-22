@@ -85,12 +85,9 @@ module AuthlogicFacebookConnect
 
       def validate_by_facebook_connect
         facebook_session = controller.facebook_session
-        self.attempted_record = facebook_user_class.find(:first, :conditions => { facebook_uid_field => facebook_session.user.uid })
 
-        if self.attempted_record
-          self.attempted_record.send(:"#{facebook_session_key_field}=", facebook_session.session_key)
-          self.attempted_record.save
-        end
+        self.attempted_record =
+        klass.find(:first, :conditions => { facebook_uid_field => facebook_session.user.uid })
 
         unless self.attempted_record || facebook_skip_new_user_creation
           begin
@@ -99,13 +96,7 @@ module AuthlogicFacebookConnect
             # We assign it after the call to new in case the attribute is protected.
 
             new_user = klass.new
-
-            if klass == facebook_user_class
-              new_user.send(:"#{facebook_uid_field}=", facebook_session.user.uid)
-              new_user.send(:"#{facebook_session_key_field}=", facebook_session.session_key)
-            else
-              new_user.send(:"build_#{facebook_user_class.to_s.underscore}", :"#{facebook_uid_field}" => facebook_session.user.uid, :"#{facebook_session_key_field}" => facebook_session.session_key)
-            end
+            new_user.send(:"#{facebook_uid_field}=", facebook_session.user.uid)
 
             new_user.before_connect(facebook_session) if new_user.respond_to?(:before_connect)
 
@@ -113,9 +104,9 @@ module AuthlogicFacebookConnect
 
             if facebook_valid_user
               errors.add_to_base(
-                I18n.t('error_messages.facebook_user_creation_failed',
-                       :default => 'There was a problem creating a new user ' +
-                                   'for your Facebook account')) unless self.attempted_record.valid?
+              I18n.t('error_messages.facebook_user_creation_failed',
+              :default => 'There was a problem creating a new user ' +
+              'for your Facebook account')) unless self.attempted_record.valid?
 
               self.attempted_record = nil
             else
@@ -123,7 +114,7 @@ module AuthlogicFacebookConnect
             end
           rescue Facebooker::Session::SessionExpired
             errors.add_to_base(I18n.t('error_messages.facebooker_session_expired',
-              :default => "Your Facebook Connect session has expired, please reconnect."))
+            :default => "Your Facebook Connect session has expired, please reconnect."))
           end
         end
       end

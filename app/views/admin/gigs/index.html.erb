@@ -1,6 +1,6 @@
 <h1>Gig administration</h1>
 <% if current_user %>
- welcome <%= current_user.username %>
+ welcome <%= current_user.name %>
 <% end %><br />
 
 <%= link_to 'add new gig', new_admin_gig_path %>
