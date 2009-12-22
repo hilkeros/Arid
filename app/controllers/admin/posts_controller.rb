@@ -15,7 +15,7 @@ class Admin::PostsController < AdminController
   def create
     @post = Post.new(params[:post])
     @post.save!
-    redirect_to @post
+    redirect_to admin_posts_path
   end
 
   def edit
@@ -25,7 +25,7 @@ class Admin::PostsController < AdminController
   def update
     @post = Post.find_by_permalink!(params[:id])
     @post.update_attributes!(params[:post])
-    redirect_to @post
+    redirect_to admin_posts_path
   end
 
   def destroy

@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
   
   validates_presence_of :title
   
+  named_scope :public, :conditions => {:press => false}
+  
   def to_param
     permalink
   end

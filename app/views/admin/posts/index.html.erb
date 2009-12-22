@@ -11,6 +11,7 @@
 			<th>Title</th>
 			<th>Date</th>
 			<th>Exclusive</th>
+			<th>Press</th>
 			<th>Actions</th>
 		</tr>
 	</thead>
@@ -20,6 +21,7 @@
 			<td><%= link_to post.title, post %></td>
 			<td><%= post.created_at.to_formatted_s(:db) %></td>
 			<td><%= post.exclusive ? "yes" : "no" %></td>
+			<td><%= post.press ? "yes" : "no" %></td>
 			<td>
 				<%= link_to 'edit', edit_admin_post_path(post) %>
 				<%= link_to 'delete', admin_post_path(post), :method => :delete, :confirm => "Sure you cant to delete #{post.title}"  %>
