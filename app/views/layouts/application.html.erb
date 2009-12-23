@@ -8,8 +8,8 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	
-	<link rel="alternate" type="application/rss+xml" title="Arid News" href="http://arid.be/news.atom" />
-	<link rel="alternate" type="application/rss+xml" title="Arid On Stage" href="http://arid.be/gigs.atom" />	
+	<%= auto_discovery_link_tag(:atom, {:controller => 'posts', :action => 'index', :format => 'atom'}, :title => "Arid News") %>
+	<%= auto_discovery_link_tag(:atom, {:controller => 'gigs', :action => 'index', :format => 'atom'}, :title => "Arid On Stage") %>
 
 	<title><%= title :site_name => 'Arid' %></title>
 	<%= stylesheet_link_tag 'screen', :media => "all" %>
