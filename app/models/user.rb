@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   end
 
   has_many :comments
+  has_many :photos
+  has_many :videos
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  

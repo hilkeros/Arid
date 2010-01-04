@@ -6,6 +6,9 @@ class Gig < ActiveRecord::Base
     validates_presence_of :city
     validates_presence_of :country
 
+    has_many :comments
+    has_many :photos
+    has_many :videos
     named_scope :upcoming, :conditions => ["date > ?", Time.now.midnight]
 
     acts_as_url :venue_url
