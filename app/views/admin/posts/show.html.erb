@@ -4,39 +4,46 @@
       <li class="first"><%= link_to 'List', admin_posts_path  %></li>
       <li><%= link_to 'New', new_admin_post_path %></li>
       <li class="active"><%= link_to 'Show', admin_post_path %></li>
+			<li><%= link_to 'Edit', edit_admin_post_path(@post) %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">
     <div class="inner">
       
-        <p>
-          <b>Title:</b>
-          <%= @post.title %>
-        </p>
+        <h3><%= @post.title.humanize %></h3>
 
         <p>
-          <b>Body:</b>
-          <%= @post.body %>
+          <%= raw simple_format @post.body %>
         </p>
-
-        <p>
-          <b>Permalink:</b>
-          <%= @post.permalink %>
-        </p>
-
-        <p>
-          <b>Exclusive:</b>
-          <%= @post.exclusive %>
-        </p>
-
-        <p>
-          <b>Press:</b>
-          <%= @post.press %>
-        </p>
-      <%= link_to 'Edit', edit_admin_post_path(@post) %>
     </div>
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar do -%>
+	<div class="block">
+	  <h3>Extra info</h3>
+	  <div class="content">
+			<p>
+				<strong>Exclusive?</strong><br />
+				<%= @post.exclusive ? "yes" : "no" %>
+			</p>
+			<p>
+				<strong>Press?</strong><br />
+				<%= @post.press ? "yes" : "no" %>
+			</p>
+			<p>
+        <strong>Permalink:</strong><br />
+        <%= link_to @post.permalink, post_path(@post) %>
+      </p>
+	  </div>
+	</div>
+	<div class="block">
+	  <h3>Comments</h3>
+	  <ul class="navigation">
+			<% @post.comments.each do |comment| %>
+				<li><%= link_to comment.body, admin_comment_path(comment) %></li>
+			<% end %>
+	  </ul>
+	</div>
+<% end %>

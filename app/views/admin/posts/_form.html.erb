@@ -12,21 +12,15 @@
   </div>
 
   <div class="group">
-    <%= f.label :permalink, "Permalink", :class => :label %>
-    <%= f.text_field :permalink, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
-  </div>
-
-  <div class="group">
     <%= f.label :exclusive, "Exclusive", :class => :label %>
     <%= f.check_box :exclusive, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Only for logged in users.</span>
   </div>
 
   <div class="group">
     <%= f.label :press, "Press", :class => :label %>
     <%= f.check_box :press, :class => 'check_box' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Only for press.</span>
   </div>
         
 <div class="group navform">
