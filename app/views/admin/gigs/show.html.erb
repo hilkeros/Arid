@@ -1,26 +1,57 @@
-<h1><%= @gig.venue %></h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', admin_gigs_path  %></li>
+      <li><%= link_to 'New', new_admin_gig_path %></li>
+      <li class="active"><%= link_to 'Show', admin_gig_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b>Date:</b>
+          <%= @gig.date %>
+        </p>
 
-<table>
-  
-  <tr>
-    <td>Date:</td>          <td><%= @gig.date.strftime('%d-%m-%Y') %> </td>
-  </tr>
-  <tr>
-    <td>Time:</td>          <td><%= @gig.time.strftime('%H:%M') %> </td>
-  </tr>
-  <tr>
-    <td>Venue:</td>         <td><%= link_to @gig.venue_url @gig.venue_url %> </td>
-  </tr>
-  <tr>
-    <td>Tickets:</td>       <td><%= gig_ticket_link(@gig) %> </td>
-  </tr>
-  <tr>
-    <td>City:</td>           <td><%= @gig.city %> </td>
-  </tr>
-  <tr>
-    <td>Country:</td>         <td><%= @gig.country %> </td>
-  </tr>
+        <p>
+          <b>Time:</b>
+          <%= @gig.time %>
+        </p>
 
-</table><br />
-<%= link_to "Back to gigs overview", admin_gigs_path %>
-<%= link_to "Edit this gig", edit_admin_gig_path %>
+        <p>
+          <b>Venue:</b>
+          <%= @gig.venue %>
+        </p>
+
+        <p>
+          <b>Venue_url:</b>
+          <%= @gig.venue_url %>
+        </p>
+
+        <p>
+          <b>City:</b>
+          <%= @gig.city %>
+        </p>
+
+        <p>
+          <b>Country:</b>
+          <%= @gig.country %>
+        </p>
+
+        <p>
+          <b>Tickets_url:</b>
+          <%= @gig.tickets_url %>
+        </p>
+
+        <p>
+          <b>Permalink:</b>
+          <%= @gig.permalink %>
+        </p>
+      <%= link_to 'Edit', edit_admin_gig_path(@gig) %>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

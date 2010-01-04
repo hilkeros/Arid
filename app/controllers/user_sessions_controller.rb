@@ -8,7 +8,11 @@ class UserSessionsController < ApplicationController
   def create
     @session = UserSession.new(params[:user_session])
     @session.save!
-    redirect_to root_path
+    if current_user.admin?
+      redirect_to admin_root_path
+    else
+      redirect_to root_path
+    end
   rescue Authlogic::Session::Existence::SessionInvalidError  
     render 'new'
   end

@@ -1,0 +1,11 @@
+<h1>Admin::Users#edit</h1>
+
+<%= @user.name %>
+
+<% form_for @user, :url => admin_user_path(@user), :html => {:method => :put} do |form| %>
+
+	<%= form.label :admin %>
+	<%= form.check_box :admin %>
+	
+	<%= form.submit 'update' %>
+<% end %>

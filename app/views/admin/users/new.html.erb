@@ -1,15 +1,15 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul>
-      <li class="first"><%= link_to 'List', admin_posts_path  %></li>
-      <li class="active"><%= link_to 'New', new_admin_post_path %></li>
+      <li class="first"><%= link_to 'List', admin_users_path  %></li>
+      <li class="active"><%= link_to 'New', new_admin_user_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">            
-    <h2 class="title">New Post</h2>
+    <h2 class="title">New User</h2>
     <div class="inner">
-      <% form_for :post, :url => admin_posts_path, :html => { :class => :form } do |f| -%>
+      <% form_for :user, :url => admin_users_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>

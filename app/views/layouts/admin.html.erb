@@ -1,51 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-
-	<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
-	<meta http-equiv="content-language" content="nl" />
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	
-	<link rel="alternate" type="application/rss+xml" title="Arid News" href="http://arid.be/news.atom" />
-	<link rel="alternate" type="application/rss+xml" title="Arid On Stage" href="http://arid.be/gigs.atom" />	
-
-	<title><%= title :site_name => 'Arid' %></title>
-	<%= stylesheet_link_tag 'screen', :media => "all" %>
-	<%= stylesheet_link_tag 'print', :media => "print" %>
-	<%= javascript_include_tag :defaults, :cache => true %>
-
-	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" /><![endif]-->
-	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" /><![endif]-->
-	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" /><![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Arid Admin</title>
+	<%= stylesheet_link_tag 'web_app_theme', "themes/drastic-dark/style" %>
 </head>
 <body>
-
-	<div class="container">
-		<div id="sidebar">
-			<div id="header" class="clearfix">
-				<p id="logo"><%= link_to "Arid", root_path %></p>
-				<ul id="nav_main">
-					<li class="current"><%= link_to 'Press News', press_index_path %></li>
-				</ul>
-			</div>
-			<%= render "/layouts/social_sidebar" %>
-			<%= render "/layouts/shows_sidebar" %>
-		</div>  
-
-		<div id="content" class="content clearfix">
-			<%= yield :layout %>
-		</div>    
-	</div>
-	<script type="text/javascript">
-	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-	</script>
-	<script type="text/javascript">
-	try {
-	var pageTracker = _gat._getTracker("UA-11912564-1");
-	pageTracker._trackPageview();
-	} catch(err) {}</script>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">Arid Admin</a></h1>
+      <div id="user-navigation">
+        <ul>
+          <!-- <li><a href="#">Profile</a></li> -->
+          <li><%= link_to 'View site', root_path %></li>
+          <li><%= link_to 'logout', logout_path, :class => 'logout' %></li>
+        </ul>
+        <div class="clear"></div>
+      </div>      
+      <div id="main-navigation">
+        <ul>
+        	<li><%= link_to "Posts", admin_posts_path %></li>
+        	<li><%= link_to "Comments", admin_comments_path %></li>
+        	<li><%= link_to "Gigs", admin_gigs_path %></li>
+        	<li><%= link_to "Users", admin_users_path %></li>
+        </ul>
+        <div class="clear"></div>
+      </div>
+    </div>    
+    <div id="wrapper">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; Arid.be</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      <div class="clear"></div>      
+    </div>    
+  </div>
 </body>
 </html>

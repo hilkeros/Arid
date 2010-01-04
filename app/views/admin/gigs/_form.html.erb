@@ -1,33 +1,52 @@
 
+  <div class="group">
+    <%= f.label :date, "Date", :class => :label %>
+    <%= f.date_select :date, :class => 'date_select' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
+  <div class="group">
+    <%= f.label :time, "Time", :class => :label %>
+    <%= f.datetime_select :time, :class => 'datetime_select' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-	<p>
-		<%= form.label :date %><br />
-		<%= form.date_select :date %>
-	</p>
-	<p>
-		<%= form.label :time %><br />
-		<%= form.time_select :time %>
-	</p>
+  <div class="group">
+    <%= f.label :venue, "Venue", :class => :label %>
+    <%= f.text_field :venue, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-	<p>
-		<%= form.label :venue %><br />
-		<%= form.text_field :venue %>
-	</p>
-        <p>
-		<%= form.label :venue_url  %><br />
-		<%= form.text_field :venue_url %>
-	</p>
-        <p>
-		<%= form.label :tickets_url  %><br />
-		<%= form.text_field :tickets_url %>
-	</p>
-        <p>
-		<%= form.label :city %><br />
-		<%= form.text_field :city %>
-	</p>
-        <p>
-		<%= form.label :country %><br />
-		<%= form.country_select :country, "Belgium" %>
-	</p>
-			
+  <div class="group">
+    <%= f.label :venue_url, "Venue_url", :class => :label %>
+    <%= f.text_field :venue_url, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :city, "City", :class => :label %>
+    <%= f.text_field :city, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :country, "Country", :class => :label %>
+    <%= f.text_field :country, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :tickets_url, "Tickets_url", :class => :label %>
+    <%= f.text_field :tickets_url, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :permalink, "Permalink", :class => :label %>
+    <%= f.text_field :permalink, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', admin_gigs_path %>
+</div>

@@ -1,0 +1,34 @@
+<h1>Gig administration</h1>
+<% if current_user %>
+ welcome <%= current_user.name %>
+<% end %><br />
+
+<%= link_to 'add new gig', new_admin_gig_path %>
+
+<table>
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Venue</th>
+                        <th>Tickets</th>
+                        <th>City</th>
+                        <th>Country</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @gigs.each do |gig| %>
+		<tr>
+			<td><%= link_to gig.date.strftime('%d-%m-%Y'), admin_gig_path(gig) %></td>
+			<td><%= link_to gig.venue, gig.venue_url %></td>
+                        <td><%= gig_ticket_link(gig) %></td>
+                        <td><%= gig.city %></td>
+                        <td><%= gig.country %></td>
+			<td>
+				<%= link_to 'edit', edit_admin_gig_path(gig) %>
+				<%= link_to 'delete', admin_gig_path(gig), :method => :delete, :confirm => "Sure you want to delete #{gig.venue}"  %>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

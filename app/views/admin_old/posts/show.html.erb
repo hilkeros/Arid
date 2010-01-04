@@ -1,0 +1,26 @@
+<h1><%= @post.title %></h1>
+<div>
+	<%= simple_format(@post.body) %>
+</div>
+
+<div>
+	<%= link_to 'edit', edit_post_path(@post) %>
+	<%= link_to 'delete', post_path(@post), :method => :delete, :confirm => "Sure you cant to delete #{@post.title}"  %>
+</div>
+
+<h4>Comments</h4>
+<div>
+	<% @post.comments.each do |comment| %>
+		<div><%= comment.body %></div>
+	<% end %>
+</div>
+<div>
+	<% form_for :comment, :url => post_comments_path(@post) do |form| %>
+		<p>
+			<%= form.text_area :body %>
+		</p>
+		<p>
+			<%= form.submit 'Add Comment' %>
+		</p>
+	<% end %>
+</div>

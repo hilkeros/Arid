@@ -1,20 +1,34 @@
-<p>
-	<%= form.label :title %>
-	<%= form.text_field :title, :class => "input_text" %>
-</p>
 
-<p>
-	<%= form.label :body %>
-	<%= form.text_area :body, :class => 'wymeditor' %>
-</p>
+  <div class="group">
+    <%= f.label :title, "Title", :class => :label %>
+    <%= f.text_field :title, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
 
-<div class="checkbox">
-	<p>
-		<%= form.label :exclusive %>
-		<%= form.check_box :exclusive %>
-	</p>
-	<p>
-		<%= form.label :press %>
-		<%= form.check_box :press %>
-	</p>
+  <div class="group">
+    <%= f.label :body, "Body", :class => :label %>
+    <%= f.text_area :body, :class => 'text_area' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :permalink, "Permalink", :class => :label %>
+    <%= f.text_field :permalink, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :exclusive, "Exclusive", :class => :label %>
+    <%= f.check_box :exclusive, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :press, "Press", :class => :label %>
+    <%= f.check_box :press, :class => 'check_box' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', admin_posts_path %>
 </div>
