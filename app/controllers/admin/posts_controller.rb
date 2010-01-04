@@ -15,6 +15,7 @@ class Admin::PostsController < AdminController
   def create
     @post = Post.new(params[:post])
     @post.save!
+    flash[:notice] = "Succesfully created post"
     redirect_to admin_posts_path
   end
 
@@ -25,6 +26,7 @@ class Admin::PostsController < AdminController
   def update
     @post = Post.find_by_permalink!(params[:id])
     @post.update_attributes!(params[:post])
+    flash[:notice] = "Succesfully updated post"
     redirect_to admin_posts_path
   end
 
