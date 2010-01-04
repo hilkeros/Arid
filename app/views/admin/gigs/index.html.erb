@@ -11,22 +11,20 @@
     <div class="inner">
       <table class="table">
         <tr>             
-          <th class="first">ID</th>
-										<th>Date</th>
-					          <th>Created at</th>
+          <th class="first">Date</th>
+					<th>Venue</th>
+					<th>Tickets</th>
+					<th>City</th>
+					<th>Country</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @gigs.each do |gig| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= gig.id %>
-          </td>
-										<td>
-						<%= link_to gig.date, admin_gig_path(gig) %>
-					</td>
-										<td>
-            <%= gig.created_at %>
-          </td>
+					<td><%= link_to gig.date.strftime('%d-%m-%Y'), admin_gig_path(gig) %></td>
+					<td><%= gig.venue %></td>
+					<td><%= gig_ticket_link(gig) %></td>
+					<td><%= gig.city %></td>
+					<td><%= gig.country %></td>
           <td class="last">
             <%= link_to 'show', admin_gig_path(gig) %> |
             <%= link_to 'edit', edit_admin_gig_path(gig) %> |
@@ -44,5 +42,3 @@
     </div>
   </div>
 </div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
