@@ -380,8 +380,8 @@ function getType(v) {
 
 	// YouTube
 	if (v.match(/v=(.+)(.*)/)) {
-		f.width.value = '425';
-		f.height.value = '350';
+		f.width.value = '480';
+		f.height.value = '295';
 		f.src.value = 'http://www.youtube.com/v/' + v.match(/v=(.*)(.*)/)[0].split('=')[1];
 		return 'flash';
 	}
