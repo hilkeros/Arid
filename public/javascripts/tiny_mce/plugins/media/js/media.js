@@ -393,6 +393,13 @@ function getType(v) {
 		f.src.value = 'http://video.google.com/googleplayer.swf?docId=' + v.substring('http://video.google.com/videoplay?docid='.length) + '&hl=en';
 		return 'flash';
 	}
+	
+	//mp3
+	if(v.match(/(.mp3)$/)){
+		f.width.value = '250';
+		f.height.value = '30';
+		return 'qt'
+	}
 
 	for (i=0; i<fo.length; i++) {
 		c = fo[i].split('=');
