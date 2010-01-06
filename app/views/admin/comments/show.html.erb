@@ -21,7 +21,7 @@
 
 			<p>
 				<b>User:</b>
-				<%= link_to @comment.user.name, admin_user_path(@comment.user) %>
+				<%= @comment.user.name %>
 			</p>
       <%= link_to 'Destroy', admin_comment_path(@comment), :method => :delete, :confirm => 'Are you sure?' %>
     </div>
