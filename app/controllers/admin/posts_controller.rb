@@ -19,6 +19,8 @@ class Admin::PostsController < AdminController
     @post.save!
     flash[:notice] = "Succesfully created post"
     redirect_to admin_posts_path
+  rescue ActiveRecord::RecordInvalid
+    render :new
   end
 
   def edit
@@ -30,6 +32,8 @@ class Admin::PostsController < AdminController
     @post.update_attributes!(params[:post])
     flash[:notice] = "Succesfully updated post"
     redirect_to admin_posts_path
+  rescue ActiveRecord::RecordInvalid
+    render :edit
   end
 
   def destroy

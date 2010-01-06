@@ -30,6 +30,8 @@ class Admin::GigsController < AdminController
     @gig.update_attributes!(params[:gig])
     flash[:notice] = "Updated gig #{@gig.venue}"
     redirect_to admin_gigs_path
+  rescue ActiveRecord::RecordInvalid
+    render :edit
   end
 
   def destroy
