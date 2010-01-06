@@ -397,7 +397,7 @@ function getType(v) {
 	//mp3
 	if(v.match(/(.mp3)$/)){
 		f.width.value = '250';
-		f.height.value = '30';
+		f.height.value = '20';
 		return 'qt'
 	}
 

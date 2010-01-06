@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"  xmlns:fb="http://www.facebook.com/2008/fbml" >
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
+	<meta http-equiv="content-language" content="nl" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<title><%= title :site_name => 'Arid' %></title>
+	<%= stylesheet_link_tag 'screen', :media => "all" %>
+	<%= stylesheet_link_tag 'print', :media => "print" %>
+	<%= javascript_include_tag :defaults, :cache => true %>
+
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" /><![endif]-->
+	
+	<%= raw fb_connect_javascript_tag %>
+  <%= raw init_fb_connect('XFBML', :js => :jquery) %>
+</head>
+<body>
+
+	<div class="container">
+		<div id="sidebar">
+			<div id="header" class="clearfix">
+				<p id="logo"><%= link_to "Arid", root_path %></p>
+				<ul id="nav_main">
+					<li class="<%= "current" if controller_name == "press" %>"><%= link_to "Press News", press_index_path %></li>
+				</ul>
+			</div>
+		</div>  
+
+		<div id="content" class="content clearfix">
+			<%= content_tag(:div, flash[:notice], :class => 'notice') if flash[:notice].present? %>
+			<%= content_tag(:div, flash[:error], :class => 'error') if flash[:error].present? %>
+
+			<%= yield :layout %>
+		</div>    
+	</div>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-11912564-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>

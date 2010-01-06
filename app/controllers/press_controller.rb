@@ -1,6 +1,6 @@
 class PressController < ApplicationController
   before_filter :http_auth
-  layout "admin"
+  layout "press"
   
   def index
     @posts = Post.press.all
