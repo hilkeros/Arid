@@ -7,7 +7,7 @@ class Print < ActiveRecord::Base
     :large_thumb => [ "370x370", :jpg ],
 	  :detail_preview => [ "450x338", :jpg ] },
     :url  => "/assets/prints/:id/:basename.:extension",
-    :path => ":rails_root/public/assets/prints/:id/:basename.:extension"
+    :path => ":rails_root/public/assets/prints/:id/:basename.:extension",
     :default_url => "/images/missing/prints/:style.png"
 
 end
