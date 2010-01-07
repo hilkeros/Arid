@@ -8,7 +8,7 @@
 		<%- if post.exclusive && !current_user -%>
 			You need to be logged in to view this post. <%= link_to "Log in or Register", login_path %>.
 		<%- else -%>
-			<%= raw simple_format(post.body) %>
+			<%= raw (post.body) %>
 			
 			<ul class="button_list clearfix">
 				<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){"SHARE THIS"} %></li>

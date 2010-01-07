@@ -4,7 +4,7 @@
 		<span class="date"><%= @post.created_at.strftime('%e %B').lstrip %></span> 
 	</p>
 	<p>
-		<%= raw simple_format(@post.body) %>
+		<%= raw (@post.body) %>
 	</p>
 </div>
 
