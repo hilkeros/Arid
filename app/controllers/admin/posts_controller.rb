@@ -1,6 +1,4 @@
 class Admin::PostsController < AdminController
-  
-  uses_tiny_mce(:options => AppConfig.advanced_mce_options, :only => [:new, :edit])
     
   def index
     @posts = Post.all(:order => "created_at DESC")

@@ -1,5 +1,5 @@
 /**
- * $Id: form_utils.js 614 2008-02-20 17:57:57Z spocke $
+ * $Id: form_utils.js 1184 2009-08-11 11:47:27Z spocke $
  *
  * Various form utilitiy functions.
  *
@@ -13,7 +13,7 @@ function getColorPickerHTML(id, target_form_element) {
 	var h = "";
 
 	h += '<a id="' + id + '_link" href="javascript:;" onclick="tinyMCEPopup.pickColor(event,\'' + target_form_element +'\');" onmousedown="return false;" class="pickcolor">';
-	h += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '"></span></a>';
+	h += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '">&nbsp;</span></a>';
 
 	return h;
 }
@@ -50,7 +50,7 @@ function getBrowserHTML(id, target_form_element, type, prefix) {
 
 	html = "";
 	html += '<a id="' + id + '_link" href="javascript:openBrowser(\'' + id + '\',\'' + target_form_element + '\', \'' + type + '\',\'' + option + '\');" onmousedown="return false;" class="browse">';
-	html += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '"></span></a>';
+	html += '<span id="' + id + '" title="' + tinyMCEPopup.getLang('browse') + '">&nbsp;</span></a>';
 
 	return html;
 }
@@ -92,7 +92,7 @@ function selectByValue(form_obj, field_name, value, add_custom, ignore_case) {
 function getSelectValue(form_obj, field_name) {
 	var elm = form_obj.elements[field_name];
 
-	if (elm == null || elm.options == null)
+	if (elm == null || elm.options == null || elm.selectedIndex === -1)
 		return "";
 
 	return elm.options[elm.selectedIndex].value;
@@ -170,7 +170,7 @@ function convertHexToRGB(col) {
 }
 
 function trimSize(size) {
-	return size.replace(new RegExp('[^0-9%]', 'gi'), '');
+	return size.replace(/([0-9\.]+)px|(%|in|cm|mm|em|ex|pt|pc)/, '$1$2');
 }
 
 function getCSSSize(size) {
@@ -179,7 +179,11 @@ function getCSSSize(size) {
 	if (size == "")
 		return "";
 
-	return size.indexOf('%') != -1 ? size : size + "px";
+	// Add px
+	if (/^[0-9]+$/.test(size))
+		size += 'px';
+
+	return size;
 }
 
 function getStyle(elm, attrib, style) {
