@@ -19,7 +19,7 @@ function getColorPickerHTML(id, target_form_element) {
 }
 
 function updateColor(img_id, form_element_id) {
-	document.getElementById(img_id).style.backgroundColor = document.forms[0].elements[form_element_id].value;
+	document.getElementById(img_id).style.backgroundColor = document.forms[1].elements[form_element_id].value;
 }
 
 function setBrowserDisabled(id, state) {

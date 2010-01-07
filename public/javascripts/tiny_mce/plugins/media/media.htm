@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>{#media_dlg.title}</title>
+	<script language="javascript" type="text/javascript" src="../../../jquery.js"></script>
 	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
 	<script type="text/javascript" src="js/media.js"></script>
 	<script type="text/javascript" src="../../utils/mctabs.js"></script>
@@ -11,16 +12,44 @@
 	<link href="css/media.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="display: none">
+	
+	<div id="media-upload">
+    <fieldset>
+      <legend>Upload New Media</legend>
+      <form id='media_upload_form' enctype="multipart/form-data" method="post" onsubmit="testonload(); return true;" target="html_editor_media_upload_frame">
+        <input class="input-file" id="video_original" name="video[original]" size="30" type="file" />
+  <input class="submit" name="commit" type="submit" value="Upload"/>
+      </form>
+    </fieldset>
+  </div>
+  <br />
+	
     <form onsubmit="insertMedia();return false;" action="#">
-		<div class="tabs">
-			<ul>
-				<li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');generatePreview();" onmousedown="return false;">{#media_dlg.general}</a></span></li>
-				<li id="advanced_tab"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#media_dlg.advanced}</a></span></li>
-			</ul>
-		</div>
+			<div class="tabs">
+				<ul>
+				        <li id="dynamic_select_tab" class="current"><span><a href="javascript:mcTabs.displayTab('dynamic_select_tab','dynamic_select_panel');" onmousedown="return false;">Media</a></span></li>
+					<li id="general_tab"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');generatePreview();" onmousedown="return false;">{#media_dlg.general}</a></span></li>
+					<li id="advanced_tab"><span><a href="javascript:mcTabs.displayTab('advanced_tab','advanced_panel');" onmousedown="return false;">{#media_dlg.advanced}</a></span></li>
+				</ul>
+			</div>
 
 		<div class="panel_wrapper">
-			<div id="general_panel" class="panel current">
+			
+			<div id="dynamic_select_panel" class="panel current" style='overflow:auto'>
+			  <fieldset>
+			    <legend>Available Media</legend>
+			    <script type="text/javascript">//<![CDATA[
+				$.ajax({type: "GET", url: "/attachments/manage?media=video", dataType: "script"});
+				//]]></script>
+
+			    <div id="dynamic_images_list">
+			      Loading Media...<br />
+			      <img src='/images/tiny_mce/spinner.gif'>
+			    </div>
+			  </fieldset>
+			</div>
+			
+			<div id="general_panel" class="panel">
 				<fieldset>
 					<legend>{#media_dlg.general}</legend>
 
@@ -810,7 +839,7 @@
 
 		<div class="mceActionPanel">
 			<div style="float: left">
-				<input type="submit" id="insert" name="insert" value="{#insert}" />
+				<input type="button" id="insert" name="insert" value="{#insert}" onclick="insertMedia();" />
 			</div>
 
 			<div style="float: right">
