@@ -11,7 +11,7 @@ set :application, "default"
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
 default_run_options[:pty] = true
-set :repository, "git@github.com:hilkeros/MMM-.git"
+set :repository, "git@github.com:hilkeros/Arid.git"
 set :scm, :git
 set :ssh_options, { :forward_agent => true }
 
