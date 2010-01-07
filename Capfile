@@ -71,6 +71,8 @@ namespace :dbconfig do
     task :link do
         run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
         run "ln -nfs #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+        
+		run "rm -rf #{latest_release}/public/assets && ln -nfs #{shared_path}/assets #{latest_release}/public/assets"
     end
 end
 
