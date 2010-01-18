@@ -15,7 +15,7 @@ background-image:url(/images/bullet-error.gif);
 }
 
 /* prevent double spacing on nav_sec li's */
-#nav_sec li{
+#nav_main li{
   display:inline;
 }
 
@@ -32,4 +32,10 @@ background-image:url(/images/bullet-error.gif);
 
 .box, #content{
   background: #000;
+}
+#topbar{
+  background: #000;
+}
+#other-action{    
+  background: #333;
 }

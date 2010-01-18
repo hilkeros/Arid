@@ -9,3 +9,9 @@
 .first{
   background:none;
 }
+#topbar{
+  background: url(/images/topbar.png) repeat-x 0 100%;
+}
+#other-action{    
+  background: url(/images/box-trans.png);
+}

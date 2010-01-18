@@ -391,13 +391,15 @@ ul.button_list{
 
 #maillist_signup .input_text{
 	margin-bottom:5px;
-	width:220px;
+	width:210px;
 }
 
 #socialmedia{
 	/* Add extra space for margin on last image li*/
 	overflow:hidden;
 	padding-bottom:15px;/* Accomodate for 5px bottom margin on li's */
+	width:230px;
+	zoom:1;
 }
 #socialmedia ul{
 	margin:0;

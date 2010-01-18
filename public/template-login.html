@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"  xmlns:fb="http://www.facebook.com/2008/fbml" >
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-15" />
+	<meta http-equiv="content-language" content="nl" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<link href="http://arid.local/news.atom" rel="alternate" title="Arid News" type="application/atom+xml" />
+	<link href="http://arid.local/gigs.atom" rel="alternate" title="Arid On Stage" type="application/atom+xml" />
+
+	<title>Login - Arid</title>
+	<link href="/stylesheets/screen.css?1259917698" media="all" rel="stylesheet" type="text/css" />
+	<link href="/stylesheets/print.css?1259917698" media="print" rel="stylesheet" type="text/css" />
+	<script src="/javascripts/jquery.js?1259856584" type="text/javascript"></script>
+<script src="/javascripts/jquery-ui.js?1259856584" type="text/javascript"></script>
+<script src="/javascripts/jrails.js?1259856584" type="text/javascript"></script>
+<script src="/javascripts/application.js?1263545957" type="text/javascript"></script>
+
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" /><![endif]-->
+	<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" /><![endif]-->
+	
+	<script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+  <script type="text/javascript">
+//<![CDATA[
+             jQuery(document).ready( function() {
+                FB_RequireFeatures(["XFBML"], function() {
+                  FB.init('ef555e5489eca0da04972fd8c9a64173','/xd_receiver.html', {});
+                  
+                });
+              });
+
+//]]>
+</script>
+</head>
+<body>
+
+  <div id="topbar">
+    <div class="container">
+      <ul class="clearfix">
+        <li class="first"><a href="#">my profile</a></li>
+        <li><a href="#">settings</a></li>
+        <li class="current"><a href="#">browse fans</a></li>
+        <li><a href="#">log out</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="topbar">
+    <div class="container">
+      <ul class="clearfix">
+        <li class="first"><a href="#"><img src="/images/fb-connect-small.png" alt="Registreer met Facebook" /></a></li>
+        <li><a href="#">login <span class="amp">or</span> register</a></li>
+        <li><a href="#">browse fans</a></li>
+      </ul>
+    </div>
+  </div>
+
+	<div class="container">
+		<div id="sidebar">
+			<div id="header" class="clearfix">
+				<p id="logo"><a href="/">Arid</a></p>
+				<ul id="nav_main">
+					<li class=""><a href="/news">News</a></li>
+					<li class=""><a href="/gigs">Tour Calendar</a></li>
+					<li class=""><a href="/contact">Contact</a></li>
+						<li><a href="/login">login/register</a></li>
+				</ul>
+			</div>
+
+			<div id="maillist_signup" class="box">
+        <form action="/mailing_addresses" method="post">
+          <div style="margin:0;padding:0;display:inline">
+            <input name="authenticity_token" type="hidden" value="mYYnSU6dGhsHJWIjwmnxOLFKh2I/UUy3L7b237vZ3q0=" />
+          </div>
+          <h2>Stay in the loop!</h2>
+			    <label class="example" for="mailing_address_email">you@domain.com</label>
+			    <input class="input_text" id="mailing_address_email" name="mailing_address[email]" size="30" type="text" />
+		      <input class="input_submit" id="mailing_address_submit" name="commit" type="submit" value="Subscribe" />
+        </form>
+        </div>
+
+			<div id="socialmedia" class="box">
+	<h2>Follow Arid on</h2>
+	<ul class="clearfix">
+		<a href="http://www.myspace.com/aridcentral" target="_blank" title="Myspace"><img alt="Myspace" src="/images/icons/social/IconMyspaceSml.png?1259917698" /></a>
+		<a href="http://www.facebook.com/pages/Arid/21485402588" target="_blank" title="Facebook"><img alt="Facebook" src="/images/icons/social/IconFacebookSml.png?1259917698" /></a>
+		<a href="http://www.last.fm/music/Arid" target="_blank" title="Last.fm"><img alt="Last.fm" src="/images/icons/social/IconLastfmSml.png?1259917698" /></a>
+		<a href="http://twitter.com/aridcentral" target="_blank" title="Twitter"><img alt="Twitter" src="/images/icons/social/IconTwitterSml.png?1259917698" /></a>
+		<a href="http://www.youtube.com/aridcentral" target="_blank" title="Youtube"><img alt="Youtube" src="/images/icons/social/IconYoutubeSml.png?1259917698" /></a>
+	</ul>
+</div>
+
+			<div id="dates" class="box">
+	<h2>Arid on stage</h2>
+	<table>
+			<tr class="first">
+				<td class="date">05/02/10</td>
+				<td class="venue"><a href="/gigs/2010-02-05-paradiso">Paradiso</a></td>
+			</tr>
+			<tr class="">
+				<td class="date">12/02/10</td>
+				<td class="venue"><a href="/gigs/2010-02-12-paradiso">Paradiso</a></td>
+			</tr>
+			<tr class="">
+				<td class="date">27/02/10</td>
+				<td class="venue"><a href="/gigs/2010-02-27-ancienne-belgique">Ancienne Belgique</a></td>
+			</tr>
+	</table>
+</div>
+
+
+			<div id="facebook_badge" class="box">
+				<div id="facebook_badge">
+					<fb:fan profile_id="21485402588" stream="" connections="6" width="200"></fb:fan><div style="font-size:8px; padding-left:10px"></div>
+				</div>
+			</div>
+		</div>  
+
+		<div id="content" class="content clearfix">
+			
+			
+
+			<div class="login_or_signup">
+	<div class="login">
+		<h1>Login</h1>
+<form action="/user_session" class="new_user_session" id="new_user_session" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="mYYnSU6dGhsHJWIjwmnxOLFKh2I/UUy3L7b237vZ3q0=" /></div>			
+			<fieldset class="first">
+				<p>
+					<label for="user_session_email">Email</label>
+					<input class="input_text" id="user_session_email" name="user_session[email]" size="30" type="text" />
+				</p>
+		
+				<p>
+					<label for="user_session_password">Password</label>
+					<input class="input_text" id="user_session_password" name="user_session[password]" size="30" type="password" />
+				</p>
+			</fieldset>
+	
+			<fieldset class="submit">
+				<p><input class="input_submit" id="user_session_submit" name="commit" type="submit" value="Login" /></p>
+			</fieldset>
+</form>		<p class="mute">
+			<a href="/password_resets/new">Forgot password?</a><br />
+		</p>
+		<div id="other-action" class="clearfix">
+		  <p id="signup">
+		    <a class="signup_link" href="#">Sign up for a free account.</a> <span class="or">or</span>
+		  </p>
+		  <p id="fb_connect">
+		    <a href="#"><img src="/images/fb-connect.png" alt="Connect with Facebook" /></a>
+		  </p>
+		</div>
+	</div>
+	
+	<div class="signup">
+		<h1>New user</h1>
+<form action="/users" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="mYYnSU6dGhsHJWIjwmnxOLFKh2I/UUy3L7b237vZ3q0=" /></div>			
+			<fieldset class="first">
+				<p>
+					<label for="user_name">Name</label>
+					<input class="input_text" id="user_name" name="user[name]" size="30" type="text" />
+				</p>
+				<p>
+					<label for="user_email">Email</label>
+					<input class="input_text" id="user_email" name="user[email]" size="30" type="text" />
+				</p>
+
+				<p>
+					<label for="user_password">Password</label>
+					<input class="input_text" id="user_password" name="user[password]" size="30" type="password" />
+				</p>
+
+				<p>
+					<label for="user_password_confirmation">Password confirmation</label>
+					<input class="input_text" id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password" />
+				</p>
+			</fieldset>
+
+			<fieldset class="submit">
+				<p>
+					<input class="input_submit" id="user_submit" name="commit" type="submit" value="Register" />
+				</p>
+			</fieldset>
+</form>		
+
+      <div id="other-action" class="clearfix">
+          <a class="login_link" href="#">Already an account? Login.</a>
+  		</div>
+	</div>
+</div>
+		</div>    
+	</div>
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-11912564-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>
