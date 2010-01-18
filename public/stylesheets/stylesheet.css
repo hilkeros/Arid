@@ -56,6 +56,10 @@ a:focus{
 	text-decoration:underline;
 }
 
+a:hover img{
+  opacity:0.75;
+}
+
 /* Defaults */
 
 strong{
@@ -114,6 +118,7 @@ td{
 }
 
 /* Video (trying to add a bottom margin to youtube embeds…) */
+
 embed{
 	margin-bottom:22px;
 }
@@ -134,6 +139,9 @@ embed{
 .content img{
 	border:5px solid #343434;
 }
+.mute{
+  font-size:85%;
+}
 
 /* Clearfix */
 
@@ -149,7 +157,7 @@ embed{
 --------------------------------------------- */
 
 body{
-	background:#000 url(../images/body_bg_blur.jpg) no-repeat center 0;
+	background:#000 url(../images/body_bg_blur.jpg) no-repeat center -90px;
 }
 .container{
 	width: 815px;
@@ -182,6 +190,57 @@ body{
 	font-weight:bold;
 	color:#FFF;
 	text-transform:uppercase;
+}
+
+/* Top bar (user navigation)*/
+
+#topbar{
+	/*background:rgba(50, 54, 54, 0.75);*/
+	background: rgba(1, 82, 112, 0.1);
+	border-bottom:1px solid rgba(255, 255, 255, 0.075);
+	height:28px;
+  padding:5px 0;
+  width:100%;
+}
+#topbar .container{
+  position:relative;
+}
+#topbar ul{
+  float:left;
+  position:absolute;
+  right:0;
+}
+#topbar li{
+  float:left;
+}
+#topbar li.first a{
+  border:none;
+}
+#topbar a{
+  border-left:1px solid rgb(30, 30, 30);
+	color:#999;
+	display:block;
+	font-family:arial, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	padding:6px 10px;
+	text-transform:uppercase;
+	letter-spacing: 0.045em;
+	text-shadow: 1px 1px 1px #000;
+}
+#topbar a:hover, #topbar li.current a:link{
+  color:#FFF;
+}
+#topbar span.or{
+  font-family:Baskerville, Palatino, Georgia;
+  font-size:14px;
+  font-style:italic;
+  line-height:80%;
+  text-transform: lowercase;
+}
+
+#topbar img{
+  margin-top:-3px;
 }
 
 /* Nav main */
@@ -320,6 +379,7 @@ ul.button_list{
 
 /* Sidebar
 --------------------------------------------- */
+
 .box{
 	background: rgba(0, 0, 0, 0.6);
 	margin-bottom:20px;
@@ -377,26 +437,28 @@ ul.button_list{
 	border:none;
 }
 
-/*Facebook*/
-div.facebook_connect{
-	width:200px;
-	position:absolute;
-	top:5px;
-	right:0px;
-	text-align:right;
+/* Login/register page */
+
+#other-action{
+  background:rgba(0,0,0,0.2);
+  padding:10px;
 }
-div.facebook_connect h1{
-	margin-right:0px;
+#other-action #signup{
+  float:left;
+  line-height:31px;
+  margin:0 10px 0 0;
 }
-div.facebook_connect img{
+#other-action .or{
+  font-family:Baskerville, Palatino, Georgia;
+  font-size:18px;
+  font-style:italic;
+  line-height:80%;
+  text-transform: lowercase;
+}
+#other-action #fb_connect{
+  float:left;
+  margin:0;
+}
+#other-action img{
 	border:none;
-}
-
-div.signup, div.login{
-	border-right:1px #FFF solid;
-	width:300px;
-}
-
-.login_or_signup{
-	position:relative;
 }
