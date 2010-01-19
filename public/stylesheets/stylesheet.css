@@ -228,7 +228,7 @@ body{
 	letter-spacing: 0.045em;
 	text-shadow: 1px 1px 1px #000;
 }
-#topbar a:hover, #topbar li.current a:link{
+#topbar a:hover, #topbar li.current a{
   color:#FFF;
 }
 #topbar span.or{

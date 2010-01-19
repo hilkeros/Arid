@@ -1,0 +1,22 @@
+<div id="topbar">
+  <div class="container">
+    <ul class="clearfix">
+			<% if current_user %>
+        <li class="first"><a href="#">my profile</a></li>
+        <li><a href="#">settings</a></li>
+        <li><a href="#">browse fans</a></li>
+        <li><%= link_to "log out", logout_path %></li>
+			<% else %>
+        <li class="first">
+					<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
+					<% end %>
+					<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email,publish_stream,read_stream', function() {$('#facebook_connect_form').submit(); }); }); return false;">
+				      <img id="fb_login_image" src="/images/fb-connect-small.png" alt="Connect" />
+				   </a>
+				</li>
+        <li class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to 'login <span class="or">or</span> register', login_path %></li>
+        <li><a href="#">browse fans</a></li>
+			<% end %>
+		</ul>
+	</div>
+</div>
