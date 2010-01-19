@@ -1,26 +1,43 @@
 <h1>Settings</h1>
+<h2>Update profile</h2>
 
-profile_picture
-	upload new
-
-user name
-email address			update
-old password
-new password
-retype new password		update
-
-gender					update
-date of birth			update
-country					update
-city					update
-fav Arid song			update
-
-Facebook default publish settings
-	Publish to my Facebook live stream
-		<tickbox>when I post a comment or update</tickbox>
-		<tickbow>when I post a photo</tickbox>
-		<tickbox>when I post a video</tickbox>					update
-
-MySpace url				update
-Twitter url				update
-Netlog url				update
+<% form_for @user, :url => user_path, :html => { :method => :put} do |form| %>
+	<%= form.error_messages %>
+	
+	<fieldset class="first">
+			<p>
+				<%= form.label :name %>
+				<%= form.text_field :name %>
+			</p>
+			
+			<p>
+				<%= form.label :email %>
+				<%= form.text_field :email %>
+			</p>
+			<p>
+				<%= form.label :birth_date %>
+				<%= form.date_select :birth_date %>
+			</p>
+			
+			<p>
+				<%= form.label :country %>
+				<%= form.text_field :country %>
+			</p>
+			
+			<p>
+				<%= form.label :city %>
+				<%= form.text_field :city %>
+			</p>
+			
+			<p>
+				<%= form.label :gender %>
+				<%= form.select :gender, %w(Male Female) %>
+			</p>
+	</fieldset>
+	
+	<fieldset class="submit">
+		<p>
+			<%= form.submit 'Update', :class => "input_submit" %>
+		</p>
+	</fieldset>
+<% end %>

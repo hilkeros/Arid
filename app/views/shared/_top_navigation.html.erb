@@ -2,9 +2,8 @@
   <div class="container">
     <ul class="clearfix">
 			<% if current_user %>
-        <li class="first"><a href="#">my profile</a></li>
-        <li><a href="#">settings</a></li>
-        <li><a href="#">browse fans</a></li>
+				<li class="first"><%= link_to('Admin', admin_root_path) if current_user.admin? %></li>
+        <li class="<%= "first" unless current_user.admin? %>"><%= link_to "settings", edit_user_path %></li>
         <li><%= link_to "log out", logout_path %></li>
 			<% else %>
         <li class="first">
@@ -15,7 +14,6 @@
 				   </a>
 				</li>
         <li class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to 'login <span class="or">or</span> register', login_path %></li>
-        <li><a href="#">browse fans</a></li>
 			<% end %>
 		</ul>
 	</div>
