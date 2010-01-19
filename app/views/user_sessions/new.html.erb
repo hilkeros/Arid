@@ -20,10 +20,22 @@
 			</fieldset>
 		<% end %>
 		<p>
-			<%= link_to('Forgot password?', new_password_reset_path ) %><br />
-			<a class="signup_link" href="#">Sign up for a free account.</a>
+			<%= link_to('Forgot password?', new_password_reset_path ) %>
 		</p>
+		<div id="other-action" class="clearfix">
+		  <p id="signup">
+		    <a class="signup_link" href="#">Sign up for a free account.</a> <span class="or">or</span>
+		  </p>
+		  <p id="fb_connect">
+				<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
+				<% end %>
+				<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email,publish_stream,read_stream', function() {$('#facebook_connect_form').submit(); }); }); return false;">
+			      <img src="/images/fb-connect.png" alt="Connect with Facebook" />
+		    </a>
+		  </p>
+		</div>
 	</div>
+	
 	
 	<div class="signup">
 		<h1>New user</h1>
@@ -59,14 +71,5 @@
 		<p>
 			<a class="login_link" href="#">Already an account? Login.</a>
 		</p>
-	</div>
-
-	<div class="facebook_connect">
-		<h1>Facebook</h1>
-		<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
-		<% end %>
-		<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email,publish_stream,read_stream', function() {$('#facebook_connect_form').submit(); }); }); return false;">
-	      <img id="fb_login_image" src="/images/fb_connect.png" alt="Connect" />
-	    </a>
 	</div>
 </div>
