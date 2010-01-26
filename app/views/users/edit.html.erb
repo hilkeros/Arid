@@ -25,8 +25,8 @@
 			</p>
 			
 			<p>
-				<%= form.label :city %>
-				<%= form.text_field :city %>
+				<%= form.label :zip %>
+				<%= form.text_field :zip %>
 			</p>
 			
 			<p>
@@ -34,6 +34,19 @@
 				<%= form.select :gender, %w(Male Female) %>
 			</p>
 	</fieldset>
+	
+	<% unless @user.facebook_uid.present? %>
+		<fieldset>
+			<p>
+				<%= form.label :password %>
+				<%= form.text_field :password %>
+			</p>
+			<p>
+				<%= form.label :password_confirmation %>
+				<%= form.text_field :password_confirmation %>
+			</p>
+		</fieldset>
+	<% end %>
 	
 	<fieldset class="submit">
 		<p>
