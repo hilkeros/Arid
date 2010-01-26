@@ -35,6 +35,19 @@
 			</p>
 	</fieldset>
 	
+	<% unless @user.facebook_uid.present? %>
+		<fieldset>
+			<p>
+				<%= form.label :password %>
+				<%= form.text_field :password %>
+			</p>
+			<p>
+				<%= form.label :password_confirmation %>
+				<%= form.text_field :password_confirmation %>
+			</p>
+		</fieldset>
+	<% end %>
+	
 	<fieldset class="submit">
 		<p>
 			<%= form.submit 'Update', :class => "input_submit" %>
