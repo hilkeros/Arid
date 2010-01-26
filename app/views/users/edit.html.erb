@@ -16,12 +16,12 @@
 			</p>
 			<p>
 				<%= form.label :birth_date %>
-				<%= form.date_select :birth_date %>
+				<%= form.date_select :birth_date, :start_year => 1931 %>
 			</p>
 			
 			<p>
 				<%= form.label :country %>
-				<%= form.text_field :country %>
+				<%= form.country_select :country %>
 			</p>
 			
 			<p>
@@ -33,17 +33,29 @@
 				<%= form.label :gender %>
 				<%= form.select :gender, %w(Male Female) %>
 			</p>
+			<p>
+				<%= form.label :myspace_uid, "MySpace account" %>
+				<%= form.text_field :myspace_uid %>
+			</p>
+			<p>
+				<%= form.label :twitter_uid, "Twitter account"%>
+				<%= form.text_field :twitter_uid %>
+			</p>
+			<p>
+				<%= form.label :netlog_uid, "Netlog account"%>
+				<%= form.text_field :netlog_uid%>
+			</p>
 	</fieldset>
 	
 	<% unless @user.facebook_uid.present? %>
 		<fieldset>
 			<p>
-				<%= form.label :password %>
-				<%= form.text_field :password %>
+				<%= form.label :password, "Choose new password" %>
+				<%= form.password_field :password %>
 			</p>
 			<p>
-				<%= form.label :password_confirmation %>
-				<%= form.text_field :password_confirmation %>
+				<%= form.label :password_confirmation, "Confirm your new password" %>
+				<%= form.password_field :password_confirmation %>
 			</p>
 		</fieldset>
 	<% end %>
