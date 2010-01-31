@@ -21,7 +21,7 @@
 			
 			<p>
 				<%= form.label :country %>
-				<%= form.country_select :country %>
+				<%= form.country_select :country, %w(Belgium Netherlands) %>
 			</p>
 			
 			<p>
@@ -35,14 +35,17 @@
 			</p>
 			<p>
 				<%= form.label :myspace_uid, "MySpace account" %>
+				<%= form.label :myspace_uid, "http://myspace.com/nickname", :class => 'example' %>
 				<%= form.text_field :myspace_uid %>
 			</p>
 			<p>
 				<%= form.label :twitter_uid, "Twitter account"%>
+				<%= form.label :twitter_uid, "http://twitter.com/nickname", :class => 'example' %>
 				<%= form.text_field :twitter_uid %>
 			</p>
 			<p>
 				<%= form.label :netlog_uid, "Netlog account"%>
+				<%= form.label :netlog_uid, "http://netlog.com/nickname", :class => 'example' %>
 				<%= form.text_field :netlog_uid%>
 			</p>
 	</fieldset>
