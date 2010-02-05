@@ -12,6 +12,7 @@
         <tr>             
           <th class="first">ID</th>
 					<th>Name</th>
+					<th>Email</th>
 					<th>Created at</th>
 					<th>Admin</th>
           <th class="last">&nbsp;</th>
@@ -20,6 +21,7 @@
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= user.id %></td>
 					<td><%= link_to user.name, admin_user_path(user) %></td>
+					<td><%= user.email %>
 					<td><%= user.created_at %></td>
 					<td><%= user.admin ? "yes" : "no" %></td>
           <td class="last">

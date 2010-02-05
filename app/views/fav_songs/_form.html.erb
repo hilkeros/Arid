@@ -1,0 +1,21 @@
+<p>
+	You can help us choose the songs for our setlist in 2010. The big hits we will play anyway, but which other songs from the previous albums do you want to hear?
+</p>
+<p> 
+	<% form_for @user, :url => user_path, :html => { :method => :put} do |f| %>
+		<div class="group">
+			<%= f.label :fav_arid_song, "Choice 1", :class => :label %>
+    		<%= f.select(:fav_arid_song, Song.find(:all).collect {|c| [ c.name, c.id ] }) %>
+		</div>
+		<div class="group">
+			<%= f.label :fav_arid_song2, "Choice 2", :class => :label %>
+    		<%= f.select(:fav_arid_song2, Song.find(:all).collect {|c| [ c.name, c.id ] }) %>
+		</div>
+		<div class="group">
+			<%= f.label :fav_arid_song3, "Choice 3", :class => :label %>
+    		<%= f.select(:fav_arid_song3, Song.find(:all).collect {|c| [ c.name, c.id ] }) %>
+		</div>
+		<div class="group navform">
+		  <input type="submit" class="button" value="Update" />
+		</div>
+	<% end %>

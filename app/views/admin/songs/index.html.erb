@@ -1,0 +1,37 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first active"><%= link_to 'List', admin_songs_path %></li>
+      <li><%= link_to 'New', new_admin_song_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">          
+    <h2 class="title">All Songs</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first">Song name</th>			
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @songs.each do |song| -%>
+        	<tr class="<%= cycle("odd", "even") %>">
+			<td><%= song.name %></td>		
+          	<td class="last">
+            <%= link_to 'show', admin_song_path(song) %> |
+            <%= link_to 'edit', edit_admin_song_path(song) %> |
+            <%= link_to 'destroy', admin_song_path(song), :method => :delete, :confirm => 'Are you sure?' %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar">
+        <div class="actions">
+        </div>
+        
+        <div class="clear"></div>
+      </div>
+    </div>
+  </div>
+</div>
+	<% content_for :sidebar, render(:partial => '/admin/shared/sidebar') -%>

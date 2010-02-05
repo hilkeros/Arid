@@ -1,0 +1,8 @@
+<p>
+	You can help us choose the songs for our setlist in 2010. The big hits we will play anyway, but which other songs from the previous albums do you want to hear?
+</p>
+<p> 
+		<% form_for @user, :url => fav_songs_path, :html => { :method => :put} do |f| %>
+				<%= render :partial => "form", :locals => {:f => f} %>
+  		<% end -%>
+</p>

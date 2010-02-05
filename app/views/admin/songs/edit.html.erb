@@ -1,0 +1,26 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', admin_songs_path  %></li>
+      <li><%= link_to 'New', new_admin_song_path %></li>
+      <li class="active"><%= link_to 'Edit', edit_admin_song_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">            
+    <h2 class="title">Edit Song</h2>
+    <div class="inner">
+      <% form_for @song, :url => admin_song_path(@song), :html => { :class => :form } do |f| -%>
+				<%= f.error_messages %>
+        		<div class="group">
+	   				<%= f.label :name, "Song name", :class => :label %>
+	   				<%= f.text_field :name, :class => 'text_field' %>
+	   				<span class="description">Ex: a simple text</span>
+	 			</div>
+				<div class="group navform">
+				  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', admin_songs_path %>
+				</div>
+      <% end -%>
+    </div>
+  </div>
+</div>
