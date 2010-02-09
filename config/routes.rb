@@ -41,13 +41,16 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :user_session
   map.resource :account, :controller => "users"
-  map.resource :user
+  map.resource :user do |usr|
+    usr.resource :fav_songs
+  end
   map.resources :gigs
   map.resources :mailing_addresses
   map.resources :password_resets
   map.resources :press
-  map.resources :fav_songs
   
+  map.profile '/fans/:id', :controller => 'users', :action => 'show'
+    
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'
   map.logout  '/logout',  :controller => 'user_sessions', :action => 'destroy'

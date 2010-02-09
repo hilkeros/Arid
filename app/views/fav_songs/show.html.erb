@@ -1,0 +1,9 @@
+<%= title "My favorite Arid songs" %>
+<%= link_to 'edit', edit_user_fav_songs_path %>
+<table>
+	<% @fav_songs.each do |song| %>
+		<tr>
+			<td><%= song.name %></td>
+		</tr>
+	<% end %>
+</table>

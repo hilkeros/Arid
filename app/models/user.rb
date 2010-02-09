@@ -17,5 +17,17 @@ class User < ActiveRecord::Base
   def before_connect(facebook_session)
     self.name = facebook_session.user.name
   end
+  
+  def update_favorite_songs favorite_songs
+    favorite_songs.each do |fsong|
+      if fsong[:id].present?
+        favorite_song = self.fav_songs.find(fsong[:id])
+      else
+        favorite_song = self.fav_songs.new
+      end
+      favorite_song.song_id = fsong[:song_id]
+      favorite_song.save
+    end
+  end
 
 end

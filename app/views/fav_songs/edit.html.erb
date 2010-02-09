@@ -1,2 +1,35 @@
-<h1>FavSongs#edit</h1>
-<p>Find me in app/views/fav_songs/edit.html.erb</p>
+<h1>Choose your favorite songs</h1>
+
+<% form_for :user, :url => user_fav_songs_path, :html => {:method => :put} do |form| %>
+	
+	<fieldset class="first">
+		<% form.fields_for "fav_songs[]", FavSong.new do |sform| %>
+			<%= sform.hidden_field :id, :value => @fav_songs.first.try(:id) %>
+			<p>
+				<%= sform.select :song_id, @songs.collect{|s| [s.name, s.id]}, {:include_blank => ' - Select Song - ', :selected => @user_songs.first.try(:id)} %>
+			</p>
+		<% end %>
+		
+		<% form.fields_for "fav_songs[]", FavSong.new do |sform| %>
+			<%= sform.hidden_field :id, :value => @fav_songs.second.try(:id) %>
+			<p>
+				<%= sform.select :song_id, @songs.collect{|s| [s.name, s.id]}, {:include_blank => ' - Select Song - ', :selected => @user_songs.second.try(:id)} %>
+			</p>
+		<% end %>
+		
+		<% form.fields_for "fav_songs[]", FavSong.new do |sform| %>
+			<%= sform.hidden_field :id, :value => @fav_songs.third.try(:id) %>
+			<p>
+				<%= sform.select :song_id, @songs.collect{|s| [s.name, s.id]}, {:include_blank => ' - Select Song - ', :selected => @user_songs.third.try(:id)} %>
+			</p>
+		<% end %>
+		
+	</fieldset>
+	
+	<fieldset class="submit">
+		<p>
+			<%= form.submit 'Save', :class => "input_submit" %>
+		</p>	
+	</fieldset>
+	
+<% end %>
