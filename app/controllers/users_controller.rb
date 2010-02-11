@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.attributes = params[:user]
     if @user.facebook_uid.present?
-      @user.save(:perform_validations => false)
+      @user.save_with_validation(false) 
     else
       @user.save!
     end
