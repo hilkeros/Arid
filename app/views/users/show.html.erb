@@ -2,12 +2,13 @@
 <div id="profile">
 	<h2>Personal info</h2>
 	<dl>
-		<dt>Username: <%= @user.name %></dt>
+		<dt>Name: <%= @user.name %></dt>
 	</dl>
 	<%= link_to 'edit', edit_user_path if @user == current_user %>
 	
 
 	<h2>Favorite Arid Songs</h2>
+	<%= content_tag(:p, "No songs selected") if @user.songs.empty? %>
 	<% @user.songs.each do |song| %>
 		<p class="posted"><span class="author"><%= song.name %></span></p>
 	<% end %>
