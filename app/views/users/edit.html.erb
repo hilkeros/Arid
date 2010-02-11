@@ -50,8 +50,7 @@
 			</p>
 	</fieldset>
 	
-	<% unless @user.facebook_uid.present? %>
-		<fieldset>
+		<fieldset class="<%= "hidden" if @user.facebook_uid.present? %>">
 			<p>
 				<%= form.label :password, "Choose new password" %>
 				<%= form.password_field :password %>
@@ -61,7 +60,6 @@
 				<%= form.password_field :password_confirmation %>
 			</p>
 		</fieldset>
-	<% end %>
 	
 	<fieldset class="submit">
 		<p>
