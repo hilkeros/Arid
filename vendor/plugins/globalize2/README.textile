@@ -1,0 +1,65 @@
+h1. Globalize2
+
+Globalize2 is the successor of Globalize for Rails.
+
+It is compatible with and builds on the new "I18n api in Ruby on Rails":http://guides.rubyonrails.org/i18n.html. and adds model translations to ActiveRecord.
+
+Globalize2 is much more lightweight and compatible than its predecessor was. Model translations in Globalize2 use default ActiveRecord features and do not limit any ActiveRecord functionality any more.
+
+h2. Requirements
+
+ActiveRecord
+I18n
+
+(or Rails > 2.2)
+
+h2. Installation
+
+To install Globalize2 with its default setup just use:
+
+<pre><code>
+script/plugin install git://github.com/joshmh/globalize2.git
+</code></pre>
+
+h2. Model translations
+
+Model translations allow you to translate your models' attribute values. E.g.
+
+<pre><code>
+class Post < ActiveRecord::Base
+  translates :title, :text
+end
+</code></pre>
+
+Allows you to values for the attributes :title and :text per locale:
+
+<pre><code>
+I18n.locale = :en
+post.title # => Globalize2 rocks!
+
+I18n.locale = :he
+post.title # => גלובאלייז2 שולט!
+</code></pre>
+
+In order to make this work, you'll need to add the appropriate translation tables. Globalize2 comes with a handy helper method to help you do this. It's called @create_translation_table!@. Here's an example:
+
+<pre><code>
+class CreatePosts < ActiveRecord::Migration
+  def self.up
+    create_table :posts do |t|
+      t.timestamps
+    end
+    Post.create_translation_table! :title => :string, :text => :text
+  end
+  def self.down
+    drop_table :posts
+    Post.drop_translation_table!
+  end
+end
+</code></pre>
+
+Note that the ActiveRecord model @Post@ must already exist and have a @translates@ directive listing the translated fields.
+
+h2. Migration from Globalize
+
+See this script by Tomasz Stachewicz: http://gist.github.com/120867
