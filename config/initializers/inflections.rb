@@ -3,5 +3,5 @@
 # Add new inflection rules using the following format 
 # (all these examples are active by default):
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.uncountable %w( press )
+  inflect.uncountable %w( press language )
 end

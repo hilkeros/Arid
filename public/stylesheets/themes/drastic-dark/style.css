@@ -85,6 +85,14 @@ hr {
 	-webkit-border-radius: 3px;
 }
 
+.current_language {
+	color:#FFF;
+	background: #cc0000;
+	-moz-border-radius: 4px;
+	padding: 3px 4px;
+	-webkit-border-radius: 3px;
+}
+
 #main .block .content {
   background: #FFF;
   padding-top: 1px;

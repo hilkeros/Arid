@@ -48,6 +48,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mailing_addresses
   map.resources :password_resets
   map.resources :press
+  map.resource  :language
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
     
