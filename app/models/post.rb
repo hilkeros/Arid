@@ -1,6 +1,7 @@
 class Post < ActiveRecord::Base
   has_many :comments
   has_permalink :title
+  translates :title, :body
   
   validates_presence_of :title
   

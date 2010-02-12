@@ -11,7 +11,7 @@
   <div class="content">
     <div class="inner">
       
-        <h3><%= @post.title.humanize %></h3>
+        <h3><%= @post.title.try(:humanize) %></h3>
 
         <p>
           <%= raw @post.body %>
