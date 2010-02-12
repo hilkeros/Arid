@@ -1,13 +1,12 @@
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
-en:
+nl:
   menu:
-      news: News
+      news: Nieuws
       gigs: Tour Calendar
       contact: Contact
       admin: Admin
       profile: Profile
       settings: Settings
       log_out: Log out
-  

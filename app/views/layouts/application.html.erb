@@ -32,9 +32,9 @@
 			<div id="header" class="clearfix">
 				<p id="logo"><%= link_to "Arid", root_path %></p>
 				<ul id="nav_main">
-					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to "News", posts_path %></li>
-					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to "Tour Calendar", gigs_path %></li>
-					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to "Contact", contact_path %></li>
+					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to t('menu.news'), posts_path %></li>
+					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to t('menu.gigs'), gigs_path %></li>
+					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to t('menu.contact'), contact_path %></li>
 				</ul>
 			</div>
 

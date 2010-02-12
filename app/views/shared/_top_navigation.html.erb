@@ -2,10 +2,10 @@
   <div class="container">
     <ul class="clearfix">
 			<% if current_user %>
-				<li class="first"><%= link_to('Admin', admin_root_path) if current_user.admin? %></li>
-        <li class="<%= "first" unless current_user.admin? %>"><%= link_to "profile", profile_path(current_user.id) %></li>
-        <li><%= link_to "settings", edit_user_path %></li>
-        <li><%= link_to "log out", logout_path %></li>
+				<li class="first"><%= link_to(t('menu.admin'), admin_root_path) if current_user.admin? %></li>
+        <li class="<%= "first" unless current_user.admin? %>"><%= link_to t('menu.profile'), profile_path(current_user.id) %></li>
+        <li><%= link_to t('menu.settings'), edit_user_path %></li>
+        <li><%= link_to t('menu.log_out'), logout_path %></li>
 			<% else %>
         <li class="first">
 					<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
