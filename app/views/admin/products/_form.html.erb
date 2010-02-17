@@ -5,16 +5,27 @@
     <span class="description">Ex: a simple text</span>
   </div>
 
+	<div class="group">
+    <%= f.label :price, "Price", :class => :label %>
+    <%= f.text_field :price, :class => 'text_field' %>
+    <span class="description">Ex: 15.99</span>
+  </div>
+
   <div class="group">
     <%= f.label :variants, "Variants", :class => :label %>
     <%= f.text_field :variants, :class => 'text_field' %>
-    <span class="description">Ex: a simple text</span>
+    <span class="description">Comma seperated varaints. Ex: XL,L,M,S,XS</span>
   </div>
 
   <div class="group">
     <%= f.label :description, "Description", :class => :label %>
     <%= f.text_area :description, :class => 'text_area' %>
     <span class="description">Ex: a simple text</span>
+  </div>
+
+	<div class="group">
+    <%= f.label :image, "Image", :class => :label %>
+    <%= f.file_field :image %>
   </div>
         
 <div class="group navform">
