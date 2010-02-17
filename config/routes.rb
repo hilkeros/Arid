@@ -32,6 +32,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "posts"
     admin.resources :comments
     admin.resources :songs
+    admin.resources :products
   end
   
   map.resources :posts, :as => "news" do |post|
