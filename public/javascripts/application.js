@@ -39,4 +39,8 @@ $(document).ready(function(){
 		$('div.login').appear();
 		$('div.signup').hide();
 	})
+	
+	$(function() {
+		$('div.lightbox a').lightBox();
+	});
 })
