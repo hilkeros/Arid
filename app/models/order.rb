@@ -22,4 +22,8 @@ class Order < ActiveRecord::Base
     # after_transition :on => :sent, :do => :delivery_mail
   end
   
+  def total_price
+    order_products.sum(:price)
+  end
+  
 end

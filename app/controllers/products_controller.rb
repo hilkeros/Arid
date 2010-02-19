@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   def create
     @order = order
     @order.save
-    @order.order_products.create!(:product_id => params[:product][:id], :variant => params[:product][:variants])
+    @product = Product.find(params[:product][:id])
+    @order.order_products.create!(:product_id => @product.id, :variant => params[:product][:variants], :price => @product.price)
     session[:order_id] = @order.id
     flash[:notice] = "Succesfully placed product in your basket."
     redirect_to order_path
