@@ -11,7 +11,7 @@
     <div class="inner">
       
         <p>
-          <b>User_id:</b>
+          <b>User:</b>
           <%= @order.user.name %>
         </p>
 
@@ -25,6 +25,17 @@
           Without shipment: &euro;<%= @order.total_price %><br />
 					With shipment: &euro;<%= @order.total_price + 10.0 %>
         </p>
+
+				<p>
+					<h3>Billing info</h3>
+					<%= raw @order.billing_address.name %>
+					<%= raw @order.billing_address.address %>
+				</p>
+				<p>
+					<h3>Shipping info</h3>
+					<%= raw @order.shipping_address.name %>
+					<%= raw @order.shipping_address.address %>
+				</p>
 
 				<p>
 					<h3>Products</h3>
