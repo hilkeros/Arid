@@ -487,6 +487,11 @@ ul.button_list{
 .left{
 	clear:left;
 }
-.product h2{
+.product h2, .product h3{
 	margin-bottom:5px;
+}
+
+.info h3{
+	margin-bottom:5px;
+	margin-top:15px;
 }

@@ -1,0 +1,51 @@
+<h1>Billing Address</h1>
+
+<div id="comment_form">
+	<% form_for current_order, :url => billing_addresses_path, :html => { :method => :post } do |order_form| %>
+		<% order_form.fields_for :billing_address do |form| %>
+			<%= form.error_messages %>
+			<p>
+				<%= form.label :firstname %>
+				<%= form.text_field :firstname %>
+			</p>
+			
+			<p>
+				<%= form.label :lastname %>
+				<%= form.text_field :lastname %>
+			</p>
+			
+			<p>
+				<%= form.label :street %>
+				<%= form.text_field :street %>
+			</p>
+			
+			<p>
+				<%= form.label :zip %>
+				<%= form.text_field :zip %>
+			</p>
+			
+			<p>
+				<%= form.label :city %>
+				<%= form.text_field :city %>
+			</p>
+			
+			<p>
+				<%= form.label :country %>
+		    <%= form.country_select :country, %w(Belgium Netherlands)%>
+			</p>
+			
+			<p>
+				<%= form.label :phone %>
+				<%= form.text_field :phone %>
+			</p>
+			
+			<p>
+				<%= form.label :email %>
+				<%= form.text_field :email, :value => current_user.email %>
+			</p>
+		<% end %>
+		<p>
+			<%= order_form.submit 'Next', :class => 'input_submit' %>
+		</p>
+	<% end %>
+</div>

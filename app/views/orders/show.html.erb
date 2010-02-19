@@ -1,9 +1,14 @@
 <h1>Your basket</h1>
 <h2>Total order price: &euro; <%= @order.total_price %></h2>
-<% @order.order_products.each do |order_product| %>
-	<div class="product <%= cycle('left','right') %>">
-		<h2><%= order_product.product.name %> (&euro;<%= order_product.price %>)</h2>
-		<%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %>
-		<div class="lightbox"><%= link_to "#{image_tag(order_product.product.image.url(:thumb))}", order_product.product.image.url(:medium) %></div>
-	</div>
-<% end %>
+
+<div class="clearfix">
+	<% @order.order_products.each do |order_product| %>
+		<div class="product <%= cycle('left','right') %>">
+			<h2><%= order_product.product.name %> (&euro;<%= order_product.price %>)</h2>
+			<%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %>
+			<div class="lightbox"><%= link_to "#{image_tag(order_product.product.image.url(:thumb))}", order_product.product.image.url(:medium) %></div>
+		</div>
+	<% end %>
+</div>
+
+<p class="button_list"><%= link_to "Complete Order", new_billing_addresses_path %></p>

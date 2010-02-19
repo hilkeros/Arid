@@ -1,0 +1,28 @@
+Thanks for your order.
+
+Please transfer <%= @order.total_price + 10.0.to_f %> to our bank account at 000-0000000-000
+
+We will ship your order after we've received your payment.
+
+Your order information:
+<% @order.order_products.each do |order_product| %>
+	<%= order_product.product.name %> (&euro;<%= order_product.price %>)
+	<%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %>
+<% end %>
+
+Total order price
+Total order: &euro;<%= @order.total_price %>
+Shipping costs: &euro; 10
+Total: &euro;<%= @order.total_price + 10.to_f %>
+
+Billing information
+<%= @order.billing_address.name %>
+<%= raw @order.billing_address.address %>
+
+Shipping information
+<%= @order.shipping_address.name %>
+<%= raw @order.shipping_address.address %>
+
+
+regards
+Arid.
