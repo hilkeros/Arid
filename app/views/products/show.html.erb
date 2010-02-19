@@ -1,0 +1,6 @@
+<h1><%= @product.name %> (&euro;<%= @product.price %>)</h1>
+
+<%= raw @product.description %>
+
+<%= image_tag(@product.image.url(:medium)) %>
+

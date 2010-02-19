@@ -15,6 +15,9 @@
 	<%= stylesheet_link_tag 'screen', :media => "all" %>
 	<%= stylesheet_link_tag 'print', :media => "print" %>
 	<%= javascript_include_tag :defaults, :cache => true %>
+	
+	<%= stylesheet_link_tag 'jquery.lightbox-0.5' %>
+	<%= javascript_include_tag 'jquery.lightbox-0.5.js' %>
 
 	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" /><![endif]-->
 	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" /><![endif]-->
@@ -35,6 +38,7 @@
 					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to t('menu.news'), posts_path %></li>
 					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to t('menu.gigs'), gigs_path %></li>
 					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to t('menu.contact'), contact_path %></li>
+					<li class="<%= "current" if controller_name == "products" %>"><%= link_to t('menu.shop'), products_path %></li>
 				</ul>
 			</div>
 

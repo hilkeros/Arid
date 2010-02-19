@@ -475,3 +475,18 @@ ul.button_list{
 .hidden{
 	display:none;
 }
+
+
+/*SHOP PRODUCTS*/
+.product{
+	width:230px;
+	float:left;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.left{
+	clear:left;
+}
+.product h2{
+	margin-bottom:5px;
+}

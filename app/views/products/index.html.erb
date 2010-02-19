@@ -1,0 +1,9 @@
+<h1>Arid shop</h1>
+
+<% @products.each do |product| %>
+	<div class="product <%= cycle('left','right') %>">
+		<h2><%= product.name %></h2>
+		<div class="lightbox"><%= link_to "#{image_tag(product.image.url(:thumb))}", product.image.url(:medium) %></div>
+		<%= link_to 'Details', product_path(product) %>
+	</div>	
+<% end %>
