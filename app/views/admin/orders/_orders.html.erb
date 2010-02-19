@@ -1,0 +1,26 @@
+<table class="table">
+  <tr>             
+    <th class="first">ID</th>
+							<th>User_id</th>
+		          <th>Created at</th>
+    <th class="last">&nbsp;</th>
+  </tr>
+  <% orders.each do |order| -%>
+  <tr class="<%= cycle("odd", "even") %>">
+    <td>
+      <%= order.id %>
+    </td>
+							<td>
+			<%= link_to order.user_id, admin_order_path(order) %>
+		</td>
+							<td>
+      <%= order.created_at %>
+    </td>
+    <td class="last">
+      <%= link_to 'show', admin_order_path(order) %> |
+      <%= link_to 'edit', edit_admin_order_path(order) %> |
+      <%= link_to 'destroy', admin_order_path(order), :method => :delete, :confirm => 'Are you sure?' %>
+    </td>
+  </tr>          
+  <% end -%>
+</table>

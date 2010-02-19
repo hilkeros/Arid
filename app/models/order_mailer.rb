@@ -12,8 +12,17 @@ class OrderMailer < ActionMailer::Base
   def confirmed(order)
     setup_default_email_settings
     
-    @recipients       = "info@arid.be"
+    @recipients       = "#{order.shipping_address.email}"
     @subject         += "Thanks for your order"
+    
+    @body[:order]  = order
+  end
+  
+  def sent_order(order)
+    setup_default_email_settings
+    
+    @recipients       = "#{order.shipping_address.email}"
+    @subject         += "Your order has been sent"
     
     @body[:order]  = order
   end

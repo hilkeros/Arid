@@ -33,6 +33,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :comments
     admin.resources :songs
     admin.resources :products
+    admin.resources :orders
+    admin.order_paid '/order/:id/paid', :controller => 'orders', :action => 'update', :order => { :state => "paid"}
+    admin.order_sent '/order/:id/sent', :controller => 'orders', :action => 'update', :order => { :state => "sent"}
   end
   
   map.resources :posts, :as => "news" do |post|
