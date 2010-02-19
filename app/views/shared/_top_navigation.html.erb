@@ -2,6 +2,9 @@
   <div class="container">
     <ul class="clearfix">
 			<% if current_user %>
+				<% if current_order.present? %>
+					<li class="first"><%= link_to 'My Order', order_path %></li>
+				<% end %>
 				<li class="first"><%= link_to(t('menu.admin'), admin_root_path) if current_user.admin? %></li>
         <li class="<%= "first" unless current_user.admin? %>"><%= link_to t('menu.profile'), profile_path(current_user.id) %></li>
         <li><%= link_to t('menu.settings'), edit_user_path %></li>

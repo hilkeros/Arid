@@ -4,3 +4,17 @@
 
 <%= image_tag(@product.image.url(:medium)) %>
 
+<% form_for :product, :url => products_path do |form| %>
+	<%= form.hidden_field :id, :value => @product.id %>
+	
+	<% if @product.variants.present? %>
+		<p>
+			<%= form.label :variants, "Choose a variant" %>
+			<%= form.select :variants, @product.variants.split(/,/) %>
+		</p>
+	<% end %>
+	
+	<p>
+		<%= form.submit 'Add to basket', :class => "input_submit" %>
+	</p>
+<% end %>

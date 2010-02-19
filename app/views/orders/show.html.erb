@@ -1,0 +1,6 @@
+<h1>Your basket</h1>
+
+<% @order.order_products.each do |order_product| %>
+	<p><%= order_product.product.name %></p>
+	<p><%= order_product.variant %></p>
+<% end %>

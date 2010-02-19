@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :press
   map.resource  :language
   map.resources  :products
+  map.resource :order
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
     

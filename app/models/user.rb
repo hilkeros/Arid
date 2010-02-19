@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :videos
   has_many :fav_songs
   has_many :songs, :through => :fav_songs
+  has_many :orders
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
