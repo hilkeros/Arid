@@ -34,8 +34,9 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :songs
     admin.resources :products
     admin.resources :orders
-    admin.order_paid '/order/:id/paid', :controller => 'orders', :action => 'update', :order => { :state => "paid"}
-    admin.order_sent '/order/:id/sent', :controller => 'orders', :action => 'update', :order => { :state => "sent"}
+    admin.order_paid      '/order/:id/paid',  :controller => 'orders', :action => 'update', :order => { :state => "paid"}
+    admin.order_sent      '/order/:id/sent',  :controller => 'orders', :action => 'update', :order => { :state => "sent"}
+    admin.archived_orders '/orders/filter/archived', :controller => 'orders', :action => 'index', :filter => 'archived'
   end
   
   map.resources :posts, :as => "news" do |post|

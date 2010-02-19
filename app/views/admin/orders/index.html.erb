@@ -2,17 +2,27 @@
   <div class="secondary-navigation">
     <ul>
       <li class="first active"><%= link_to 'List', admin_orders_path %></li>
+      <li class="active"><%= link_to 'Archived', admin_archived_orders_path %></li>
     </ul>
     <div class="clear"></div>
   </div>          
   <div class="content">          
     <div class="inner">
-				<h2>Confirmed Order</h2>
-      	<%= render 'orders', :orders => confirmed_orders unless confirmed_orders.empty? %>
+				<%= content_tag :h2, "No orders present" if confirmed_orders.empty? && @paid_orders.blank? && @completed_orders.blank? %>
+				<% if confirmed_orders.present? %>
+						<h2>Confirmed Order</h2>
+					<%= render 'orders', :orders => confirmed_orders  %>
+				<% end %>
 				
+				<% if @paid_orders.present? %>
 				<h2>Payed Orders</h2>
-				<%= render 'orders', :orders => @paid_orders unless @paid_orders.empty? %>
-							
+					<%= render 'orders', :orders => @paid_orders  %>
+				<% end %>
+				
+				<% if @completed_orders.present? %>
+				<h2>Order Archive</h2>
+					<%= render 'orders', :orders => @completed_orders  %>
+				<% end %>
       <div class="actions-bar">
         <div class="actions">
         </div>

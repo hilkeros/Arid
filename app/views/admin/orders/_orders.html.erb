@@ -17,9 +17,7 @@
       <%= order.created_at %>
     </td>
     <td class="last">
-      <%= link_to 'show', admin_order_path(order) %> |
-      <%= link_to 'edit', edit_admin_order_path(order) %> |
-      <%= link_to 'destroy', admin_order_path(order), :method => :delete, :confirm => 'Are you sure?' %>
+      <%= link_to 'show', admin_order_path(order) %>
     </td>
   </tr>          
   <% end -%>

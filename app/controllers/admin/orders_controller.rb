@@ -2,6 +2,7 @@ class Admin::OrdersController < AdminController
 
   def index
     @paid_orders = Order.paid.all
+    @completed_orders = Order.completed.all if params[:filter] == "archived"
   end
   
   def show
