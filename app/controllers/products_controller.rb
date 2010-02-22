@@ -19,7 +19,8 @@ class ProductsController < ApplicationController
     redirect_to order_path
   rescue ActiveRecord::RecordInvalid
     flash[:error] = "Product not added to basket, please try again"
-    redirect_to product_path(params[:product][:id])
+    render '/products/show', :layout => 'application'
+    # redirect_to product_path(params[:product][:id])
   end
 
   protected

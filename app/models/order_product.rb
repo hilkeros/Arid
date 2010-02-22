@@ -3,6 +3,8 @@ class OrderProduct < ActiveRecord::Base
   belongs_to :order
   belongs_to :product
   
+  validates_numericality_of :amount, :greater_than => 0
+  
   def total_price
     amount.to_f * price
   end
