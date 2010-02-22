@@ -9,6 +9,16 @@ class User < ActiveRecord::Base
   has_many :fav_songs
   has_many :songs, :through => :fav_songs
   has_many :orders
+  
+  has_attached_file :avatar,
+    :styles => { 
+        :thumb => [ "32x32>", :jpg ], 
+        :small => [ "100x100>", :jpg ], 
+        :medium => [ "450x450>", :jpg ], 
+        :large => [ "700x500>", :jpg ] 
+    },
+    :url  => "/assets/users/:style/:id.:extension",
+    :path => ":rails_root/public/assets/users/:style/:id.:extension"
 
   def deliver_password_reset_instructions!  
     reset_perishable_token!  

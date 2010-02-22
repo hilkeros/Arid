@@ -1,7 +1,7 @@
 <h1>Settings</h1>
 <h2>Update profile</h2>
 
-<% form_for @user, :url => user_path, :html => { :method => :put} do |form| %>
+<% form_for @user, :url => user_path, :html => { :method => :put, :multipart => true} do |form| %>
 	<%= form.error_messages %>
 	
 	<fieldset class="first">
@@ -48,6 +48,14 @@
 				<%= form.label :netlog_uid, "http://netlog.com/nickname", :class => 'example' %>
 				<%= form.text_field :netlog_uid%>
 			</p>
+	</fieldset>
+	
+	<fieldset>
+		<h3>Avatar</h3>
+		<p>
+			<%= form.label :avatar %>
+			<%= form.file_field :avatar %>
+		</p>
 	</fieldset>
 	
 		<fieldset class="<%= "hidden" if @user.facebook_uid.present? %>">

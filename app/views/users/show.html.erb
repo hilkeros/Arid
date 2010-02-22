@@ -1,6 +1,7 @@
 <%= title "#{@user.name}'s Profile" %>
 <div id="profile">
 	<h2>Personal info</h2>
+	<%= image_tag(@user.avatar.url(:small)) %>
 	<dl>
 		<dt>Name: <%= @user.name %></dt>
 	</dl>
