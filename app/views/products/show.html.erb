@@ -15,6 +15,11 @@
 	<% end %>
 	
 	<p>
+		<%= form.label :amount %>
+		<%= form.text_field :amount, :value => 1, :class => 'input_small_text', :size => 5 %>
+	</p>
+	
+	<p>
 		<%= form.submit 'Add to basket', :class => "input_submit" %>
 	</p>
 <% end %>

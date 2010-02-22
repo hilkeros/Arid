@@ -394,6 +394,16 @@ ul.button_list{
 	width:210px;
 }
 
+.input_small_text{
+	color:#CCC;
+	background:#0f1212;
+	border:1px solid #323536;
+	font-family:arial, sans-serif;
+	font-size:14px;
+	padding:6px;  
+	width:20px;
+}
+
 #socialmedia{
 	/* Add extra space for margin on last image li*/
 	overflow:hidden;

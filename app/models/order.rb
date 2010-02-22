@@ -30,7 +30,11 @@ class Order < ActiveRecord::Base
   end
   
   def total_price
-    order_products.sum(:price)
+    price = 0.0
+    order_products.each do |order_product|
+      price += order_product.total_price
+    end
+    return price
   end
   
   def new_order_mail
