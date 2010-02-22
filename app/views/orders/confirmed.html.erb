@@ -4,21 +4,37 @@
 
 <p>We will ship your order after we've received your payment.</p>
 
-<p>Your order information:</p>
-<% @order.order_products.each do |order_product| %>
-	<p><%= order_product.product.name %> (&euro;<%= order_product.price %>)</p>
-	<p><%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %></p>
-<% end %>
+<p>
+	Your order information:
+	<dl>
+		<% @order.order_products.each do |order_product| %>
+			<dt><%= order_product.amount %><%= order_product.product.name %> (&euro;<%= order_product.price %>)</dt>
+			<dt><%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %></dt>
+		<% end %>
+	</dl>
+</p>
 
-<p>Total order price</p>
-<p>Total order: &euro;<%= @order.total_price %></p>
-<p>Shipping costs: &euro; 10</p>
-<p>Total: &euro;<%= @order.total_price + 10.to_f %></p>
+<p>
+	Total order price:
+	<dl>
+		<dt>Total order: &euro;<%= @order.total_price %></dt>
+		<dt>Shipping costs: &euro; 10</dt>
+		<dt>Total: &euro;<%= @order.total_price + 10.to_f %></dt>
+	</dl>
+</p>
 
-<p>Billing information</p>
-<p><%= @order.billing_address.name %></p>
-<p><%= raw @order.billing_address.address %></p>
+<p>
+	Billing information
+	<dl>
+		<dt><%= @order.billing_address.name %></dt>
+		<dt><%= raw @order.billing_address.address %></dt>
+	</dl>
+</p>
 
-<p>Shipping information</p>
-<p><%= @order.shipping_address.name %></p>
-<p><%= raw @order.shipping_address.address %></p>
+<p>
+	Shipping information
+	<dl>	
+		<dt><%= @order.shipping_address.name %></dt>
+		<dt><%= raw @order.shipping_address.address %></dt>
+	</dl>
+</p>

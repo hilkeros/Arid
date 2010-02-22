@@ -2,13 +2,7 @@
 
 <h2>Overview</h2>
 <div class="clearfix">
-	<% @order.order_products.each do |order_product| %>
-		<div class="product <%= cycle('left','right') %>">
-			<h3><%= order_product.product.name %> (&euro;<%= order_product.price %>)</h3>
-			<%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %>
-			<div class="lightbox"><%= link_to "#{image_tag(order_product.product.image.url(:thumb))}", order_product.product.image.url(:medium) %></div>
-		</div>
-	<% end %>
+	<%= render :partial => 'order_products' %>
 </div>
 
 <div class="info">

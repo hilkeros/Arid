@@ -2,16 +2,7 @@
 <h2>Total order price: &euro; <%= @order.total_price %></h2>
 
 <div class="clearfix">
-	<% @order.order_products.each do |order_product| %>
-		<div class="product <%= cycle('left','right') %>">
-			<h2><%= link_to order_product.product.name, [order_product.product] %> (&euro;<%= order_product.price %>)</h2>
-			<div class="lightbox"><%= link_to "#{image_tag(order_product.product.image.url(:thumb))}", order_product.product.image.url(:medium) %></div>
-			
-			<%= raw "Selected variant: #{order_product.variant}<br />" if order_product.variant.present? %>
-			Amount: <%= decrease_link order_product %> <%= order_product.amount %> <%= increase_link order_product %><br />
-			<%= link_to 'remove', [order_product], :method => :delete %>
-		</div>
-	<% end %>
+	<%= render :partial => 'order_products' %>
 </div>
 
 <p class="button_list clearfix"><%= link_to "Complete Order", [:new, :billing_addresses] %></p>
