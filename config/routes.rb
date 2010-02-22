@@ -58,6 +58,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :order, :member => {:confirmed => :get}
   map.resource :billing_addresses
   map.resource :shipping_addresses
+  map.resources :order_products
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
     

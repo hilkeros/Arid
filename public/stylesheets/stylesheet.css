@@ -505,3 +505,8 @@ ul.button_list{
 	margin-bottom:5px;
 	margin-top:15px;
 }
+
+.update_amount{
+	float:left;
+	margin-right:5px;
+}
