@@ -12,7 +12,7 @@ class Admin::OrdersController < AdminController
   def update
     @order = Order.find(params[:id])
     @order.update_attributes(params[:order])
-    OrderMailer.deliver_sent_order(self) if @order.paid?
+    OrderMailer.deliver_sent_order(@order) if @order.sent?
     flash[:notice] = "Order succesfully updated"
     redirect_to admin_order_path(@order)
   end

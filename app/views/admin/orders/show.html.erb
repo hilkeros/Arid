@@ -2,7 +2,6 @@
   <div class="secondary-navigation">
     <ul>
       <li class="first"><%= link_to 'List', admin_orders_path  %></li>
-      <li><%= link_to 'New', new_admin_order_path %></li>
       <li class="active"><%= link_to 'Show', admin_order_path %></li>
     </ul>
     <div class="clear"></div>
@@ -44,7 +43,8 @@
 					<% @order.order_products.each do |order_product| %>
 						<div class="product">
 							<strong><%= order_product.product.name %> (&euro;<%= order_product.price %>)</strong><br />
-							<%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %>
+							<%= raw "Selected variant: #{order_product.variant}<br />" if order_product.variant.present? %>
+							Amount: <%= order_product.amount %>
 							<div class="lightbox"><%= link_to "#{image_tag(order_product.product.image.url(:thumb))}", order_product.product.image.url(:medium) %></div>
 						</div>
 					<% end %>
