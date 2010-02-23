@@ -15,4 +15,9 @@
 		<p class="posted"><span class="author"><%= song.name %></span></p>
 	<% end %>
 	<%= link_to 'edit', edit_user_fav_songs_path if @user == current_user %>
+	
+	<h2>Activity</h2>
+	<% @user.activities.each do |activity| %>
+		<%= raw activity_log activity %><br />
+	<% end %>
 </div>
