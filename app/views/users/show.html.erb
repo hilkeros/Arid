@@ -6,6 +6,7 @@
 		<dt>Name: <%= @user.name %></dt>
 	</dl>
 	<%= link_to 'edit', edit_user_path if @user == current_user %>
+	<%= render :partial => 'follow' unless @user == current_user %>
 	
 
 	<h2>Favorite Arid Songs</h2>
