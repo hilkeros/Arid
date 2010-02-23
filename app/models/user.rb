@@ -42,5 +42,9 @@ class User < ActiveRecord::Base
       favorite_song.save
     end
   end
+  
+  def is_following?(user)
+    friends.include?(user)
+  end
 
 end
