@@ -20,4 +20,8 @@
 	<% @user.activities.each do |activity| %>
 		<%= raw activity_log activity %><br />
 	<% end %>
+	
+	<h2>Photos</h2>
+	<%= link_to 'add photos', new_user_photo_path(current_user) %>
 </div>
+

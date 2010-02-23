@@ -1,2 +1,6 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<%= title "Fan photos of #{@user.name}" %>
+<p><%= link_to 'return to list', user_photos_path(current_user) %></p>
+
+<div>
+	<%= image_tag(@photo.image.url(:medium)) %>
+</div>

@@ -1,13 +1,9 @@
-<h1>Arid Photos</h1>
+<%= title "Fan photos of #{@user.name}" %>
+<p><%= link_to 'add more', new_user_photo_path(current_user) %></p>
 
-thumbnails of photos
-<%= link_to '# comments'%>
-
-<%= link_to 'more'%>
-
-<h1>Fan Photos</h1>
-
-thumbnails of photos
-<%= link_to '# comments'%>
-
-<%= link_to 'more'%>
+<%- @photos.each do |photo| -%>
+<div class="product <%= cycle('left','right') %>">
+	<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
+	<%= link_to 'View', user_photo_path(@user, photo) %>
+</div>
+<%- end -%>

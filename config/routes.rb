@@ -53,8 +53,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :mailing_addresses
   map.resources :password_resets
   map.resources :press
-  map.resource  :language
-  map.resources  :products
+  map.resource :language
+  map.resources :products
   map.resource :order, :member => {:confirmed => :get}
   map.resource :billing_addresses
   map.resource :shipping_addresses
@@ -62,6 +62,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :friendships
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
+  
+  map.resources :users, :as => 'fans' do |usr|
+    usr.resources :photos
+  end
     
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'
