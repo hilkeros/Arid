@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :friendships
   has_many :friends, :through => :friendships
+  has_many :activities
   
   has_attached_file :avatar,
     :styles => { 
