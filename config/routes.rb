@@ -59,6 +59,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :billing_addresses
   map.resource :shipping_addresses
   map.resources :order_products
+  map.resources :friendships
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
     

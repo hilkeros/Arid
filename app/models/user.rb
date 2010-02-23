@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :fav_songs
   has_many :songs, :through => :fav_songs
   has_many :orders
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :activities
   
   has_attached_file :avatar,
     :styles => { 
@@ -39,6 +42,10 @@ class User < ActiveRecord::Base
       favorite_song.song_id = fsong[:song_id]
       favorite_song.save
     end
+  end
+  
+  def is_following?(user)
+    friends.include?(user)
   end
 
 end
