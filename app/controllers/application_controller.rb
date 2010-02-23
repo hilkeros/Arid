@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :initialize_order
 
   def upcoming_gigs
-    @gigs = Gig.futur.all(:limit => 4, :order => "date ASC" )
+    @upcoming_gigs = Gig.futur.all(:limit => 4, :order => "date ASC" )
   end
 
   private
