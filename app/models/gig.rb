@@ -9,7 +9,8 @@ class Gig < ActiveRecord::Base
     has_many :comments
     has_many :photos
     has_many :videos
-    named_scope :upcoming, :conditions => ["date > ?", Time.now.midnight]
+    named_scope :futur, :conditions => ["date > ?", Time.now.midnight]
+    named_scope :past, :conditions => ["date < ?", Time.now.midnight]
 
     acts_as_url :venue_url
     

@@ -1,14 +1,30 @@
 <%= title "Tour Calendar" %>
 
+<h2>Upcoming</h2>
 <table>
 	<tbody>
-		<% upcoming_gigs.each do |gig| %>
+		<% @gigs.each do |gig| %>
 		<tr>
 			<td width="85px"><%= link_to gig.date.strftime('%d-%m-%Y'), gig_path(gig) %></td>
 			<td><%= link_to gig.venue, gig.venue_url %></td>
 			<td><%= gig_ticket_link(gig) %></td>
 			<td><%= gig.city %></td>
 			<td><%= gig.country %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<h2>Past</h2>
+<table>
+	<tbody>
+		<% @past_gigs.each do |gig| %>
+		<tr>
+			<td width="85px"><%= link_to gig.date.strftime('%d-%m-%Y'), gig_path(gig) %></td>
+			<td><%= link_to gig.venue, gig.venue_url %></td>
+			<td><%= gig.city %></td>
+			<td><%= gig.country %></td>
+			<td><%= link_to 'View details', gig_path(gig) %></td>
 		</tr>
 		<% end %>
 	</tbody>
