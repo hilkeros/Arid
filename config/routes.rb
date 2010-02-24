@@ -25,7 +25,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user do |usr|
     usr.resource :fav_songs
   end
-  map.resources :gigs
+  map.resources :gigs do |gig|
+    gig.resources :photos
+    gig.resources :comments
+  end
   map.resources :mailing_addresses
   map.resources :password_resets
   map.resources :press

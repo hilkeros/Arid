@@ -1,0 +1,4 @@
+<h2>Photos</h2>
+<%- @gig.photos.each do |photo| -%>
+	<%= link_to image_tag(photo.image.url(:thumb)), [photo.user, photo] %>
+<%- end -%>

@@ -9,6 +9,7 @@ class Gig < ActiveRecord::Base
   has_many :comments
   has_many :photos
   has_many :videos
+  
   named_scope :futur, :conditions => ["date > ?", Time.current.beginning_of_day]
   named_scope :past, :conditions => ["date < ?", Time.current.end_of_day]
 

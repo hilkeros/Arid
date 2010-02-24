@@ -1,0 +1,31 @@
+<%- if @gig.comments.present? -%>
+	<div id="comments">
+	  <h2><span class="comment_count"><%= pluralize(@gig.comments.size, "comment" )%></span></h2>
+    <div class="comment">
+			<% @gig.comments.each do |comment| %>
+				<p class="posted"><span class="author"><%= comment.user.name %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
+	      <div class="comment_content">
+					<p><%= comment.body %></p>
+	      </div>
+			<% end %>
+    </div>
+<% end %>
+
+<div id="comment_form">
+  <h2>Leave a comment</h2>
+	<div>
+		<% if current_user %>
+			<% form_for :comment, :url => gig_comments_path(@gig) do |form| %>
+				<%= form.hidden_field :gig_id, :value => @gig.id %>
+				<p>
+					<%= form.text_area :body %>
+				</p>
+				<p>
+					<%= form.submit 'Add Comment', :class => "input_submit" %>
+				</p>
+			<% end %>
+		<% else %>
+			You need to be logged in to comment. <%= link_to "Log in or Register", login_path %>.
+		<% end %>
+	</div>
+</div>

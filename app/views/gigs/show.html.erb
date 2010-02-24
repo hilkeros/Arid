@@ -18,5 +18,8 @@
     <td>Country:</td>         <td><%= @gig.country %> </td>
   </tr>
 
-</table><br />
-<%= link_to "Back to Tour Calendar", gigs_path %>
+</table>
+<%= render :partial => 'photos' if @gig.date.past? %>
+<%= render :partial => 'comments' if @gig.date.past? %>
+
+<p><%= link_to "Back to Tour Calendar", gigs_path %></p>
