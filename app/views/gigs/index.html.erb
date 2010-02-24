@@ -1,6 +1,6 @@
-<%= title "Tour Calendar" %>
+<%= title t('gigs.calendar') %>
 
-<h2>Upcoming</h2>
+<h2><%= t('gigs.futur') %></h2>
 <table>
 	<tbody>
 		<% @gigs.each do |gig| %>
@@ -15,7 +15,7 @@
 	</tbody>
 </table>
 
-<h2>Past</h2>
+<h2><%= t('gigs.past') %></h2>
 <table>
 	<tbody>
 		<% @past_gigs.each do |gig| %>
@@ -24,7 +24,7 @@
 			<td><%= link_to gig.venue, gig.venue_url %></td>
 			<td><%= gig.city %></td>
 			<td><%= gig.country %></td>
-			<td><%= link_to 'View details', gig_path(gig) %></td>
+			<td><%= link_to t('gigs.details'), gig_path(gig) %></td>
 		</tr>
 		<% end %>
 	</tbody>

@@ -1,6 +1,6 @@
 <div id="maillist_signup" class="box">
 	<% form_for :mailing_address, :url => mailing_addresses_path  do |form| %>
-			<h2>Stay in the loop!</h2>
+			<h2><%= t('sidebar.newsletter') %></h2>
 			<%= form.label :email, "you@domain.com", :class => 'example' %>
 			<%= form.text_field :email, :class => "input_text" %>
 		<%= form.submit 'Subscribe', :class => "input_submit" %>

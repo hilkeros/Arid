@@ -6,7 +6,7 @@
 	</p>
 	<%- if @post.exclusive && !current_user -%>
 		<p>
-			You need to be logged in to view this post. <%= link_to "Log in or Register", login_path %>.
+			You need to be logged in to view this post. <%= link_to t('menu.login_or_register'), login_path %>.
 		</p>
 	<%- else -%>
 		<p>
@@ -14,11 +14,11 @@
 	
 	  </p>
 		<ul class="button_list clearfix">
-			<li id="sharethis_btn"><%=  raw addthis_share_button{"SHARE THIS"} %></li>
-			<li><%= link_to "Back to news", "/news" %></li>
+			<li id="sharethis_btn"><%=  raw addthis_share_button{t('posts.share')} %></li>
+			<li><%= link_to t('posts.back'), "/news" %></li>
 		</ul>
 		<div id="comments">
-		  <h2><span class="comment_count"><%= pluralize(@post.comments.size, "comment" )%></span></h2>
+		  <h2><span class="comment_count"><%= t('comments.comments', :count => @post.comments.size )%></span></h2>
 	    <div class="comment">
 				<% @post.comments.each do |comment| %>
 					<p class="posted"><span class="author"><%= comment.user.name %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
@@ -30,7 +30,7 @@
 
 	  </div>
 	  <div id="comment_form">
-	    <h2>Leave a comment</h2>
+	    <h2><%= t('comments.leave_comment') %></h2>
 			<div>
 				<% if current_user %>
 				<% form_for :comment, :url => post_comments_path(@post) do |form| %>
@@ -39,11 +39,11 @@
 					<%= form.text_area :body %>
 				</p>
 				<p>
-					<%= form.submit 'Add Comment', :class => "input_submit" %>
+					<%= form.submit t('comments.add_comment'), :class => "input_submit" %>
 				</p>
 				<% end %>
 				<% else %>
-					You need to be logged in to comment. <%= link_to "Log in or Register", login_path %>.
+					You need to be logged in to comment. <%= link_to t('menu.login_or_register'), login_path %>.
 				<% end %>
 			</div>
 	  </div>

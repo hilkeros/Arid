@@ -11,3 +11,39 @@ en:
       settings: Settings
       log_out: Log out
       shop: Shop
+      order: My Order
+      login_or_register: login <span class="or">or</span> register
+  
+  sidebar:
+      newsletter: Stay in the loop!
+      follow: Follow Arid on
+      on_stage: Arid On Stage
+      
+      
+  posts:
+      share: Share This
+      back: Back to news
+          
+  contact:
+      management: Management
+      bookings: 'Bookings'
+
+  comments:
+      add_comment: Add Comment
+      leave_comment: Leave a comment
+      comments: 
+          one: 1 comment
+          other: '{{count}} comments'
+
+  gigs:
+      calendar: Tour Calendar
+      futur: Upcoming
+      past: Past
+      details: 'View details'
+      back: "Back to Tour Calendar"
+      date: Date
+      time: Time
+      venue: Venue
+      city: City
+      country: Country
+      photos: Photos

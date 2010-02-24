@@ -2,24 +2,29 @@
 
 <table>
 
-  <tr>
-    <td>Date:</td>          <td><%= @gig.date.strftime('%d-%m-%Y') %> </td>
-  </tr>
-  <tr>
-    <td>Time:</td>          <td><%= @gig.time.strftime('%H:%M') %> </td>
-  </tr>
-  <tr>
-    <td>Venue:</td>         <td><%= link_to @gig.venue, @gig.venue_url %> (<%= gig_ticket_link(@gig) %>) </td>
-  </tr>
-  <tr>
-    <td>City:</td>           <td><%= @gig.city %> </td>
-  </tr>
-  <tr>
-    <td>Country:</td>         <td><%= @gig.country %> </td>
-  </tr>
+	<tr>
+		<td><%= t('gigs.date') %>:</td>
+		<td><%= @gig.date.strftime('%d-%m-%Y') %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.time') %>:</td>
+		<td><%= @gig.time.strftime('%H:%M') %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.venue') %>:</td>
+		<td><%= link_to @gig.venue, @gig.venue_url %> (<%= gig_ticket_link(@gig) %>) </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.city') %>:</td>
+		<td><%= @gig.city %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.country') %>:</td>
+		<td><%= @gig.country %> </td>
+	</tr>
 
 </table>
 <%= render :partial => 'photos' if @gig.date.past? %>
 <%= render :partial => 'comments' %>
 
-<p><%= link_to "Back to Tour Calendar", gigs_path %></p>
+<p><%= link_to t('gigs.back'), gigs_path %></p>

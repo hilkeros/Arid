@@ -6,13 +6,13 @@
 	</p>
 	<p>
 		<%- if post.exclusive && !current_user -%>
-			You need to be logged in to view this post. <%= link_to "Log in or Register", login_path %>.
+			You need to be logged in to view this post. <%= link_to t('menu.login_or_register'), login_path %>.
 		<%- else -%>
 			<%= raw (post.body) %>
 			
 			<ul class="button_list clearfix">
-				<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){"SHARE THIS"} %></li>
-				<li><%= link_to "Add comment", post_path(post, :anchor => "comments") %></a></li>
+				<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){t('posts.share')} %></li>
+				<li><%= link_to t('comments.add_comment'), post_path(post, :anchor => "comments") %></a></li>
 			</ul>
 		<%- end -%>
 	</p>
