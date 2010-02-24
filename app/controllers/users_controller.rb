@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @photos = @user.photos.find(:all, :limit => 10)
   end
 
   def update
