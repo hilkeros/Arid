@@ -21,7 +21,7 @@
 		<%= raw activity_log activity %><br />
 	<% end %>
 	
-	<h2>Photos (<%= link_to 'add more', new_user_photo_path(current_user) %>)</h2>
+	<h2>Photos <%= link_to '(add more)', new_user_photo_path(current_user) if @user == current_user %></h2>
 	<%- @photos.each do |photo| -%>
 		<%= link_to image_tag(photo.image.url(:thumb)), [@user, photo] %>
 	<%- end -%>
