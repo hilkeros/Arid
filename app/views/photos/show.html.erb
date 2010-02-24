@@ -4,5 +4,36 @@
 <div>
 	<%= image_tag(@photo.image.url(:medium)) %>
 </div>
-
 <p><%= link_to "back to #{@user.name}'s photos", user_photos_path(current_user) %></p>
+
+<%- if @photo.comments.present? -%>
+	<div id="comments">
+	  <h2><span class="comment_count"><%= pluralize(@photo.comments.size, "comment" )%></span></h2>
+    <div class="comment">
+			<% @photo.comments.each do |comment| %>
+				<p class="posted"><span class="author"><%= comment.user.name %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
+	      <div class="comment_content">
+					<p><%= comment.body %></p>
+	      </div>
+			<% end %>
+    </div>
+<% end %>
+
+<div id="comment_form">
+  <h2>Leave a comment</h2>
+	<div>
+		<% if current_user %>
+			<% form_for :comment, :url => user_photo_comments_path(current_user, @photo) do |form| %>
+				<%= form.hidden_field :photo_id, :value => @photo.id %>
+				<p>
+					<%= form.text_area :body %>
+				</p>
+				<p>
+					<%= form.submit 'Add Comment', :class => "input_submit" %>
+				</p>
+			<% end %>
+		<% else %>
+			You need to be logged in to comment. <%= link_to "Log in or Register", login_path %>.
+		<% end %>
+	</div>
+</div>

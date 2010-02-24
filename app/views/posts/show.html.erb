@@ -34,6 +34,7 @@
 			<div>
 				<% if current_user %>
 				<% form_for :comment, :url => post_comments_path(@post) do |form| %>
+					<%= form.hidden_field :post_id, :value => @post.id %>
 				<p>
 					<%= form.text_area :body %>
 				</p>

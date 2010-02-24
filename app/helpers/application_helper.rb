@@ -4,7 +4,12 @@ module ApplicationHelper
   def activity_log activity
     case activity.action
     when Comment
-      "#{activity.user.name} made a comment on the blog post #{link_to activity.target.title post_path(activity.target)}"
+      case activity.target
+      when Post   then "#{activity.user.name} made a comment on the blog post #{link_to activity.target.title post_path(activity.target)}"
+      when Photo  then "#{activity.user.name} made a comment on a #{link_to 'photo', user_photo_path(activity.target.user, activity.target)}"
+      else
+        "#{activity.user.name} made a comment"
+      end
     when Friendship
       "#{activity.user.name} is now following #{link_to activity.target.name, profile_path(activity.target)}"
     when Photo

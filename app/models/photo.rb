@@ -2,6 +2,7 @@ class Photo < ActiveRecord::Base
   
   belongs_to :gig
   belongs_to :user
+  has_many :comments
   
   has_attached_file :image,
     :styles => { 
