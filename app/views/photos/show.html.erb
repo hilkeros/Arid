@@ -1,6 +1,8 @@
-<%= title "Fan photos of #{@user.name}" %>
-<p><%= link_to 'return to list', user_photos_path(current_user) %></p>
+<%= title "Fan photos of #{link_to @user.name, profile_path(@user)}" %>
+<%= render @photo.gig if @photo.gig.present? %>
 
 <div>
 	<%= image_tag(@photo.image.url(:medium)) %>
 </div>
+
+<p><%= link_to "back to #{@user.name}'s photos", user_photos_path(current_user) %></p>
