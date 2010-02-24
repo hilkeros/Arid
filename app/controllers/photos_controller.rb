@@ -13,6 +13,7 @@ class PhotosController < ApplicationController
 
   def new
     @photo = current_user.photos.new
+    @gigs = Gig.past
   end
 
   def create
