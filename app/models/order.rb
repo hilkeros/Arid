@@ -26,7 +26,7 @@ class Order < ActiveRecord::Base
       transition :payed => :sent
     end
     
-    after_transition :on => :confirm, :do => :new_order_mail
+    after_transition :on => :confirm, :do => :confirm_order
   end
   
   def total_price
@@ -37,7 +37,8 @@ class Order < ActiveRecord::Base
     return price
   end
   
-  def new_order_mail
+  def confirm_order
+    self.update_attribute(:payment_code, Digest::SHA1.hexdigest(id.to_s)[0..5].upcase)
     OrderMailer.deliver_new_order(self)
     OrderMailer.deliver_confirmed(self)
   end

@@ -3,7 +3,8 @@ class OrderMailer < ActionMailer::Base
   def new_order(order)
     setup_default_email_settings
     
-    @recipients       = "info@arid.be"
+    @recipients       = "vandermotte@telenet.be"
+    @cc               = "info@arid.be"
     @subject         += "new order"
     
     @body[:order]  = order

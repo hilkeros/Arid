@@ -1,6 +1,10 @@
 <p>Thanks for your order.</p>
 
-<p>Please transfer <%= @order.total_price + 10.0.to_f %> to our bank account at 000-0000000-000</p>
+<p>
+	Please transfer <%= @order.total_price + 10.0.to_f %> to our bank account.
+	"Arid Merchandise - KBC 731-0094471-65"
+	Please mention the order code "<%= @order.payment_code %>"
+</p>
 
 <p>We will ship your order after we've received your payment.</p>
 
