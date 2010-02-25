@@ -68,6 +68,11 @@ en:
       city: City
       country: Country
       photos: Photos
+      
+  newsletter:
+      thanks: "Thanks, you are now subscribed to the Arid newsletter."
+      subscribe_long: Subscribe to the mailing list
+      subscribe: Subscribe
     
   photos:
       taken_at: Taken at

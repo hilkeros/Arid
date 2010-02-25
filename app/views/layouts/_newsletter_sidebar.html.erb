@@ -3,6 +3,6 @@
 			<h2><%= t('sidebar.newsletter') %></h2>
 			<%= form.label :email, "you@domain.com", :class => 'example' %>
 			<%= form.text_field :email, :class => "input_text" %>
-		<%= form.submit 'Subscribe', :class => "input_submit" %>
+		<%= form.submit t('newsletter.subscribe'), :class => "input_submit" %>
 	<% end %>
 </div>
