@@ -66,3 +66,6 @@ en:
       city: City
       country: Country
       photos: Photos
+    
+  photos:
+      taken_at: Taken at
