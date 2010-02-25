@@ -1,47 +1,57 @@
 /* =forms
 ------------------------------------------------------------------*/
+
 form, fieldset, legend, form h3{
   border:0; 
   margin:0; 
   padding:0; 
 }
+
 form p{
   clear:left;
-  margin-left:0;
-  margin-right:0;
-  margin-bottom:9px;
+  margin:0 0 10px 0;
 }
+
 fieldset{
-  border-top:1px solid rgba(255, 255, 255, 0.075);
-  margin-top:1.5em;
-  padding-top:1.5em;
+  border-top:1px solid rgb(0,18,27);
+  margin-top:10px;
+  padding-top:15px;
 }
+
 fieldset.first{
   border-top:none;
   margin-top:0;
   padding-top:0;
 }
-form h3{
-  font-size:14px;
-  margin-bottom:1.5em;
-}
+
 label{
   display: block;
   margin-bottom:5px;
 }
+
 input.input_text, textarea{
-  color:#CCC;
-  background:#0f1212;
-  border:1px solid #323536;
+  color:rgb(20,20,30);
+  background:rgb(179,182,184);
+  border:1px solid rgb(5,5,10);
   font-family:arial, sans-serif;
-  font-size:14px;
+  font-size:13px;
   padding:6px;  
-  width:250px;
+  width:280px;
+  -moz-border-radius:4px;
+  -webkit-border-radius:4px;
+  border-radius:4px;
+	-webkit-transition: background-color .2s linear;
 }
+
 textarea{
   height:120px;
   width:360px;
 }
+
+input.input_text:focus, textarea:focus{
+  background:rgb(255,255,255);
+}
+
 abbr{ 
   cursor:help; 
   font-style:normal; 
@@ -93,4 +103,17 @@ label input{
   border:1px solid red;
   padding:9px;
   margin-bottom:18px
+}
+
+/* Post comment boxes */
+
+.write-comment{
+	background: rgba(0, 25, 32, 0.15);
+  padding:10px;
+}
+.write-comment p{
+  margin:0;
+}
+.write-comment label{
+  font-weight:bold;
 }
