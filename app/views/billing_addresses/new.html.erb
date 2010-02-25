@@ -1,51 +1,51 @@
-<h1>Billing Address</h1>
+<h1><%= , t('billing_addresses.title') %></h1>
 
 <div id="comment_form">
 	<% form_for current_order, :url => billing_addresses_path, :html => { :method => :post } do |order_form| %>
 		<% order_form.fields_for :billing_address do |form| %>
 			<%= form.error_messages %>
 			<p>
-				<%= form.label :firstname %>
+				<%= form.label :firstname, t('billing_addresses.firstname') %>
 				<%= form.text_field :firstname %>
 			</p>
 			
 			<p>
-				<%= form.label :lastname %>
+				<%= form.label :lastname, t('billing_addresses.lastname') %>
 				<%= form.text_field :lastname %>
 			</p>
 			
 			<p>
-				<%= form.label :street, 'Street + nr' %>
+				<%= form.label :street, t('billing_addresses.street') %>
 				<%= form.text_field :street %>
 			</p>
 			
 			<p>
-				<%= form.label :zip %>
+				<%= form.label :zip, t('billing_addresses.zip') %>
 				<%= form.text_field :zip %>
 			</p>
 			
 			<p>
-				<%= form.label :city %>
+				<%= form.label :city, t('billing_addresses.city') %>
 				<%= form.text_field :city %>
 			</p>
 			
 			<p>
-				<%= form.label :country %>
+				<%= form.label :country, t('billing_addresses.country') %>
 		    <%= form.country_select :country, %w(Belgium Netherlands)%>
 			</p>
 			
 			<p>
-				<%= form.label :phone %>
+				<%= form.label :phone, t('billing_addresses.phone') %>
 				<%= form.text_field :phone %>
 			</p>
 			
 			<p>
-				<%= form.label :email %>
+				<%= form.label :email, t('billing_addresses.email') %>
 				<%= form.text_field :email, :value => current_user.email %>
 			</p>
 		<% end %>
 		<p>
-			<%= order_form.submit 'Next', :class => 'input_submit' %>
+			<%= order_form.submit , t('billing_addresses.next'), :class => 'input_submit' %>
 		</p>
 	<% end %>
 </div>

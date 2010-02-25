@@ -19,6 +19,17 @@ en:
       follow: Follow Arid on
       on_stage: Arid On Stage
       
+  billing_addresses:
+      firstname: Firstname
+      lastname: Lastname
+      street: Street + nr
+      zip: Zip
+      city: City
+      country: Country
+      phone: Phone
+      email: Email
+      next: Next
+      title: Enter Billing Address
       
   posts:
       share: Share This
