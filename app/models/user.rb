@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
   has_many :friends, :through => :friendships
   has_many :activities
   
+  
+  has_many :shouts
+  has_many :friend_shouts, :class_name => 'Shout', :foreign_key => 'friend_id'
+  
   has_attached_file :avatar,
     :styles => { 
         :thumb => [ "32x32>", :jpg ], 

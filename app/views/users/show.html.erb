@@ -8,13 +8,23 @@
 	<%= link_to 'edit', edit_user_path if @user == current_user %>
 	<%= render :partial => 'follow' unless @user == current_user %>
 	
-
 	<h2>Favorite Arid Songs</h2>
 	<%= content_tag(:p, "No songs selected") if @user.songs.empty? %>
 	<% @user.songs.each do |song| %>
 		<p class="posted"><span class="author"><%= song.name %></span></p>
 	<% end %>
 	<%= link_to 'edit', edit_user_fav_songs_path if @user == current_user %>
+	
+	<h2>Shouts</h2>
+	<% form_for :shout, :url => shouts_path do |form| %>
+		<%= form.hidden_field :friend_id, :value => @user.id %>
+		<%= form.text_area :body %>
+		<p class="submit"><%= form.submit 'Shout' %></p>
+	<% end %>
+	
+	<% @user.friend_shouts.all.each do |shout| %>
+		<p><%= shout.body %></p>
+	<% end %>
 	
 	<h2>Activity</h2>
 	<% @activities.each do |activity| %>
