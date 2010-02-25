@@ -24,5 +24,7 @@
 	</tr>
 
 </table>
+<%= render :partial => 'photos' if @gig.date.past? %>
+<%= render :partial => 'comments' %>
 
 <p><%= link_to t('gigs.back'), gigs_path %></p>
