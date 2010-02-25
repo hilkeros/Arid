@@ -135,6 +135,8 @@ en:
     
   photos:
       taken_at: Taken at
+      arid_title: Arid Photos
+      back: Back to Arid photos
   
   activity:
       blog_comment: made a comment on the blog post

@@ -2,13 +2,11 @@ class PhotosController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   
   def index
-    @user = User.find(params[:user_id])
-    @photos = @user.photos.all
+    @photos = scoped_photos
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @photo = @user.photos.find(params[:id])
+    @photo = scoped_photos.find(params[:id])
   end
 
   def new
@@ -41,6 +39,18 @@ class PhotosController < ApplicationController
     @photo.destroy
     flash[:notice] = "Photo succesfully deleted"
     redirect_to user_photos_path(current_user)
+  end
+  
+  def selected_user
+    @user = User.find(params[:user_id]) if params[:user_id].present?
+  end
+  
+  def scoped_photos
+    if selected_user
+      selected_user.photos
+    else
+      Photo.arid
+    end
   end
 
 end
