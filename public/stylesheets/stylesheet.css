@@ -4,9 +4,8 @@
 /* General */
 
 body{
-	color:#999;
-	font: 15px/1.5 Georgia, serif;
-	text-shadow: 1px 1px 1px #000;
+	color:rgb(175,175,175);
+	font: 13px/1.5 "Helvetica Neue LT Std", helvetica, arial, sans-serif;
 }
 
 /* Headers */
@@ -15,49 +14,36 @@ h1, h2, h3, h4, p, ul, blockquote{
 	margin:0 20px 22px 0;
 }
 h1{
-	color:#FFF;
-	font-family:helvetica, arial, serif;
+  color:rgb(255, 255, 255);
 	font-size:24px;
 	font-weight:bold;
-	line-height:26px;
-	text-transform:uppercase;
+  line-height:1em;
 }
-h2{
-	color:#FFF;
-	font-family:arial, sans-serif;
+h2, h3{
+	color:rgba(180,180,190);
 	font-size:12px;
 	line-height:18px;
 	text-transform:uppercase;
 	letter-spacing: 0.045em;
 }
-h3{
-	color:#FFF;
-	font-family:arial, sans-serif;
-	font-size:12px;
-	line-height:18px;
-	text-transform:uppercase;
-	letter-spacing: 0.025em;}
 
 /* Links */
 
 a{
+	font-weight:bold;
 	text-decoration:none;
+	-webkit-transition: color .2s linear;
 }
 a:link{
-	color:#FFF;
+	color:rgb(120,170,180);
 }
 a:visited{
-	color:#CCC;
+	color:rgb(70,90,90);
 }
 a:hover,
 a:active,
 a:focus{
-	color:#FFF;
-	text-decoration:underline;
-}
-
-a:hover img{
-  opacity:0.75;
+  color:rgb(255, 255, 255);
 }
 
 /* Defaults */
@@ -117,10 +103,26 @@ td{
 	border-top:1px solid rgba(255, 255, 255, 0.075);
 }
 
-/* Video (trying to add a bottom margin to youtube embeds…) */
+/* Video (trying to add a bottom margin to youtube embedsâ¦) */
 
 embed{
 	margin-bottom:22px;
+}
+
+/* Images need display block */
+
+img{
+  display:block;
+}
+.content img{
+	border:1px solid rgb();
+}
+
+/* Horizontal rulers */
+
+hr{
+	background:rgb(26, 42, 50);
+	margin:40px 0;
 }
 
 /* Generic classes */
@@ -135,9 +137,6 @@ embed{
 }
 .clear{
 	clear:both;
-}
-.content img{
-	border:5px solid #343434;
 }
 .mute{
   font-size:85%;
@@ -157,79 +156,60 @@ embed{
 --------------------------------------------- */
 
 body{
-	background:#000 url(../images/body_bg_blur.jpg) no-repeat center -90px;
+	background:rgb(0,18,27);
 }
 .container{
-	width: 815px;
+	width: 960px;
 	margin: 0 auto;
 	text-align:left;
 }
+#content-wrap{
+  background:url(/images/body-bg.gif) no-repeat center 0;
+  padding-top:350px;
+}
 #sidebar{
 	float:left;
-	margin-right:30px;
-	padding-top:50px;
+	height:1500px;
+	margin-right:50px;
 	width:270px;
 }
 #content{
 	float:left;
-	background: rgba(0, 0, 0, 0.6);
-	margin-top:44px;
-	padding:20px;
-	width:475px;
+	width:630px;
 }
 
-/* Header
+/* Top bar
 --------------------------------------------- */
-#header{
-	padding-left:20px;
-}
-#logo a{
-	border:none;
-	font-family:helvetica, arial, serif;
-	font-size:30px;
-	font-weight:bold;
-	color:#FFF;
-	text-transform:uppercase;
-}
-
-/* Top bar (user navigation)*/
 
 #topbar{
-	/*background:rgba(50, 54, 54, 0.75);*/
-	background: rgba(1, 82, 112, 0.1);
-	border-bottom:1px solid rgba(255, 255, 255, 0.075);
-	height:28px;
-  padding:5px 0;
-  width:100%;
+	background: rgb(0, 12, 18);
+  height:40px;
+}
+
+#topbar #you{
+  background:rgba(255,255,255,0.05);
+  padding:20px 15px 10px 15px;
+  position:absolute;
+  right:0;  
+  top:-5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+#topbar img.avatar{
+  float:left;
+  height:20px;
+  margin-right:10px;
+  width:20px;
+}
+#topbar p{
+	color:rgb(85,91,94);
+  float:left;
+  font-size:90%;
+  margin:0;
 }
 #topbar .container{
   position:relative;
-}
-#topbar ul{
-  float:left;
-  position:absolute;
-  right:0;
-}
-#topbar li{
-  float:left;
-}
-#topbar li.first a{
-  border:none;
-}
-#topbar a{
-  border-left:1px solid rgb(30, 30, 30);
-	color:#999;
-	display:block;
-	font-family:arial, sans-serif;
-	font-size:11px;
-	font-weight:bold;
-	padding:6px 10px;
-	text-transform:uppercase;
-	letter-spacing: 0.045em;
-	text-shadow: 1px 1px 1px #000;
-}
-#topbar a:hover, #topbar li.current a{
-  color:#FFF;
 }
 #topbar span.or{
   font-family:Baskerville, Palatino, Georgia;
@@ -242,38 +222,70 @@ body{
 #topbar img{
   margin-top:-3px;
 }
+/* Header
+--------------------------------------------- */
+
+#header{
+  background:rgb(0, 12, 18) url(/images/topbar-border.gif) repeat-x 0 100%;
+}
+#header .container{
+  position:relative;
+}
+
+#logo{
+  margin:0;
+  padding:0;
+}
+#logo a{
+	border:none;
+	color:rgb(255, 42, 133);
+  display:block;
+  font-size:48px;
+	font-weight:800;
+	line-height:1em;
+	padding:20px 0;
+	text-transform:uppercase;
+}
+#logo a:hover{
+  text-decoration:none;
+}
 
 /* Nav main */
 
 #nav_main{
-	padding-bottom:44px;
-	list-style-type:none;
+  margin:0;
+  padding:35px 0 0 0;
+	position:absolute;
+	right:20px;
+	top:0px;
+}
+#nav_main li{
+  display:inline;
 }
 #nav_main li a{
 	border:none;
-	font-family:helvetica, arial, serif;
-	font-weight:bold;
-	font-size:18px;
-	color:#999999;
-	display:block;
-	font-weight:normal;
-	line-height:28px; 
+	font-weight:800;
+	font-size:16px;
+	line-height:1.1em; 
+	margin-left:10px;
 	text-transform:uppercase;
 }
 #nav_main li a:hover{
-	color:#FFF;
+	color:rgb(255, 255, 255);
+	text-decoration:none;
 }
 #nav_main li.current a,
 #nav_main li.current a:hover,
 #nav_main li.parent_of_current a,
 #nav_main li.parent_of_current a{
-	color:#FFF;
+	color:rgb(255, 255, 255);
 }
 
 /* Content
 --------------------------------------------- */
+
 ul.button_list{
-	margin-right:0;
+	margin:0;
 	padding:0;
 	width:100%;
 	zoom:1;
@@ -288,30 +300,36 @@ ul.button_list{
 	float:left;
 	margin-right:10px;
 }
+
 /* Buttons */
+
 .input_submit, .button_list a{
-	background:#323636;
+  background:rgb(0, 25, 32);
 	border:none;
-	color:#999;
+	color:rgb(255, 255, 255);
 	display:block;
 	font-family:arial, sans-serif;
-	font-size:12px;
+	font-size:90%;
 	font-weight:bold;
 	padding:6px;
 	text-transform:uppercase;
 	letter-spacing: 0.045em;
-	text-shadow: 1px 1px 1px #000;
+	text-shadow: 1px 1px 1px rgba(0,0,0,75);
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-webkit-transition: background-color .2s linear;
 }
 .input_submit:hover, .button_list a:hover{
-	color:#FFF;
+  background:rgb(20, 40, 50);
 	text-decoration:none;
 }
 
 /* News entries */
+
 .news_entry{
-	border-top:1px solid rgba(255, 255, 255, 0.075);
-	margin-bottom:33px;
-	padding-top:22px;
+	border-top:3px solid rgb(26, 42, 50);
+	margin-bottom:20px;
+	padding-top:30px;
 }
 .first{
 	border:none;
@@ -321,7 +339,9 @@ ul.button_list{
 	margin-bottom:5px;
 }
 .news_entry .meta .date{
-	border-right:1px solid #343434;
+  color:rgb(179,183,184);
+	border-right:1px solid rgba(179,183,184,0.1);
+	font-weight:bold;
 	margin-right:8px;
 	padding-right:8px;
 	float:left;
@@ -333,6 +353,7 @@ ul.button_list{
 	float:left;
 	height:22px;
 	padding:0 20px;
+	-webkit-transition: background .2s linear;
 }
 .news_entry .meta .jump_to_comments:hover{
 	color:#FFF;
@@ -340,11 +361,13 @@ ul.button_list{
 }
 
 /* Remove text-shadow for addThis */
+
 #at20mc{
 	text-shadow:none;
 }
 
 /* Comments */
+
 #comments{
 	padding-top:22px;
 }
@@ -381,10 +404,14 @@ ul.button_list{
 --------------------------------------------- */
 
 .box{
-	background: rgba(0, 0, 0, 0.6);
+	background: rgb(0, 12, 18);
 	margin-bottom:20px;
 	padding:20px;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
 }
+
 #sidebar h2{
 	margin-bottom:10px;
 }
@@ -433,12 +460,16 @@ ul.button_list{
 	width:100%;
 }
 #dates td{
+	border-top:1px solid rgb(26, 42, 50);
 	padding:5px 0;
 }
 #dates .first td{
 	border-top:none;
 }
 #dates td.date{
+	color:rgba(255,255,255,0.6);
+	font-weight:bold;
+  font-size:12px;
 	width:30%;
 }
 #dates td.venue{
@@ -475,11 +506,150 @@ ul.button_list{
 	border:none;
 }
 
-/*Profile page*/
-#profile h2{
-	font-size:15px;
-	margin-bottom: 5px;
-	margin-top:20px;
+/* User profile
+--------------------------------------------- */
+
+/* Column structure */
+
+#user-info{
+  float:left;
+  margin-right:40px;
+  width:400px;
+}
+#user-lists{
+  float:left;
+  width:180px;
+}
+
+/* User info column typography */
+
+#user-info h3{
+  margin-bottom:5px;
+}
+
+/* User profile */
+
+#user-profile{
+  padding-left:100px;
+  position:relative;
+}
+#user-info h1{
+  margin-bottom:5px;
+}
+#user-profile p{
+  margin-bottom:10px;
+}
+#user-avatar{
+  float:left;
+  margin-right:20px;
+}
+
+/* Follow user */
+
+#follow-user{
+  position:absolute;
+  left:0;
+  top:0;
+  width:80px;
+}
+#follow-user img{
+  margin-bottom:5px;
+  width:80px;
+}
+#follow-user a{
+  display:block;
+  text-align:center;
+  width:70px;
+}
+
+/* User Social media icons */
+
+#user-socialmedia{
+	/* Add extra space for margin on last image li*/
+	overflow:hidden;
+	padding-bottom:5px;/* Accomodate for 5px bottom margin on li's */
+	width:230px;
+	zoom:1;
+}
+#user-socialmedia ul{
+	margin:0;
+	width:240px;
+}
+#user-socialmedia li{
+	margin:0 10px 5px 0;
+	float:left;
+}
+#user-socialmedia img{
+  border:none;
+}
+#user-socialmedia a{
+	border:none;
+	opacity:0.75;
+}
+#user-socialmedia a:hover{
+	opacity:1;
+}
+
+/* User Wall */
+
+#shoutbox{
+  margin-bottom:20px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+#shoutbox textarea{
+  width:340px;
+}
+
+#user-info h3{
+  color:rgb(140,140,140);
+}
+
+
+/* @todo op juiste plek zetten */
+
+.photos-uploaded{
+  margin:0;
+}
+.photos-uploaded li{
+  float:left;
+  margin:0 10px 10px 0;
+  list-style:none;
+}
+.photos-uploaded a{
+  float:left;
+}
+
+/* Lists on user profile (sidebar)*/
+
+#user-lists h3{
+  margin:0 0 10px 0;
+}
+#user-lists h3 a{
+  text-transform:none;
+}
+
+#friendlist, #user-photos, #user-videos{
+  margin-bottom:20px;
+	width:190px;
+}
+
+.listbox{
+  margin:0;
+}
+.listbox li{
+  float:left;
+  margin:0 10px 10px 0;
+}
+.listbox a{
+  font-size:12px;
+  display:block;
+  text-align:center;
+}
+.listbox img{
+  display:block;
+  height:36px;
+  width:36px;
 }
 
 .hidden{
@@ -488,6 +658,7 @@ ul.button_list{
 
 
 /*SHOP PRODUCTS*/
+
 .product{
 	width:230px;
 	float:left;
