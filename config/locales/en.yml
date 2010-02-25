@@ -73,6 +73,34 @@ en:
       thanks: "Thanks, you are now subscribed to the Arid newsletter."
       subscribe_long: Subscribe to the mailing list
       subscribe: Subscribe
+      
+  password:
+      mail:
+          forgot: |
+                    A request to reset your password has been made.
+                    If you did not make this request, simply ignore this email.
+                    If you did make this request just click the link below.
+                    If the URL does not work try copying and pasting it into your browser.
+                    If you continue to have problem please feel free to contact us.
+  
+  order:
+      mail:
+          thanks: Thanks for your order.
+          payment: |
+                    Please transfer {{total_price}} to our bank account.
+                    \"Arid Merchandise - KBC 731-0094471-65\"
+                    Please mention the order code \"{{payment_code}}\"
+
+                    "We will ship your order after we've received your payment."
+          order_info: Your order information
+          variant: Variant
+          price: Order price
+          shipping: Shipping costs
+          total: Total price
+          billing: Billing information
+          shipping: Shipping information
+          greating: Hi
+          sent: Your order at Arid.be has been sent to you
     
   photos:
       taken_at: Taken at
