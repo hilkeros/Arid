@@ -175,6 +175,7 @@ body{
 }
 #content{
 	float:left;
+	position:relative;
 	width:630px;
 }
 
@@ -303,7 +304,7 @@ ul.button_list{
 
 /* Buttons */
 
-.input_submit, .button_list a{
+.input_submit, .button_list a, a.button{
   background:rgb(0, 25, 32);
 	border:none;
 	color:rgb(255, 255, 255);
@@ -319,9 +320,14 @@ ul.button_list{
 	-webkit-border-radius:4px;
 	-webkit-transition: background-color .2s linear;
 }
-.input_submit:hover, .button_list a:hover{
+.input_submit:hover, .button_list a:hover, a.button:hover{
   background:rgb(20, 40, 50);
 	text-decoration:none;
+}
+
+.go-back{
+  background:url(/images/icons/leftarrow.png) no-repeat 0 5px;
+  padding-left:14px;
 }
 
 /* News entries */
@@ -656,8 +662,41 @@ ul.button_list{
 	display:none;
 }
 
+/* Media list (photos & videos, used on profile pages & concert pages)
+--------------------------------------------- */
 
-/*SHOP PRODUCTS*/
+#photo-list-big li{
+  float:left;
+  margin:0 20px 20px 0;
+}
+#photo-list-big a{
+  float:left;
+}
+#photo-list-big img{
+  height:300px;
+  width:180px;
+}
+
+#upload-media{
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+#media-detail{
+  text-align:center;
+}
+
+/* Browse fans
+--------------------------------------------- */
+
+#browse-fans img{
+  height:auto;
+  width:auto;
+}
+
+/* Shop products
+--------------------------------------------- */
 
 .product{
 	width:230px;
