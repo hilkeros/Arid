@@ -13,6 +13,8 @@ en:
       shop: Shop
       order: My Order
       login_or_register: login <span class="or">or</span> register
+      photos: Photos
+      videos: Videos
   
   sidebar:
       newsletter: Stay in the loop!

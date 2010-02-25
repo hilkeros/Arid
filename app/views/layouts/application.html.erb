@@ -29,41 +29,43 @@
 <body>
 	
 	<%= render "/shared/top_navigation" %>
-	
-	<div class="container">
-		<div id="sidebar">
-			<div id="header" class="clearfix">
-				<p id="logo"><%= link_to "Arid", root_path %></p>
-				<ul id="nav_main">
-					<li class="<%= "current" if controller_name == "posts" %>"><%= link_to t('menu.news'), posts_path %></li>
-					<li class="<%= "current" if controller_name == "gigs" %>"><%= link_to t('menu.gigs'), gigs_path %></li>
-					<li class="<%= "current" if controller_name == "pages" %>"><%= link_to t('menu.contact'), contact_path %></li>
-					<!-- <li class="<%= "current" if controller_name == "products" %>"><%= link_to t('menu.shop'), products_path %></li> -->
-				</ul>
-			</div>
 
-			<%= render "/layouts/promo_sidebar" %>
-			
-			<%= render "/layouts/newsletter_sidebar" %>
-
-			<%= render "/layouts/social_sidebar" %>
-
-			<%= render "/layouts/shows_sidebar" %>
-
-
-			<div id="facebook_badge" class="box">
-				<div id="facebook_badge">
-					<fb:fan profile_id="21485402588" stream="" connections="6" width="200"></fb:fan><div style="font-size:8px; padding-left:10px"></div>
+	<div id="header" class="clearfix">
+		<div class="container">
+			<p id="logo"><a href="/">Arid</a></p>
+			<ul id="nav_main">
+				<li class="current"><%= link_to t('menu.news'), [:posts] %></li>
+				<li class=""><%= link_to t('menu.gigs'), [:gigs] %></li>
+				<li class=""><%= link_to t('menu.contact'), [:contact] %></li>
+				<li class=""><%= link_to t('menu.photos'), [:photos] %></li>
+				<li class=""><%= link_to t('menu.videos'), [:videos] %></li>
+				<li class=""><%= link_to t('menu.shop'), [:products] %></li>
+			</ul>
+		</div>
+	</div>
+		
+	<div id="content-wrap">
+		<div class="container">
+			<div id="sidebar">
+				
+				<%= render "/layouts/social_sidebar" %>
+				<%= render "/layouts/newsletter_sidebar" %>
+				<%= render "/layouts/shows_sidebar" %>
+				<%= render "/layouts/promo_sidebar" %>
+				<div id="facebook_badge" class="box">
+					<div id="facebook_badge">
+						<fb:fan profile_id="21485402588" stream="" connections="6" width="200"></fb:fan><div style="font-size:8px; padding-left:10px"></div>
+					</div>
 				</div>
+				
 			</div>
-		</div>  
+			<div id="content" class="clearfix">
+				<%= content_tag(:div, flash[:notice], :class => 'notice') if flash[:notice].present? %>
+				<%= content_tag(:div, flash[:error], :class => 'error') if flash[:error].present? %>
 
-		<div id="content" class="content clearfix">
-			<%= content_tag(:div, flash[:notice], :class => 'notice') if flash[:notice].present? %>
-			<%= content_tag(:div, flash[:error], :class => 'error') if flash[:error].present? %>
-
-			<%= yield :layout %>
-		</div>    
+				<%= yield :layout %>
+			</div>
+		</div> 
 	</div>
 	<script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
