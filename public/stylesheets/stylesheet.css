@@ -88,6 +88,7 @@ pre,code,tt{
 
 table{
 	margin-bottom:1.5em;
+	width:100%;
 }
 td, th{
 	border-collapse:collapse;
@@ -164,8 +165,13 @@ body{
 	text-align:left;
 }
 #content-wrap{
-  background:url(/images/body-bg.gif) no-repeat center 0;
+  background:url(/images/body-bg-big.gif) no-repeat center -560px;
   padding-top:350px;
+  -webkit-transition: all 5s ease-out;
+}
+#content-wrap:hover{
+  background-position: center 0;
+  padding-top:960px;
 }
 #sidebar{
 	float:left;
@@ -694,6 +700,67 @@ ul.button_list{
   height:auto;
   width:auto;
 }
+
+/* Tour Calendar
+--------------------------------------------- */
+
+.tourdate-media{
+  width:130px;
+}
+
+.tourdate-comments span, 
+.tourdate-photos span,
+.tourdate-videos span{
+  display:none;
+}
+
+.tourdate-comments, 
+.tourdate-photos,
+.tourdate-videos{
+	background:url(/images/icons/comments_small_sprite.png) no-repeat 0 0;
+	border:none;
+	display:block;
+	float:left;
+	height:22px;
+	padding:0 8px 0 16px;
+}
+.tourdate-photos{
+  background-image:url(/images/icons/photos_small_sprite.png);
+}
+.tourdate-videos{
+  background-image:url(/images/icons/videos_small_sprite.png);
+  padding-left:11px;
+}
+
+.tourdate-comments:hover, 
+.tourdate-photos:hover,
+.tourdate-videos:hover{
+	color:#FFF;
+	background-position:0 -22px;
+}
+
+/* Tour date detail
+--------------------------------------------- */
+
+#tourdate-detail{
+  font-size:110%;
+  margin: 0 0 20px 0;
+}
+#tourdate-detail h3{
+  text-transform:uppercase;
+}
+#tourdate-detail dl dt{
+  clear:left;
+  float:left;
+  font-weight: bold;
+  margin-bottom:3px;
+  width:15%;
+}
+#tourdate-detail dl dd{
+  float:left;
+  width:85%;
+}
+
 
 /* Shop products
 --------------------------------------------- */
