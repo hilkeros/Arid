@@ -40,6 +40,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :order_products
   map.resources :friendships
   map.resources :comments
+  map.resources :shouts
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
   
