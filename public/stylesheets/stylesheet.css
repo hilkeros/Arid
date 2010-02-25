@@ -167,6 +167,7 @@ body{
 #content-wrap{
   background:url(/images/body-bg-big.gif) no-repeat center -560px;
   padding-top:350px;
+}
   /*-webkit-transition: all 5s ease-out;
 }
 #content-wrap:hover{
