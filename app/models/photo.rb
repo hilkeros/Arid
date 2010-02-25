@@ -4,6 +4,9 @@ class Photo < ActiveRecord::Base
   belongs_to :user
   has_many :comments
   
+  named_scope :arid,  :conditions => {:arid => true}
+  named_scope :users, :conditions => {:arid => false}
+  
   has_attached_file :image,
     :styles => { 
         :thumb => [ "48x48>", :jpg ], 
