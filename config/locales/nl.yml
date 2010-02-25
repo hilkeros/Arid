@@ -3,135 +3,135 @@
 
 en:
   menu:
-      news: News
-      gigs: Tour Calendar
+      news: Nieuws
+      gigs: Concertkalender
       contact: Contact
       admin: Admin
-      profile: Profile
-      settings: Settings
-      log_out: Log out
+      profile: Mijn Profiel
+      settings: Instellingen
+      log_out: Uitloggen
       shop: Shop
-      order: My Order
-      login_or_register: login <span class="or">or</span> register
+      order: Mijn bestelling
+      login_or_register: inloggen <span class="or">of</span> registreren
   
   sidebar:
-      newsletter: Stay in the loop!
-      follow: Follow Arid on
-      on_stage: Arid On Stage
-      vote: Vote for 'De Afrekening'
-      new_single: New single
+      newsletter: Wil je meer nieuws? Schrijf in op de nieuwsbrief
+      follow: Volg Arid op
+      on_stage: Volgende concerten
+      vote: Stem voor 'De Afrekening'
+      new_single: Nieuwe single
       
   form:
-      save: Save
-      next: Next
-      update: Update
+      save: Opslaan
+      next: Volgende
+      update: Wijzigen
       
   addresses:
-      firstname: Firstname
-      lastname: Lastname
-      street: Street + nr
-      zip: Zip
-      city: City
-      country: Country
-      phone: Phone
+      firstname: Voornaam
+      lastname: Familienaam
+      street: Straat + nr
+      zip: Postcode
+      city: Gemeente
+      country: Land
+      phone: Telefoon
       email: Email
-      title_billing: Enter Billing Address
-      title_shipping: Enter SHipping Address
+      title_billing: Facturatieadres invullen
+      title_shipping: Verzendadres invullen
 
   songs:
       edit:
-          title: Choose your favorite songs
+          title: Kies je favoriete songs
       
   posts:
-      share: Share This
-      back: Back to news
+      share: Delen
+      back: Terug naar het nieuwsoverzicht
           
   contact:
       management: Management
       bookings: 'Bookings'
 
   comments:
-      add_comment: Add Comment
-      leave_comment: Leave a comment
+      add_comment: Reactie toevoegen
+      leave_comment: Plaats een reactie
       comments: 
-          one: 1 comment
-          other: '{{count}} comments'
+          one: 1 reactie
+          other: '{{count}} reacties'
 
   gigs:
-      calendar: Tour Calendar
-      futur: Upcoming
-      past: Past
-      details: 'View details'
-      back: "Back to Tour Calendar"
-      date: Date
-      time: Time
-      venue: Venue
-      city: City
-      country: Country
-      photos: Photos
+      calendar: Concertkalender
+      futur: Volgende concerten
+      past: Voorbije concerten
+      details: 'Ga naar de detailpagina'
+      back: "Terug naar de concertkalender"
+      date: Datum
+      time: Uur
+      venue: Locatie
+      city: Gemeente
+      country: Land
+      photos: "Foto's"
       
   newsletter:
-      thanks: "Thanks, you are now subscribed to the Arid newsletter."
-      subscribe_long: Subscribe to the mailing list
-      subscribe: Subscribe
+      thanks: "Bedankt, je bent nu ingeschreven op de Arid nieuwsbrief."
+      subscribe_long: Schrijf in op de nieuwsbrief
+      subscribe: Inschrijven
       
   password:
       mail:
           forgot: |
-                    A request to reset your password has been made.
-                    If you did not make this request, simply ignore this email.
-                    If you did make this request just click the link below.
-                    If the URL does not work try copying and pasting it into your browser.
-                    If you continue to have problem please feel free to contact us.
-      change: Change My Password
-      password: password
-      confirmation: Password Confirmation
-      forgot: Forgot password?
+                    We kregen de vraag om je paswoord op Arid.be te resetten.
+                    Als je dit niet gevraagd heb, negeer je gewoon deze mail.
+                    Als je wel een reset aangevraagd hebt, klik je op de link hieronder.
+                    Als de link stuk is, kopieer en plak je de link in je browser.
+                    Als er zich nog problemen voordoen, kun je contact met ons opnemen.
+      change: Wijzig mijn paswoord
+      password: paswoord
+      confirmation: Paswoord bevestigen
+      forgot: Paswoord vergeten?
   
   order:
       mail:
-          thanks: Thanks for your order.
+          thanks: Bedankt voor je bestelling.
           payment: |
-                    Please transfer {{total_price}} to our bank account.
+                    Gelieve {{total_price}} over te schrijven naar onze rekening.
                     \"Arid Merchandise - KBC 731-0094471-65\"
-                    Please mention the order code \"{{payment_code}}\"
+                    met vermelding van de bestelcode \"{{payment_code}}\"
 
-                    "We will ship your order after we've received your payment."
-          order_info: Your order information
+                    "Je bestelling wordt verstuurd wanneer we de betaling ontvangen hebben."
+          order_info: De bevestiging van je bestelling
           variant: Variant
-          price: Order price
-          shipping: Shipping costs
-          total: Total price
-          billing: Billing information
-          shipping: Shipping information
-          greating: Hi
-          sent: Your order at Arid.be has been sent to you
+          price: Prijs van je bestelling
+          shipping: Verzendingskosten
+          total: Totale prijs
+          billing: Betalingsgegevens
+          shipping: Verzendingsgegevens
+          greating: Hallo
+          sent: Je bestelling op Arid.be werd verzonden
       products:
-        amount: Amount
-        remove: remove
+        amount: Aantal
+        remove: verwijderen
         details: Details
-        choose_variant: Choose a variant
-        add: Add to basket
-      finish: Finish Order
-      overview: Overview
-      finalize: Finalize Order
-      process: Process order
-      basket: Your basket
-      complete: Complete Order
-      buy_more: Buy More Stuff
+        choose_variant: Kies een variant
+        add: Toevoegen aan het winkelmandje
+      finish: Bestelling afronden
+      overview: Overzicht
+      finalize: Bestelling afronden
+      process: Bestelling uitvoeren
+      basket: Je winkelmandje
+      complete: Bestelling afsluiten
+      buy_more: Nog meer kopen
       shop: Arid shop
      
   login:
       title: Login
       email: Email
-      password: Password
+      password: Paswoord
       submit: Login
-      signup: Sign up for a free account
-      or: or
-      already_user: Already an account? Login.
+      signup: Maak een gratis account aan
+      or: of
+      already_user: Al een account? Log in.
       user:
-          new: New user
-          register: Register
+          new: Nieuwe gebruiker
+          register: Registreren
     
   photos:
-      taken_at: Taken at
+      taken_at: In

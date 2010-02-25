@@ -7,7 +7,7 @@ en:
       gigs: Tour Calendar
       contact: Contact
       admin: Admin
-      profile: Profile
+      profile: My Profile
       settings: Settings
       log_out: Log out
       shop: Shop
@@ -15,7 +15,7 @@ en:
       login_or_register: login <span class="or">or</span> register
   
   sidebar:
-      newsletter: Stay in the loop!
+      newsletter: You want more news? Subscribe here!
       follow: Follow Arid on
       on_stage: Arid On Stage
       vote: Vote for 'De Afrekening'
@@ -27,8 +27,8 @@ en:
       update: Update
       
   addresses:
-      firstname: Firstname
-      lastname: Lastname
+      firstname: First name
+      lastname: Last name
       street: Street + nr
       zip: Zip
       city: City
@@ -36,7 +36,7 @@ en:
       phone: Phone
       email: Email
       title_billing: Enter Billing Address
-      title_shipping: Enter SHipping Address
+      title_shipping: Enter Shipping Address
 
   songs:
       edit:
