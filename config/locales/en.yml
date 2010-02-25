@@ -10,4 +10,139 @@ en:
       profile: Profile
       settings: Settings
       log_out: Log out
+      shop: Shop
+      order: My Order
+      login_or_register: login <span class="or">or</span> register
   
+  sidebar:
+      newsletter: Stay in the loop!
+      follow: Follow Arid on
+      on_stage: Arid On Stage
+      vote: Vote for 'De Afrekening'
+      new_single: New single
+      
+  form:
+      save: Save
+      next: Next
+      update: Update
+      
+  addresses:
+      firstname: Firstname
+      lastname: Lastname
+      street: Street + nr
+      zip: Zip
+      city: City
+      country: Country
+      phone: Phone
+      email: Email
+      title_billing: Enter Billing Address
+      title_shipping: Enter SHipping Address
+
+  songs:
+      edit:
+          title: Choose your favorite songs
+      
+  posts:
+      share: Share This
+      back: Back to news
+          
+  contact:
+      management: Management
+      bookings: 'Bookings'
+
+  comments:
+      add_comment: Add Comment
+      leave_comment: Leave a comment
+      comments: 
+          one: 1 comment
+          other: '{{count}} comments'
+
+  gigs:
+      calendar: Tour Calendar
+      futur: Upcoming
+      past: Past
+      details: 'View details'
+      back: "Back to Tour Calendar"
+      date: Date
+      time: Time
+      venue: Venue
+      city: City
+      country: Country
+      photos: Photos
+      
+  newsletter:
+      thanks: "Thanks, you are now subscribed to the Arid newsletter."
+      subscribe_long: Subscribe to the mailing list
+      subscribe: Subscribe
+      
+  password:
+      mail:
+          forgot: |
+                    A request to reset your password has been made.
+                    If you did not make this request, simply ignore this email.
+                    If you did make this request just click the link below.
+                    If the URL does not work try copying and pasting it into your browser.
+                    If you continue to have problem please feel free to contact us.
+      change: Change My Password
+      password: password
+      confirmation: Password Confirmation
+      forgot: Forgot password?
+  
+  order:
+      mail:
+          thanks: Thanks for your order.
+          payment: |
+                    Please transfer {{total_price}} to our bank account.
+                    \"Arid Merchandise - KBC 731-0094471-65\"
+                    Please mention the order code \"{{payment_code}}\"
+
+                    "We will ship your order after we've received your payment."
+          order_info: Your order information
+          variant: Variant
+          price: Order price
+          shipping: Shipping costs
+          total: Total price
+          billing: Billing information
+          shipping: Shipping information
+          greating: Hi
+          sent: Your order at Arid.be has been sent to you
+      products:
+        amount: Amount
+        remove: remove
+        details: Details
+        choose_variant: Choose a variant
+        add: Add to basket
+      finish: Finish Order
+      overview: Overview
+      finalize: Finalize Order
+      process: Process order
+      basket: Your basket
+      complete: Complete Order
+      buy_more: Buy More Stuff
+      shop: Arid shop
+     
+  login:
+      title: Login
+      email: Email
+      password: Password
+      submit: Login
+      signup: Sign up for a free account
+      or: or
+      already_user: Already an account? Login.
+      user:
+          new: New user
+          register: Register
+    
+  photos:
+      taken_at: Taken at
+  
+  activity:
+      blog_comment: made a comment on the blog post
+      photo_comment: made a comment on a
+      gig_comment: made a comment on the gig at
+      comment: made a comment 
+      following: is now following
+      photo_upload: has uploaded a
+      shout: left a shout on
+      profile: "'s profile"
+      photo: photo

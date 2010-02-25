@@ -1,5 +1,5 @@
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
-# require 'track_deploy'
+require 'track_deploy'
 
 set :use_sudo, false
 set :group_writable, false     # Shared environment

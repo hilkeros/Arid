@@ -1,2 +1,19 @@
-<h1>Photos#new</h1>
-<p>Find me in app/views/photos/new.html.erb</p>
+<%= title "Upload a new photo of Arid" %>
+
+<%- form_for @photo, :url => user_photos_path(current_user), :html => { :multipart => true } do |form| -%>
+	<%= form.error_messages %>
+	
+	<p>
+		<%= form.label :gig_id, 'Select a gig' %>
+		<%= form.select :gig_id, @gigs.collect{|s| [s.to_param, s.id]}, {:include_blank => ' - Select a Gig - '} %>
+	</p>
+	
+	<p>
+		<%= form.label :image %>
+		<%= form.file_field :image %>
+	</p>
+	
+	<p>
+		<%= form.submit :Upload, :class => 'input_submit' %>
+	</p>
+<%- end -%>

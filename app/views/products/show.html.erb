@@ -1,0 +1,25 @@
+<h1><%= @product.name %> (&euro;<%= @product.price %>)</h1>
+
+<%= raw @product.description %>
+
+<%= image_tag(@product.image.url(:medium)) %>
+
+<% form_for :product, :url => products_path do |form| %>
+	<%= form.hidden_field :id, :value => @product.id %>
+	
+	<% if @product.variants.present? %>
+		<p>
+			<%= form.label :variants, t('order.products.choose_variant') %>
+			<%= form.select :variants, @product.variants.split(/,/) %>
+		</p>
+	<% end %>
+	
+	<p>
+		<%= form.label :amount %>
+		<%= form.text_field :amount, :value => 1, :class => 'input_small_text', :size => 5 %>
+	</p>
+	
+	<p>
+		<%= form.submit t('order.products.add'), :class => "input_submit" %>
+	</p>
+<% end %>

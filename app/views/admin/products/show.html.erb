@@ -1,0 +1,33 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul>
+      <li class="first"><%= link_to 'List', admin_products_path  %></li>
+      <li><%= link_to 'New', new_admin_product_path %></li>
+      <li class="active"><%= link_to 'Show', admin_product_path %></li>
+    </ul>
+    <div class="clear"></div>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+			<h3><%= @product.name %> (&euro; <%= @product.price %>)</h3>
+        <p>
+          <b>Variants:</b>
+          <%= @product.variants %>
+        </p>
+
+        <p>
+          <b>Description:</b>
+          <%= raw @product.description %>
+        </p>
+
+				<div class="lightbox">
+					<%= link_to "#{image_tag @product.image.url(:thumb)}", @product.image.url(:large) %>
+				</div>
+				
+      <p><%= link_to 'Edit', edit_admin_product_path(@product) %></p>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

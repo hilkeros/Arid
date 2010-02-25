@@ -1,0 +1,51 @@
+<h1><%= t('addresses.title_billing') %></h1>
+
+<div id="comment_form">
+	<% form_for current_order, :url => billing_addresses_path, :html => { :method => :post } do |order_form| %>
+		<% order_form.fields_for :billing_address do |form| %>
+			<%= form.error_messages %>
+			<p>
+				<%= form.label :firstname, t('addresses.firstname') %>
+				<%= form.text_field :firstname %>
+			</p>
+			
+			<p>
+				<%= form.label :lastname, t('addresses.lastname') %>
+				<%= form.text_field :lastname %>
+			</p>
+			
+			<p>
+				<%= form.label :street, t('addresses.street') %>
+				<%= form.text_field :street %>
+			</p>
+			
+			<p>
+				<%= form.label :zip, t('addresses.zip') %>
+				<%= form.text_field :zip %>
+			</p>
+			
+			<p>
+				<%= form.label :city, t('addresses.city') %>
+				<%= form.text_field :city %>
+			</p>
+			
+			<p>
+				<%= form.label :country, t('addresses.country') %>
+		    <%= form.country_select :country, %w(Belgium Netherlands)%>
+			</p>
+			
+			<p>
+				<%= form.label :phone, t('addresses.phone') %>
+				<%= form.text_field :phone %>
+			</p>
+			
+			<p>
+				<%= form.label :email, t('addresses.email') %>
+				<%= form.text_field :email, :value => current_user.email %>
+			</p>
+		<% end %>
+		<p>
+			<%= order_form.submit t('form.next'), :class => 'input_submit' %>
+		</p>
+	<% end %>
+</div>

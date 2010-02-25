@@ -1,30 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  # The priority is based upon order of creation: first created -> highest priority.
-
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
-
-  # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
-
-  # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
   
-  # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
-  #   end
+  map.root :controller => "posts"
 
-  # Sample resource route within a namespace:
   map.namespace :admin do |admin|
     admin.resources :posts
     admin.resources :gigs
@@ -32,25 +9,44 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "posts"
     admin.resources :comments
     admin.resources :songs
+    admin.resources :products
+    admin.resources :orders
+    admin.order_paid      '/order/:id/paid',  :controller => 'orders', :action => 'update', :order => { :state => "paid"}
+    admin.order_sent      '/order/:id/sent',  :controller => 'orders', :action => 'update', :order => { :state => "sent"}
+    admin.archived_orders '/orders/filter/archived', :controller => 'orders', :action => 'index', :filter => 'archived'
   end
   
   map.resources :posts, :as => "news" do |post|
     post.resources :comments
   end
-  map.root :controller => "posts"
   
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resource :user do |usr|
     usr.resource :fav_songs
   end
-  map.resources :gigs
+  map.resources :gigs do |gig|
+    gig.resources :photos
+    gig.resources :comments
+  end
   map.resources :mailing_addresses
   map.resources :password_resets
   map.resources :press
-  map.resource  :language
+  map.resource :language
+  map.resources :products
+  map.resource :order, :member => {:confirmed => :get}
+  map.resource :billing_addresses
+  map.resource :shipping_addresses
+  map.resources :order_products
+  map.resources :friendships
+  map.resources :comments
+  map.resources :shouts
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
+  
+  map.resources :users, :as => 'fans' do |usr|
+    usr.resources :photos, :has_many => :comments
+  end
     
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'

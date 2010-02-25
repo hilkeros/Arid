@@ -1,0 +1,20 @@
+<h2><%= t('photos.taken_at') %> <%= gig.venue %> (<%= link_to 'details', [gig] %>)</h2>
+
+<table>
+	<tr>
+		<td><%= t('gigs.date') %>:</td>
+		<td><%= gig.date.strftime('%d-%m-%Y') %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.venue') %>:</td>
+		<td><%= gig.venue %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.city') %>:</td>
+		<td><%= gig.city %> </td>
+	</tr>
+	<tr>
+		<td><%= t('gigs.country') %>:</td>
+		<td><%= gig.country %> </td>
+	</tr>
+</table>

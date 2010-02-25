@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @photos = @user.photos.find(:all, :limit => 10)
+    @activities = @user.activities.find(:all, :limit => 20, :order => "created_at DESC")
   end
 
   def update
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
       @user.save!
     end
     flash[:notice] = "Succesfully updated settings."
-    redirect_to edit_user_path
+    redirect_to profile_path(@user)
   rescue ActiveRecord::RecordInvalid
     render :edit
   end

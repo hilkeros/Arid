@@ -6,3 +6,14 @@
 	<li><%= link_to 'Add new Song', new_admin_song_path %></li>
   </ul>
 </div>
+
+<% unless confirmed_orders.empty? %>
+	<div class="block">
+		<h3>New order</h3>	
+		<ul class="navigation">
+			<% confirmed_orders.each do |order| %>
+				<li><%= link_to "View order #{order.id}", admin_order_path(order) %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

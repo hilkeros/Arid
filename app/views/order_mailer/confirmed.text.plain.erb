@@ -1,0 +1,24 @@
+<%= t('order.mail.greatings') %> <%= @order.user.name %>
+<%= t('order.mail.thanks') %>
+
+<%= t('order.mail.payment', :total_price => @order.total_price + 10.0.to_f, :payment_code => @order.payment_code) %>
+
+<%= t('order.mail.order_info') %>:
+<% @order.order_products.each do |order_product| %>
+	<%= order_product.product.name %> (&euro;<%= order_product.price %>)
+	<%= "#{t('order.mail.variant')}: #{order_product.variant}" if order_product.variant.present? %>
+<% end %>
+
+<%= t('order.mail.price') %>: &euro;<%= @order.total_price %>
+<%= t('order.mail.shipping') %>: &euro; 10
+<%= t('order.mail.total') %>: &euro;<%= @order.total_price + 10.to_f %>
+
+<%= t('order.mail.billing') %>
+<%= @order.billing_address.name %>
+<%= raw @order.billing_address.address %>
+
+<%= t('order.mail.shiping') %>
+<%= @order.shipping_address.name %>
+<%= raw @order.shipping_address.address %>
+
+Arid.

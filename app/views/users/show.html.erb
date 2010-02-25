@@ -1,16 +1,39 @@
 <%= title "#{@user.name}'s Profile" %>
 <div id="profile">
 	<h2>Personal info</h2>
+	<%= image_tag(@user.avatar.url(:small)) %>
 	<dl>
 		<dt>Name: <%= @user.name %></dt>
 	</dl>
 	<%= link_to 'edit', edit_user_path if @user == current_user %>
+	<%= render :partial => 'follow' unless @user == current_user %>
 	
-
 	<h2>Favorite Arid Songs</h2>
 	<%= content_tag(:p, "No songs selected") if @user.songs.empty? %>
 	<% @user.songs.each do |song| %>
 		<p class="posted"><span class="author"><%= song.name %></span></p>
 	<% end %>
 	<%= link_to 'edit', edit_user_fav_songs_path if @user == current_user %>
+	
+	<h2>Shouts</h2>
+	<% form_for :shout, :url => shouts_path do |form| %>
+		<%= form.hidden_field :friend_id, :value => @user.id %>
+		<%= form.text_area :body %>
+		<p class="submit"><%= form.submit 'Shout' %></p>
+	<% end %>
+	
+	<% @user.friend_shouts.all.each do |shout| %>
+		<p><%= shout.body %></p>
+	<% end %>
+	
+	<h2>Activity</h2>
+	<% @activities.each do |activity| %>
+		<%= raw activity_log activity %><br />
+	<% end %>
+	
+	<h2>Photos <%= link_to '(add more)', new_user_photo_path(current_user) if @user == current_user %></h2>
+	<%- @photos.each do |photo| -%>
+		<%= link_to image_tag(photo.image.url(:thumb)), [@user, photo] %>
+	<%- end -%>
 </div>
+

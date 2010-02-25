@@ -1,0 +1,43 @@
+<h1><%= t('order.finish') %></h1>
+
+<h2><%= t('order.overview') %></h2>
+<div class="clearfix">
+	<%= render :partial => 'order_products' %>
+</div>
+
+<div class="info">
+	<dl>
+		<dt><%= t('order.mail.price') %>: &euro;<%= @order.total_price %></dt>
+		<dt><%= t('order.mail.shipping') %>: &euro; 10</dt>
+		<dt><%= t('order.mail.total') %>: &euro;<%= @order.total_price + 10.to_f %></dt>
+	</dl>
+</div>
+
+<div class="info">
+	<h3><%= t('order.mail.billing') %></h3>
+	<dl>
+		<dt><%= @order.billing_address.name %></dt>
+		<dt><%= raw @order.billing_address.address %></dt>
+	</dl>
+</div>
+
+<div class="info">
+	<h3><%= t('order.mail.shipping') %></h3>
+	<dl>
+		<dt><%= @order.shipping_address.name %></dt>
+		<dt><%= raw @order.shipping_address.address %></dt>
+	</dl>
+</div>
+
+<div class="info">
+	<h3><%= t('order.finalize') %></h3>
+	<% form_for @order do |form| %>
+		<p>
+			<%= form.label :remark %>
+			<%= form.text_area :remark %>
+		</p>
+		<p>
+			<%= form.submit t('order.process'), :class => "input_submit" %>
+		</p>
+	<% end %>
+</div>

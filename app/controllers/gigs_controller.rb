@@ -1,7 +1,8 @@
 class GigsController < ApplicationController
   
   def index
-    @gigs = Gig.all
+    @gigs = Gig.futur
+    @past_gigs = Gig.past
     respond_to do |format|
       format.html
       format.atom

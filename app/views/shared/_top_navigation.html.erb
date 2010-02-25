@@ -2,8 +2,12 @@
   <div class="container">
     <ul class="clearfix">
 			<% if current_user %>
-				<li class="first"><%= link_to(t('menu.admin'), admin_root_path) if current_user.admin? %></li>
-        <li class="<%= "first" unless current_user.admin? %>"><%= link_to t('menu.profile'), profile_path(current_user.id) %></li>
+				<!-- <li class="first"><%#= image_tag(current_user.avatar.url(:thumb)) %></li> -->
+				<% if current_order.present? %>
+					<li class="first"><%= link_to t('menu.order'), order_path %></li>
+				<% end %>
+				<li><%= link_to(t('menu.admin'), admin_root_path) if current_user.admin? %></li>
+        <li><%= link_to t('menu.profile'), profile_path(current_user.id) %></li>
         <li><%= link_to t('menu.settings'), edit_user_path %></li>
         <li><%= link_to t('menu.log_out'), logout_path %></li>
 			<% else %>
@@ -14,7 +18,7 @@
 				      <img id="fb_login_image" src="/images/fb-connect-small.png" alt="Connect" />
 				   </a>
 				</li>
-        <li class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to 'login <span class="or">or</span> register', login_path %></li>
+        <li class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to t('menu.login_or_register'), login_path %></li>
 			<% end %>
 		</ul>
 	</div>

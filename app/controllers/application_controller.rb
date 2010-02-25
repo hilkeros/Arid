@@ -11,9 +11,11 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user, :login_required, :upcoming_gigs
+  
+  before_filter :initialize_order
 
   def upcoming_gigs
-    @gigs = Gig.upcoming.all(:limit => 4, :order => "date ASC" )
+    @upcoming_gigs = Gig.futur.all(:limit => 4, :order => "date ASC" )
   end
 
   private
@@ -30,6 +32,16 @@ class ApplicationController < ActionController::Base
     return @current_user if defined?(@current_user)
     @current_user = current_user_session && current_user_session.user
   end
+  
+  
+  def initialize_order
+    session[:order_id] ||= {}
+  end
+  
+  def current_order
+    @current_order ||= Order.find session[:order_id] if session[:order_id].present?
+  end
+  helper_method :current_order
 
   
 end
