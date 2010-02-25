@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     @photos = @user.photos.find(:all, :limit => 10)
     @activities = @user.activities.find(:all, :limit => 20, :order => "created_at DESC")
   end

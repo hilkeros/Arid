@@ -1,25 +1,24 @@
 <div id="topbar">
-  <div class="container">
-    <ul class="clearfix">
-			<% if current_user %>
-				<!-- <li class="first"><%#= image_tag(current_user.avatar.url(:thumb)) %></li> -->
+	<div class="container">
+		<div id="you">
+			<%- if current_user -%>
+				<%= image_tag(current_user.avatar.url(:thumb), :class => 'avatar') %>
 				<% if current_order.present? %>
-					<li class="first"><%= link_to t('menu.order'), order_path %></li>
+					<p><%= link_to t('menu.order'), [:order] %></p>
 				<% end %>
-				<li><%= link_to(t('menu.admin'), admin_root_path) if current_user.admin? %></li>
-        <li><%= link_to t('menu.profile'), profile_path(current_user.id) %></li>
-        <li><%= link_to t('menu.settings'), edit_user_path %></li>
-        <li><%= link_to t('menu.log_out'), logout_path %></li>
+				<p><%= link_to(t('menu.admin'), [:admin, :root]) if current_user.admin? %></p>
+				<p id="logged-in">Logged in as <%= link_to current_user.name, profile_path(current_user) %>
+				(<%= link_to t('menu.settings'), [:edit, :user] %> | <%= link_to t('menu.log_out'), [:logout] %>)</p>
 			<% else %>
-        <li class="first">
+				<p class="first">
 					<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
 					<% end %>
 					<a href="#" onclick="FB.Connect.requireSession(function() { FB.Connect.showPermissionDialog('email,publish_stream,read_stream', function() {$('#facebook_connect_form').submit(); }); }); return false;">
-				      <img id="fb_login_image" src="/images/fb-connect-small.png" alt="Connect" />
-				   </a>
-				</li>
-        <li class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to t('menu.login_or_register'), login_path %></li>
-			<% end %>
-		</ul>
+						<img id="fb_login_image" src="/images/fb-connect-small.png" alt="Connect" />
+					</a>
+				</p>
+				<p class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to t('menu.login_or_register'), [:login] %></p>
+			<%- end -%>
+		</div>
 	</div>
 </div>

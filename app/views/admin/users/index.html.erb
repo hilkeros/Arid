@@ -14,18 +14,20 @@
 					<th>Name</th>
 					<th>Email</th>
 					<th>Created at</th>
+					<th>Facebook</th>
 					<th>Admin</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @users.each do |user| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td><%= user.id %></td>
-					<td><%= link_to user.name, admin_user_path(user) %></td>
+					<td><%= user.name %></td>
 					<td><%= user.email %>
 					<td><%= user.created_at %></td>
+					<td><%= user.facebook_uid %></td>
 					<td><%= user.admin ? "yes" : "no" %></td>
           <td class="last">
-            <%= link_to 'edit', edit_admin_user_path(user) %>
+            <%= link_to 'edit', [:edit, :admin, user] %>
           </td>
         </tr>          
         <% end -%>

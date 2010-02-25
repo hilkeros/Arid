@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   acts_as_authentic do |user|
     user.login_field :email
   end
+  has_permalink :name
 
   has_many :comments
   has_many :photos
@@ -12,7 +13,6 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, :through => :friendships
   has_many :activities
-  
   
   has_many :shouts
   has_many :friend_shouts, :class_name => 'Shout', :foreign_key => 'friend_id'
@@ -26,7 +26,11 @@ class User < ActiveRecord::Base
     },
     :url  => "/assets/users/:style/:id.:extension",
     :path => ":rails_root/public/assets/users/:style/:id.:extension"
-
+    
+  def to_param
+    permalink
+  end
+    
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
