@@ -42,7 +42,7 @@ class PhotosController < ApplicationController
   end
   
   def selected_user
-    @user = User.find(params[:user_id]) if params[:user_id].present?
+    @user = User.find_by_permalink(params[:user_id]) if params[:user_id].present?
   end
   
   def scoped_photos
