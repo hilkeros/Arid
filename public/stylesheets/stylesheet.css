@@ -167,12 +167,12 @@ body{
 #content-wrap{
   background:url(/images/body-bg-big.gif) no-repeat center -560px;
   padding-top:350px;
-  -webkit-transition: all 5s ease-out;
+  /*-webkit-transition: all 5s ease-out;
 }
 #content-wrap:hover{
   background-position: center 0;
   padding-top:960px;
-}
+}*/
 #sidebar{
 	float:left;
 	height:1500px;
