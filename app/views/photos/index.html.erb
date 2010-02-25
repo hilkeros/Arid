@@ -1,10 +1,20 @@
-<%= title "Fan photos of #{@user.name}" %>
-<p><%= link_to 'add more', new_user_photo_path(current_user) %></p>
+<%- if @user.present? -%>
+	<%= title "Fan photos of #{@user.name}" %>
+	<p><%= link_to 'add more', new_user_photo_path(current_user) %></p>
 
-<%- @photos.each do |photo| -%>
-<div class="product <%= cycle('left','right') %>">
-	<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
-	<%= link_to 'Details', user_photo_path(@user, photo) %>
-	<%= content_tag :p, "Belongs to #{photo.gig.to_param}" if photo.gig.present?  %>
-</div>
+	<%- @photos.each do |photo| -%>
+	<div class="product <%= cycle('left','right') %>">
+		<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
+		<%= link_to 'Details', user_photo_path(@user, photo) %>
+		<%= content_tag :p, "Belongs to #{photo.gig.to_param}" if photo.gig.present?  %>
+	</div>
+	<%- end -%>
+<%- else -%>
+	<%= title t('photos.arid_title') %>
+	<%- @photos.each do |photo| -%>
+	<div class="product <%= cycle('left','right') %>">
+		<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
+		<%= link_to 'Details', [photo] %>
+	</div>
+	<%- end -%>
 <%- end -%>

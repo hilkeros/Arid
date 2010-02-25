@@ -1,0 +1,14 @@
+
+  <div class="group">
+    <%= f.label :image, "Image", :class => :label %>
+    <%= f.file_field :image, :class => 'file_field' %>
+  </div>
+
+  <div class="group">
+    <%= f.label :arid, "Arid Photo", :class => :label %>
+    <%= f.check_box :arid, :checked => 'checked', :class => 'check_box' %>
+  </div>
+        
+<div class="group navform">
+  <input type="submit" class="button" value="Save &rarr;" /> or <%= link_to 'Cancel', admin_photos_path %>
+</div>

@@ -11,6 +11,8 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :songs
     admin.resources :products
     admin.resources :orders
+    admin.resources :videos
+    admin.resources :photos
     admin.order_paid      '/order/:id/paid',  :controller => 'orders', :action => 'update', :order => { :state => "paid"}
     admin.order_sent      '/order/:id/sent',  :controller => 'orders', :action => 'update', :order => { :state => "sent"}
     admin.archived_orders '/orders/filter/archived', :controller => 'orders', :action => 'index', :filter => 'archived'
@@ -41,6 +43,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :friendships
   map.resources :comments
   map.resources :shouts
+  map.resources :videos
+  map.resources :photos
   
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
   

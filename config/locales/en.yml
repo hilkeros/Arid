@@ -135,6 +135,8 @@ en:
     
   photos:
       taken_at: Taken at
+      arid_title: Arid Photos
+      back: Back to Arid photos
   
   activity:
       blog_comment: made a comment on the blog post
@@ -146,3 +148,7 @@ en:
       shout: left a shout on
       profile: "'s profile"
       photo: photo
+      
+  videos:
+      title: "Arid Video's"
+      back: "Back to video's"
