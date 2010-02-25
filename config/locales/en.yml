@@ -47,3 +47,14 @@ en:
       city: City
       country: Country
       photos: Photos
+  
+  activity:
+      blog_comment: made a comment on the blog post
+      photo_comment: made a comment on a
+      gig_comment: made a comment on the gig at
+      comment: made a comment 
+      following: is now following
+      photo_upload: has uploaded a
+      shout: left a shout on
+      profile: "'s profile"
+      photo: photo
