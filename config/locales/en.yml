@@ -26,7 +26,7 @@ en:
       next: Next
       update: Update
       
-  billing_addresses:
+  addresses:
       firstname: Firstname
       lastname: Lastname
       street: Street + nr
@@ -35,7 +35,8 @@ en:
       country: Country
       phone: Phone
       email: Email
-      title: Enter Billing Address
+      title_billing: Enter Billing Address
+      title_shipping: Enter SHipping Address
 
   songs:
       edit:
@@ -82,6 +83,10 @@ en:
                     If you did make this request just click the link below.
                     If the URL does not work try copying and pasting it into your browser.
                     If you continue to have problem please feel free to contact us.
+      change: Change My Password
+      password: password
+      confirmation: Password Confirmation
+      forgot: Forgot password?
   
   order:
       mail:
@@ -101,6 +106,32 @@ en:
           shipping: Shipping information
           greating: Hi
           sent: Your order at Arid.be has been sent to you
+      products:
+        amount: Amount
+        remove: remove
+        details: Details
+        choose_variant: Choose a variant
+        add: Add to basket
+      finish: Finish Order
+      overview: Overview
+      finalize: Finalize Order
+      process: Process order
+      basket: Your basket
+      complete: Complete Order
+      buy_more: Buy More Stuff
+      shop: Arid shop
+     
+  login:
+      title: Login
+      email: Email
+      password: Password
+      submit: Login
+      signup: Sign up for a free account
+      or: or
+      already_user: Already an account? Login.
+      user:
+          new: New user
+          register: Register
     
   photos:
       taken_at: Taken at

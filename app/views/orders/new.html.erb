@@ -1,21 +1,20 @@
-<h1>Finish Order</h1>
+<h1><%= t('order.finish') %></h1>
 
-<h2>Overview</h2>
+<h2><%= t('order.overview') %></h2>
 <div class="clearfix">
 	<%= render :partial => 'order_products' %>
 </div>
 
 <div class="info">
-	<h3>Total order price</h3>
 	<dl>
-		<dt>Total order: &euro;<%= @order.total_price %></dt>
-		<dt>Shipping costs: &euro; 10</dt>
-		<dt>Total: &euro;<%= @order.total_price + 10.to_f %></dt>
+		<dt><%= t('order.mail.price') %>: &euro;<%= @order.total_price %></dt>
+		<dt><%= t('order.mail.shipping') %>: &euro; 10</dt>
+		<dt><%= t('order.mail.total') %>: &euro;<%= @order.total_price + 10.to_f %></dt>
 	</dl>
 </div>
 
 <div class="info">
-	<h3>Billing information</h3>
+	<h3><%= t('order.mail.billing') %></h3>
 	<dl>
 		<dt><%= @order.billing_address.name %></dt>
 		<dt><%= raw @order.billing_address.address %></dt>
@@ -23,7 +22,7 @@
 </div>
 
 <div class="info">
-	<h3>Shipping information</h3>
+	<h3><%= t('order.mail.shipping') %></h3>
 	<dl>
 		<dt><%= @order.shipping_address.name %></dt>
 		<dt><%= raw @order.shipping_address.address %></dt>
@@ -31,14 +30,14 @@
 </div>
 
 <div class="info">
-	<h3>Finalize Order</h3>
+	<h3><%= t('order.finalize') %></h3>
 	<% form_for @order do |form| %>
 		<p>
 			<%= form.label :remark %>
 			<%= form.text_area :remark %>
 		</p>
 		<p>
-			<%= form.submit 'Process order', :class => "input_submit" %>
+			<%= form.submit t('order.process'), :class => "input_submit" %>
 		</p>
 	<% end %>
 </div>

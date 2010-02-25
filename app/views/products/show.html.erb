@@ -9,7 +9,7 @@
 	
 	<% if @product.variants.present? %>
 		<p>
-			<%= form.label :variants, "Choose a variant" %>
+			<%= form.label :variants, t('order.products.choose_variant') %>
 			<%= form.select :variants, @product.variants.split(/,/) %>
 		</p>
 	<% end %>
@@ -20,6 +20,6 @@
 	</p>
 	
 	<p>
-		<%= form.submit 'Add to basket', :class => "input_submit" %>
+		<%= form.submit t('order.products.add'), :class => "input_submit" %>
 	</p>
 <% end %>

@@ -1,9 +1,9 @@
-<h1>Your basket</h1>
-<h2>Total order price: &euro; <%= @order.total_price %></h2>
+<h1><%= t('order.basket') %></h1>
+<h2><%= t('order.mail.price') %>: &euro; <%= @order.total_price %></h2>
 
 <div class="clearfix">
 	<%= render :partial => 'order_products' %>
 </div>
 
-<p class="button_list clearfix"><%= link_to "Complete Order", [:new, :billing_addresses] %></p>
-<p class="button_list"><%= link_to "Buy More Stuff", [:products] %></p>
+<p class="button_list clearfix"><%= link_to t('order.complete'), [:new, :billing_addresses] %></p>
+<p class="button_list"><%= link_to t('order.buy_more'), [:products] %></p>

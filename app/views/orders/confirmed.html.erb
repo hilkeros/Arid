@@ -1,44 +1,24 @@
-<p>Thanks for your order.</p>
+<p><%= t('order.mail.thanks') %></p>
 
+<p><%= t('order.mail.payment', :total_price => @order.total_price + 10.0.to_f, :payment_code => @order.payment_code) %></p>
 <p>
-	Please transfer <%= @order.total_price + 10.0.to_f %> to our bank account.
-	"Arid Merchandise - KBC 731-0094471-65"
-	Please mention the order code "<%= @order.payment_code %>"
+<%= t('order.mail.order_info') %>:
+<dl>
+<% @order.order_products.each do |order_product| %>
+	<dt><%= order_product.product.name %> (&euro;<%= order_product.price %>)</dt>
+	<dt><%= "#{t('order.mail.variant')}: #{order_product.variant}" if order_product.variant.present? %></dt>
+<% end %>
+</dl>
 </p>
 
-<p>We will ship your order after we've received your payment.</p>
+<p><%= t('order.mail.price') %>: &euro;<%= @order.total_price %></p>
+<p><%= t('order.mail.shipping') %>: &euro; 10</p>
+<p><%= t('order.mail.total') %>: &euro;<%= @order.total_price + 10.to_f %></p>
 
-<p>
-	Your order information:
-	<dl>
-		<% @order.order_products.each do |order_product| %>
-			<dt><%= order_product.amount %><%= order_product.product.name %> (&euro;<%= order_product.price %>)</dt>
-			<dt><%= "Selected variant: #{order_product.variant}" if order_product.variant.present? %></dt>
-		<% end %>
-	</dl>
-</p>
+<p><%= t('order.mail.billing') %></p>
+<p><%= @order.billing_address.name %></p>
+<p><%= raw @order.billing_address.address %></p>
 
-<p>
-	Total order price:
-	<dl>
-		<dt>Total order: &euro;<%= @order.total_price %></dt>
-		<dt>Shipping costs: &euro; 10</dt>
-		<dt>Total: &euro;<%= @order.total_price + 10.to_f %></dt>
-	</dl>
-</p>
-
-<p>
-	Billing information
-	<dl>
-		<dt><%= @order.billing_address.name %></dt>
-		<dt><%= raw @order.billing_address.address %></dt>
-	</dl>
-</p>
-
-<p>
-	Shipping information
-	<dl>	
-		<dt><%= @order.shipping_address.name %></dt>
-		<dt><%= raw @order.shipping_address.address %></dt>
-	</dl>
-</p>
+<p><%= t('order.mail.shiping') %></p>
+<p><%= @order.shipping_address.name %></p>
+<p><%= raw @order.shipping_address.address %></p>
