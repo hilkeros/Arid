@@ -1,4 +1,4 @@
-<h1>Choose your favorite songs</h1>
+<h1><%= t('songs.edit.title') %></h1>
 
 <% form_for :user, :url => user_fav_songs_path, :html => {:method => :put} do |form| %>
 	
@@ -28,7 +28,7 @@
 	
 	<fieldset class="submit">
 		<p>
-			<%= form.submit 'Save', :class => "input_submit" %>
+			<%= form.submit t('form.save'), :class => "input_submit" %>
 		</p>	
 	</fieldset>
 	
