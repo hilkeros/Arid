@@ -9,7 +9,7 @@
 				<p id="logged-in"><%= link_to "My Profile |", profile_path(current_user) %>
 				<%= link_to t('menu.settings'), [:edit, :user] %> | <%= link_to t('menu.log_out'), [:logout] %></p>
 			<% else %>
-				<p class="admin"><%= link_to 'browse fans', [:users] %></p>
+				<p class="admin"><%= link_to 'browse fans | ', [:users] %></p>
 				<p><%= link_to t('menu.login_or_register'), [:login] %></p>
 			<%- end -%>
 		</div>
