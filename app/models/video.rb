@@ -6,4 +6,8 @@ class Video < ActiveRecord::Base
                     
   named_scope :uploaded, :conditions => "url IS NULL"
   named_scope :links, :conditions => "url IS NOT NULL"
+  
+  def youtube_id
+    url.to_s[/watch\?v=([^&]+)/,1]
+  end
 end
