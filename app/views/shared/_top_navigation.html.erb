@@ -3,13 +3,11 @@
 		<div id="you">
 			<%- if current_user -%>
 				<%= image_tag(current_user.avatar.url(:thumb), :class => 'avatar') %>
-				<% if current_order.present? %>
-					<p class="admin"><%= link_to t('menu.order'), [:order] %></p>
-				<% end %>
-				<p class="admin"><%= link_to(t('menu.admin'), [:admin, :root]) if current_user.admin? %></p>
-				<p id="logged-in">Logged in as <%= link_to current_user.name, profile_path(current_user) %>
-				(<%= link_to t('menu.settings'), [:edit, :user] %> | <%= link_to t('menu.log_out'), [:logout] %>)</p>
-				<p class="browse"><%= link_to 'browse fans', [:users] %></p>
+				<%= content_tag :p, link_to("#{t('menu.admin')} |", [:admin, :root]), :class => "admin" if current_user.admin? %>
+				<%= content_tag :p, link_to("#{t('menu.order')} |", [:order]), :class => 'admin' if current_order.present? %>
+				<p class="admin"><%= link_to 'Browse fans |', [:users] %></p>
+				<p id="logged-in"><%= link_to "My Profile |", profile_path(current_user) %>
+				<%= link_to t('menu.settings'), [:edit, :user] %> | <%= link_to t('menu.log_out'), [:logout] %></p>
 			<% else %>
 				<p class="admin"><%= link_to 'browse fans', [:users] %></p>
 				<p><%= link_to t('menu.login_or_register'), [:login] %></p>
