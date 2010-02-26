@@ -162,7 +162,7 @@ body{
 	text-align:left;
 }
 #content-wrap{
-  background:url(/images/body-bg-big.gif) no-repeat center -560px;
+  background:url(/images/body-bg-big.gif) no-repeat center -590px;
   padding-top:350px;
 }
   /*-webkit-transition: all 5s ease-out;
@@ -226,6 +226,12 @@ body{
 
 #topbar img{
   margin-top:-3px;
+}
+#topbar .browse{
+	margin-left:3px;
+}
+#topbar .admin{
+	margin:0 3px;
 }
 /* Header
 --------------------------------------------- */

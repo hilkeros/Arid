@@ -45,13 +45,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :shouts
   map.resources :videos
   map.resources :photos
-  
-  map.profile '/fans/:id', :controller => 'users', :action => 'show'
-  
+    
   map.resources :users, :as => 'fans' do |usr|
     usr.resources :users, :as => 'friends'
     usr.resources :photos, :has_many => :comments
   end
+  
+  map.profile '/fans/:id', :controller => 'users', :action => 'show'
     
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.login  '/login',  :controller => 'user_sessions', :action => 'new'

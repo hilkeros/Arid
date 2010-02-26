@@ -4,17 +4,15 @@
 			<%- if current_user -%>
 				<%= image_tag(current_user.avatar.url(:thumb), :class => 'avatar') %>
 				<% if current_order.present? %>
-					<p><%= link_to t('menu.order'), [:order] %></p>
+					<p class="admin"><%= link_to t('menu.order'), [:order] %></p>
 				<% end %>
-				<p><%= link_to(t('menu.admin'), [:admin, :root]) if current_user.admin? %></p>
+				<p class="admin"><%= link_to(t('menu.admin'), [:admin, :root]) if current_user.admin? %></p>
 				<p id="logged-in">Logged in as <%= link_to current_user.name, profile_path(current_user) %>
 				(<%= link_to t('menu.settings'), [:edit, :user] %> | <%= link_to t('menu.log_out'), [:logout] %>)</p>
+				<p class="browse"><%= link_to 'browse fans', [:users] %></p>
 			<% else %>
-				<p class="first">
-					<% form_for :user_sessions, :url => user_session_path, :html => {:id => 'facebook_connect_form'} do |f| %>
-					<% end %>
-				</p>
-				<p class="<%= "current" if controller_name == "user_sessions" %>"><%= link_to t('menu.login_or_register'), [:login] %></p>
+				<p class="admin"><%= link_to 'browse fans', [:users] %></p>
+				<p><%= link_to t('menu.login_or_register'), [:login] %></p>
 			<%- end -%>
 		</div>
 	</div>

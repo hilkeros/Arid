@@ -45,7 +45,7 @@
 		<ul class="day-actions">
 			<div class="comment">
 			<% @shouts.each do |shout| %>
-					<p class="posted"><span class="author"><%= shout.user.name %></span> | <apsn class="date"><%= shout.created_at.strftime('%d/%m/%y') %></apsn></p>
+					<p class="posted"><span class="author"><%= link_to shout.user.name, profile_path(shout.user) %></span> | <apsn class="date"><%= shout.created_at.strftime('%d/%m/%y') %></apsn></p>
 					<div class="comment_content">
 						<p><%= shout.body %></p>
 					</div>
@@ -69,7 +69,7 @@
 <div id="user-lists">
 	<div id="friendlist">
 		<div class="box">
-	    <h3><%= @user.name %>'s friends <%= link_to "(See all)", [@user, :users] %></h3>
+	    <h3><%= @user.name %>'s friends</h3>
       <ul class="listbox clearfix">
 				<% @user.friends.each do |friend| %>
         	<li>
@@ -77,12 +77,13 @@
 	        </li>
 				<% end %>
       </ul>
+			<%= link_to "(See all)", [@user, :users] %>
     </div>
 	</div>
 	
 	<div id="user-photos">
 		<div class="box">
-      <h3><%= @user.name %>'s photos <%= link_to '(See all)', [@user, :photos] %></h3>
+      <h3><%= @user.name %>'s photos</h3>
       <ul class="listbox clearfix">
 				<%- @photos.each do |photo| -%>
 	        <li>
@@ -90,6 +91,7 @@
 	        </li>
 				<%- end -%>
       </ul>
+			<%= link_to '(See all)', [@user, :photos] %>
 			<%= link_to '(add more)', new_user_photo_path(current_user) if @user == current_user %>
     </div>
 	</div>

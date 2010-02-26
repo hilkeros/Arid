@@ -1,4 +1,4 @@
-<%= content_tag :p, link_to("Back to #{@user.name}'s profile", profile_path(@user)), :class => "go-back" %>
+<%= content_tag :p, link_to("Back to #{@user.name}'s profile", profile_path(@user)), :class => "go-back" if @user.present? %>
 
 <%= title "Meet Arid's Fans" unless @user.present? %>
 <%= title "Meet #{@user.name}'s Fans" if @user.present? %>
@@ -8,9 +8,9 @@
 <div id="browse-fans">
 	<div class="box">
 		<ul class="listbox clearfix">
-			<%- @users.each do |photo| -%>
+			<%- @users.each do |user| -%>
 				<li>
-					<%= link_to "#{image_tag(@user.avatar.url(:thumb))}#{@user.name}", [@user] %>
+					<%= link_to "#{image_tag(user.avatar.url(:thumb))}#{user.name}", profile_path(user) %>
 				</li>
 			<%- end -%>
 		</ul>
