@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
     :styles => { 
         :thumb => [ "32x32>", :jpg ], 
-        :small => [ "100x100>", :jpg ], 
+        :small => [ "54x54>", :jpg ], 
         :medium => [ "450x450>", :jpg ], 
         :large => [ "700x500>", :jpg ] 
     },
@@ -55,5 +55,15 @@ class User < ActiveRecord::Base
   def is_following?(user)
     friends.include?(user)
   end
+
+  def age
+    date = Date.current
+    dob = birth_date
+    return "" if dob.blank?
+    day_diff = date.day - dob.day
+    month_diff = date.month - dob.month - (day_diff < 0 ? 1 : 0)
+    date.year - dob.year - (month_diff < 0 ? 1 : 0)
+  end
+  
 
 end

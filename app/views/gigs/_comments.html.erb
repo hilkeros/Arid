@@ -1,10 +1,11 @@
 <h2><span class="comment_count"><%= t('comments.comments', :count => @gig.comments.size )%></span></h2>
 <% @gig.comments.each do |comment| %>
-	<div class="comment">
-		<p class="posted"><span class="author"><%= comment.user.name %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
-		<div class="comment_content">
-			<p><%= comment.body %></p>
-		</div>
+<div class="comment">
+	<p class="posted"><span class="author"><%= comment.user.name %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
+	<div class="comment_content">
+		<p><%= comment.body %></p>
+	</div>
+</div>
 <% end %>
 
 <div id="comment_form">

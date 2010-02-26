@@ -1,39 +1,94 @@
-<%= title "#{@user.name}'s Profile" %>
-<div id="profile">
-	<h2>Personal info</h2>
-	<%= image_tag(@user.avatar.url(:small)) %>
-	<dl>
-		<dt>Name: <%= @user.name %></dt>
-	</dl>
-	<%= link_to 'edit', edit_user_path if @user == current_user %>
-	<%= render :partial => 'follow' unless @user == current_user %>
+<div id="user-info">
+	<div id="user-profile">
+		<div id="follow-user">
+			<%= image_tag(@user.avatar.url(:small), :id => 'user-avatar') %>
+	    <ul class="button_list">
+	      <li>
+	        <%= render :partial => 'follow' unless @user == current_user %>
+	      </li>
+	    </ul>
+	  </div>
+
+		<%= title @user.name %>
+    <p class="asl">
+      <%= @user.age %> (<%= @user.gender %>) <%= @user.country %><br />
+    </p>
+
+    <div id="user-socialmedia">
+    	<ul class="clearfix">
+				<%= content_tag :li, link_to(image_tag('icons/social/IconMyspaceSml.png'), @user.myspace_uid) if @user.myspace_uid.present? %>
+				<%= content_tag :li, link_to(image_tag('icons/social/IconNetlogSml.png'), @user.netlog_uid) if @user.netlog_uid.present? %>
+				<%= content_tag :li, link_to(image_tag('icons/social/IconTwitterSml.png'), @user.twitter_uid) if @user.twitter_uid.present? %>
+    	</ul>
+    </div>
+
+    <p>
+      <strong>Favorite Arid songs:</strong><br >
+      <%= @user.songs.collect{|s| s.name.titleize}.to_sentence %>
+			<%= link_to 'edit', edit_user_fav_songs_path if @user == current_user %>
+    </p>
+	</div>
 	
-	<h2>Favorite Arid Songs</h2>
-	<%= content_tag(:p, "No songs selected") if @user.songs.empty? %>
-	<% @user.songs.each do |song| %>
-		<p class="posted"><span class="author"><%= song.name %></span></p>
-	<% end %>
-	<%= link_to 'edit', edit_user_fav_songs_path if @user == current_user %>
-	
-	<h2>Shouts</h2>
-	<% form_for :shout, :url => shouts_path do |form| %>
-		<%= form.hidden_field :friend_id, :value => @user.id %>
-		<%= form.text_area :body %>
-		<p class="submit"><%= form.submit 'Shout' %></p>
-	<% end %>
-	
-	<% @user.friend_shouts.all.each do |shout| %>
-		<p><%= shout.body %></p>
-	<% end %>
-	
-	<h2>Activity</h2>
-	<% @activities.each do |activity| %>
-		<%= raw activity_log activity %><br />
-	<% end %>
-	
-	<h2>Photos <%= link_to '(add more)', new_user_photo_path(current_user) if @user == current_user %></h2>
-	<%- @photos.each do |photo| -%>
-		<%= link_to image_tag(photo.image.url(:thumb)), [@user, photo] %>
-	<%- end -%>
+	<div id="user-wall">
+		<div id="shoutbox" class="box write-comment">
+      <fieldset class="first">
+        <p>
+					<% form_for :shout, :url => shouts_path do |form| %>
+						<%= form.hidden_field :friend_id, :value => @user.id %>
+						<%= form.label :body, "Write something on Jef's wall" %>
+						<%= form.text_area :body %>
+						<%= form.submit 'Write it!', :class => "input_submit" %>
+					<% end %>
+        </p>
+    </div>
+		<h3>Shouts</h3>
+		<ul class="day-actions">
+			<div class="comment">
+			<% @shouts.each do |shout| %>
+					<p class="posted"><span class="author"><%= shout.user.name %></span> | <apsn class="date"><%= shout.created_at.strftime('%d/%m/%y') %></apsn></p>
+					<div class="comment_content">
+						<p><%= shout.body %></p>
+					</div>
+			<% end %>
+		</ul>
+
+		<h3>Activity</h3>
+    <ul class="day-actions">
+			<% @activities.each do |activity| %>
+				<li><%= raw activity_log activity %></li>
+			<% end %>
+    </ul>
+
+
+	</div>
 </div>
 
+
+<div id="user-lists">
+	<div id="friendlist">
+		<div class="box">
+	    <h3><%= @user.name %>'s friends <%= link_to "(See all)", [@user, :users] %></h3>
+      <ul class="listbox clearfix">
+				<% @user.friends.each do |friend| %>
+        	<li>
+						<%= link_to "#{image_tag(friend.avatar.url(:thumb))}#{friend.name}", profile_path(friend) %>
+	        </li>
+				<% end %>
+      </ul>
+    </div>
+	</div>
+	
+	<div id="user-photos">
+		<div class="box">
+      <h3><%= @user.name %>'s photos <%= link_to '(See all)', [@user, :photos] %></h3>
+      <ul class="listbox clearfix">
+				<%- @photos.each do |photo| -%>
+	        <li>
+						<%= link_to image_tag(photo.image.url(:thumb)), [@user, photo] %>
+	        </li>
+				<%- end -%>
+      </ul>
+			<%= link_to '(add more)', new_user_photo_path(current_user) if @user == current_user %>
+    </div>
+	</div>
+</div>

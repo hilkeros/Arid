@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.find_by_permalink(params[:id])
     @photos = @user.photos.find(:all, :limit => 10)
     @activities = @user.activities.find(:all, :limit => 20, :order => "created_at DESC")
+    @shouts = @user.friend_shouts.all(:limit => 10, :order => "created_at DESC")
   end
 
   def update

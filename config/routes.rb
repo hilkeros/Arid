@@ -49,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
   map.profile '/fans/:id', :controller => 'users', :action => 'show'
   
   map.resources :users, :as => 'fans' do |usr|
+    usr.resources :users, :as => 'friends'
     usr.resources :photos, :has_many => :comments
   end
     
