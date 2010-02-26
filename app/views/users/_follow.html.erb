@@ -1,5 +1,5 @@
 <% if current_user.is_following?(@user) %>
 	<%= link_to "Unfollow", friendship_path(@user.id), :method => :delete %>
 <% else %>
-	<%= link_to "Follow", friendships_path(:friend_id => @user), :method => :post %> 
+	<%= link_to "Follow", friendships_path(:friend_id => @user.id), :method => :post %> 
 <% end %>

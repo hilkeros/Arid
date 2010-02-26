@@ -52,7 +52,7 @@
 			<% end %>
 		</ul>
 		
-		<h2>What <%= @user.name %> has been doing?</h2>
+		<h2>What has <%= @user.name %> been doing?</h2>
 		<% @activities.group_by {|a| a.created_at.to_date}.each do |date, activities| %>
 			<h3><%= activity_day(date) %></h3>
 	    <ul class="day-actions">

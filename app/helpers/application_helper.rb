@@ -12,13 +12,15 @@ module ApplicationHelper
         "#{activity.user.name} #{t('activity.comment')}"
       end
     when Friendship
-      "#{activity.user.name} #{t('activity.following')} #{link_to activity.target.name, profile_path(activity.target)}"
+      if activity.target.present?
+        "#{activity.user.name} #{t('activity.following')} #{link_to activity.target.name, profile_path(activity.target)}"
+      end
     when Photo
       "#{activity.user.name} #{t('activity.photo_upload')} #{link_to t('activity.photo'), user_photo_path(activity.user, activity.action)}"
     when Shout
       "#{activity.user.name} #{t('activity.shout')} #{link_to activity.target.name, profile_path(activity.target)}#{t('activity.profile')}"
     else
-      "Oh no he didn't"
+      ""
     end
   end
   
