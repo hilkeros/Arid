@@ -1,6 +1,11 @@
 <%= title t('videos.title') %>
 
-<% @videos.each do |video| %>
-	<%= video.name %><br />
-	<%= link_to image_tag("http://i3.ytimg.com/vi/#{video.url.split(/\=/)[1]}/default.jpg"), [video] %>
-<% end %>
+<div id="photo-list-big">
+	<ul class="clearfix">
+		<%- @videos.each do |video| -%>
+		<li>
+			<%= link_to "#{image_tag("http://i3.ytimg.com/vi/#{video.url.split(/\=/)[1]}/default.jpg")}#{video.name}", [video] %>
+		</li>
+		<%- end -%>
+	</ul>
+</div>

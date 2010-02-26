@@ -20,10 +20,14 @@
 	</div>
 <%- else -%>
 	<%= title t('photos.arid_title') %>
-	<%- @photos.each do |photo| -%>
-	<div class="product <%= cycle('left','right') %>">
-		<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
-		<%= link_to 'Details', [photo] %>
+	<div id="photo-list-big">
+		<ul class="clearfix">
+			<%- @photos.each do |photo| -%>
+			<li>
+				<%= link_to "#{image_tag(photo.image.url(:small))}", [photo] %>
+				<%= content_tag :p, link_to("Belongs to #{photo.gig.venue}", [photo.gig]) if photo.gig.present?  %>
+			</li>
+			<%- end -%>
+		</ul>
 	</div>
-	<%- end -%>
 <%- end -%>
