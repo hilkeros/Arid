@@ -1,17 +1,1 @@
 /* Internet Explorer 8 specific styles */
-
-.box, #content{
-  background: url(/images/box-trans.png);
-}
-.news_entry, .comment, td, fieldset{
-  background: url(/images/border-trans.png) repeat-x 0 0;  
-}
-.first{
-  background:none;
-}
-#topbar{
-  background: url(/images/topbar.png) repeat-x 0 100%;
-}
-#other-action{    
-  background: url(/images/box-trans.png);
-}
