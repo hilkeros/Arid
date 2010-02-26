@@ -1,7 +1,7 @@
-<p class="go-back"><%= link_to "#{t('gigs.back')} #{gig.venue.titleize}", [gig] %></p>
+<p class="go-back"><%= link_to "#{t('gigs.back_to_gig')} #{gig.venue.titleize}", [gig] %></p>
         
 <h1><%= gig.venue.titleize %></h1>
-<div id="tourdate-detail" class="box clearfix">
+  <div id="tourdate-detail" class="box clearfix">
 	<dl>
 		<dt><%= t('gigs.date') %>:</dt>
 		<dd><%= gig.date.strftime('%d-%m-%Y') %> </dd>

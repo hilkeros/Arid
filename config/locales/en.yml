@@ -65,12 +65,13 @@ en:
       past: Past
       details: 'View details'
       back: "Back to Tour Calendar"
+      back_to_gig: Back to
       date: Date
       time: Time
       venue: Venue
       city: City
       country: Country
-      photos: Photos
+      photos: Concert photos
       
   newsletter:
       thanks: "Thanks, you are now subscribed to the Arid newsletter."
