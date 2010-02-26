@@ -1,5 +1,5 @@
 <%- if @user.present? -%>
-	<p class="go-back"><%= link_to "Back to #{@user.name}'s profile" %></p>
+	<p class="go-back"><%= link_to "Back to #{@user.name}'s profile", profile_path(@user) %></p>
 	
 	<%= title "#{@user.name}'s photo's" %>
 	<%- if @user == current_user -%>
@@ -10,23 +10,14 @@
 
 	<div id="photo-list-big">
 		<ul class="clearfix">
+			<%- @photos.each do |photo| -%>
 			<li>
-				<a href="jef-photo-detail.html">
-					<img src="/images/photo.gif" alt="" />
-				</a>
+				<%= link_to "#{image_tag(photo.image.url(:small))}", [@user, photo] %>
+				<%= content_tag :p, link_to("Belongs to #{photo.gig.venue}", [photo.gig]) if photo.gig.present?  %>
 			</li>
+			<%- end -%>
 		</ul>
 	</div>
-
-	<p><%= link_to 'add more', new_user_photo_path(current_user) %></p>
-
-	<%- @photos.each do |photo| -%>
-	<div class="product <%= cycle('left','right') %>">
-		<div class="lightbox"><%= link_to "#{image_tag(photo.image.url(:small))}", photo.image.url(:large) %></div>
-		<%= link_to 'Details', user_photo_path(@user, photo) %>
-		<%= content_tag :p, "Belongs to #{photo.gig.to_param}" if photo.gig.present?  %>
-	</div>
-	<%- end -%>
 <%- else -%>
 	<%= title t('photos.arid_title') %>
 	<%- @photos.each do |photo| -%>

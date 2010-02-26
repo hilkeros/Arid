@@ -4,6 +4,11 @@
 	<%= form.error_messages %>
 	
 	<p>
+		<%= form.label :name %>
+		<%= form.text_field :name %>
+	</p>
+	
+	<p>
 		<%= form.label :gig_id, 'Select a gig' %>
 		<%= form.select :gig_id, @gigs.collect{|s| [s.to_param, s.id]}, {:include_blank => ' - Select a Gig - '} %>
 	</p>

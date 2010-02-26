@@ -1,5 +1,7 @@
 <%- if @user.present? -%>
-	<%= title "Fan photos of #{link_to @user.name, profile_path(@user)}" unless @photo.gig.present? %>
+	<%= title @photo.name unless @photo.gig.present? %>
+	<%= content_tag :p, link_to("#{t('gigs.back_to_gig')} #{@photo.user.name}'s photo's", [@photo.user, :photos]), :class => "go-back" unless @photo.gig.present? %>
+	
 	<%= render @photo.gig if @photo.gig.present? %>
 	
 	<div id="media-detail" class="box clearfix">

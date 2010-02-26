@@ -27,7 +27,7 @@ module ApplicationHelper
     when date.today?            then "Today"
     when date == Date.yesterday  then "Yesterday"
     else
-      date.strftime('%A')
+      "#{date.strftime('%A')} the #{date.day.ordinalize}"
     end
   end
   
