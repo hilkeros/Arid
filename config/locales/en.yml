@@ -133,6 +133,7 @@ en:
       or: or
       already_user: Already an account? Login.
       user:
+          name: Name
           new: New user
           register: Register
     
