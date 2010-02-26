@@ -22,9 +22,12 @@
 		<tr>
 			<td width="85px"><%= link_to gig.date.strftime('%d-%m-%Y'), gig_path(gig) %></td>
 			<td><%= link_to gig.venue, gig.venue_url %></td>
+			<td class="tourdate-media">
+				<%= raw link_to "#{gig.comments.size} <span>Comments</span>", [gig], :class => "tourdate-comments" %>
+				<%= raw link_to "#{gig.photos.size} <span>Photos</span>", [gig], :class => "tourdate-photos" %>
+			</td>
 			<td><%= gig.city %></td>
 			<td><%= gig.country %></td>
-			<td><%= link_to t('gigs.details'), gig_path(gig) %></td>
 		</tr>
 		<% end %>
 	</tbody>
