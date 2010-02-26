@@ -43,6 +43,7 @@
 	</div>
 <%- else -%>
 	<%= content_tag :p, link_to("#{t('gigs.back_to_gig')} photo's", [:photos]), :class => "go-back" %>
+	<%= title @photo.name  %>
 	<div id="media-detail" class="box clearfix">
 		<%= image_tag(@photo.image.url(:medium)) %>
 	</div>
