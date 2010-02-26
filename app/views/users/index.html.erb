@@ -1,0 +1,18 @@
+<%= content_tag :p, link_to("Back to #{@user.name}'s profile", profile_path(@user)), :class => "go-back" %>
+
+<%= title "Meet Arid's Fans" unless @user.present? %>
+<%= title "Meet #{@user.name}'s Fans" if @user.present? %>
+
+<!-- @todo Pagination -->
+
+<div id="browse-fans">
+	<div class="box">
+		<ul class="listbox clearfix">
+			<%- @users.each do |photo| -%>
+				<li>
+					<%= link_to "#{image_tag(@user.avatar.url(:thumb))}#{@user.name}", [@user] %>
+				</li>
+			<%- end -%>
+		</ul>
+	</div>
+</div>

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   before_filter :login_required, :except => [:new, :create, :show]
+  
+  def index
+    @users = scoped_users
+  end
 
   def new    
   end
@@ -36,5 +40,15 @@ class UsersController < ApplicationController
     redirect_to profile_path(@user)
   rescue ActiveRecord::RecordInvalid
     render :edit
+  end
+  
+  protected
+  def scoped_users
+    if params[:user_id]
+      @user = User.find_by_permalink(params[:user_id])
+      return @user.friends
+    else
+      User.all
+    end
   end
 end
