@@ -762,6 +762,14 @@ ul.button_list{
   width:85%;
 }
 
+#concert-media #concert-photos, #concert-media #concert-videos{
+  float:left;
+  width:310px;
+}
+#concert-media #concert-photos{
+  margin-right:10px;
+}
+
 
 /* Shop products
 --------------------------------------------- */
