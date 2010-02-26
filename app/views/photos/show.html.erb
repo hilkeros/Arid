@@ -7,7 +7,7 @@
 	<div id="media-detail" class="box clearfix">
 		<%= image_tag(@photo.image.url(:medium)) %>
   </div>
-	<p><%= link_to "#{@user.name}'s photos", user_photos_path(current_user) %></p>
+	<p><%= link_to "#{@user.name}'s photos", user_photos_path(@user) %></p>
 
 	<%- if @photo.comments.present? -%>
 		<div id="comments">
