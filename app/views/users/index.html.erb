@@ -1,7 +1,7 @@
 <%= content_tag :p, link_to("Back to #{@user.name}'s profile", profile_path(@user)), :class => "go-back" if @user.present? %>
 
-<%= title "Meet Arid's Freinds" unless @user.present? %>
-<%= title "Meet #{@user.name}'s Fans" if @user.present? %>
+<%= title "Meet Arid's Fans" unless @user.present? %>
+<%= title "Meet #{@user.name}'s Friends" if @user.present? %>
 
 <!-- @todo Pagination -->
 
