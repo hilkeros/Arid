@@ -35,9 +35,9 @@
         <p>
 					<% form_for :shout, :url => shouts_path do |form| %>
 						<%= form.hidden_field :friend_id, :value => @user.id %>
-						<%= form.label :body, "Write something on Jef's wall" %>
+						<%= form.label :body, "Write something on #{@user.name}'s wall" %>
 						<%= form.text_area :body %>
-						<%= form.submit 'Write it!', :class => "input_submit" %>
+						<%= form.submit 'Post!', :class => "input_submit" %>
 					<% end %>
         </p>
     </div>
