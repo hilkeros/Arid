@@ -21,4 +21,14 @@ module ApplicationHelper
       "Oh no he didn't"
     end
   end
+  
+  def activity_day date
+    case 
+    when date.today?            then "Today"
+    when date == Date.yesterday  then "Yesterday"
+    else
+      date.strftime('%A')
+    end
+  end
+  
 end

@@ -1,5 +1,23 @@
 <%- if @user.present? -%>
-	<%= title "Fan photos of #{@user.name}" %>
+	<p class="go-back"><%= link_to "Back to #{@user.name}'s profile" %></p>
+	
+	<%= title "#{@user.name}'s photo's" %>
+	<%- if @user == current_user -%>
+		<div id="upload-media" class="box">
+			<%= link_to 'Upload photos', new_user_photo_path(current_user), :class => 'button upload' %>
+		</div>
+	<%- end -%>
+
+	<div id="photo-list-big">
+		<ul class="clearfix">
+			<li>
+				<a href="jef-photo-detail.html">
+					<img src="/images/photo.gif" alt="" />
+				</a>
+			</li>
+		</ul>
+	</div>
+
 	<p><%= link_to 'add more', new_user_photo_path(current_user) %></p>
 
 	<%- @photos.each do |photo| -%>

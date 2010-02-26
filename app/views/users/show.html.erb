@@ -51,14 +51,15 @@
 					</div>
 			<% end %>
 		</ul>
-
-		<h3>Activity</h3>
-    <ul class="day-actions">
-			<% @activities.each do |activity| %>
-				<li><%= raw activity_log activity %></li>
-			<% end %>
-    </ul>
-
+		
+		<% @activities.group_by {|a| a.created_at.to_date}.each do |date, activities| %>
+			<h3><%= activity_day(date) %></h3>
+	    <ul class="day-actions">
+				<% activities.each do |activity| %>
+					<li><%= raw activity_log activity %></li>
+				<% end %>
+	    </ul>
+		<% end %>
 
 	</div>
 </div>
