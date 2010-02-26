@@ -1,20 +1,15 @@
-<h2><%= t('photos.taken_at') %> <%= gig.venue %> (<%= link_to 'details', [gig] %>)</h2>
-
-<table>
-	<tr>
-		<td><%= t('gigs.date') %>:</td>
-		<td><%= gig.date.strftime('%d-%m-%Y') %> </td>
-	</tr>
-	<tr>
-		<td><%= t('gigs.venue') %>:</td>
-		<td><%= gig.venue %> </td>
-	</tr>
-	<tr>
-		<td><%= t('gigs.city') %>:</td>
-		<td><%= gig.city %> </td>
-	</tr>
-	<tr>
-		<td><%= t('gigs.country') %>:</td>
-		<td><%= gig.country %> </td>
-	</tr>
-</table>
+<p class="go-back"><%= link_to "#{t('gigs.back')} #{gig.venue.titleize}", [gig] %></p>
+        
+<h1><%= gig.venue.titleize %></h1>
+<div id="tourdate-detail" class="box clearfix">
+	<dl>
+		<dt><%= t('gigs.date') %>:</dt>
+		<dd><%= gig.date.strftime('%d-%m-%Y') %> </dd>
+		<dt><%= t('gigs.venue') %>:</dt>
+		<dd><%= gig.venue %> </dd>
+		<dt><%= t('gigs.city') %>:</dt>
+		<dd><%= gig.city %> </dd>
+		<dt><%= t('gigs.country') %>:</dt>
+		<dd><%= gig.country %> </dd>
+	</dl>
+</div>
