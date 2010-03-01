@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
 
   def before_connect(facebook_session)
     self.name = facebook_session.user.name
+    self.send(:create_unique_permalink)
   end
   
   def update_favorite_songs favorite_songs
