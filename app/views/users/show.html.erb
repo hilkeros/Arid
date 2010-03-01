@@ -11,7 +11,7 @@
 
 		<%= title @user.name %>
     <p class="asl">
-      <%= @user.age %> (<%= @user.gender %>) <%= @user.country %><br />
+      <%= @user.age %> <%= "(#{@user.gender})" if @user.gender.present? %> <%= @user.country %><br />
     </p>
 
     <div id="user-socialmedia">
