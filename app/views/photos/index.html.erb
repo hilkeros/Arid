@@ -23,8 +23,8 @@
 	<div id="photo-list-big">
 		<ul class="clearfix">
 			<%- @photos.each do |photo| -%>
-			<li>
-				<%= link_to "#{image_tag(photo.image.url(:small))}", [photo] %>
+			<li class="videos">
+				<%= link_to "#{image_tag(photo.image.url(:small))}#{(photo.name)}", [photo] %>
 				<%= content_tag :p, link_to("Belongs to #{photo.gig.venue}", [photo.gig]) if photo.gig.present?  %>
 			</li>
 			<%- end -%>
