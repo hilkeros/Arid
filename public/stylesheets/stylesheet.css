@@ -671,6 +671,21 @@ ul.button_list{
 	display:none;
 }
 
+/* Browse fans
+--------------------------------------------- */
+
+#browse-fans img{
+  height:auto;
+  width:auto;
+}
+
+li.fan{
+	width:66px;
+}
+li.fan a{
+	text-align:left;
+}
+
 /* Media list (photos & videos, used on profile pages & concert pages)
 --------------------------------------------- */
 
@@ -694,14 +709,6 @@ ul.button_list{
 
 #media-detail{
   text-align:center;
-}
-
-/* Browse fans
---------------------------------------------- */
-
-#browse-fans img{
-  height:auto;
-  width:auto;
 }
 
 /* Tour Calendar

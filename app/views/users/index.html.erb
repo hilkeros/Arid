@@ -9,7 +9,7 @@
 	<div class="box">
 		<ul class="listbox clearfix">
 			<%- @users.each do |user| -%>
-				<li>
+				<li class='fan'>
 					<%= link_to "#{image_tag(user.avatar.url(:thumb))}#{truncate(user.name, 10)}", profile_path(user) %>
 				</li>
 			<%- end -%>
