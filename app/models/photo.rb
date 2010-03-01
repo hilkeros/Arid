@@ -17,6 +17,8 @@ class Photo < ActiveRecord::Base
     :url  => "/assets/photos/:style/:id.:extension",
     :path => ":rails_root/public/assets/photos/:style/:id.:extension"
     
+    validates_attachment_presence :image
+    
     def target
       gig
     end
