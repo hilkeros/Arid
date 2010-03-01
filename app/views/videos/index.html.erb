@@ -3,8 +3,8 @@
 <div id="photo-list-big">
 	<ul class="clearfix">
 		<%- @videos.each do |video| -%>
-		<li>
-			<%= link_to "#{image_tag("http://i3.ytimg.com/vi/#{video.youtube_id}/default.jpg")}#{video.name}", [video] %>
+		<li class='videos'>
+			<%= link_to "#{image_tag("http://i3.ytimg.com/vi/#{video.youtube_id}/default.jpg")}#{(video.name)}", [video] %>
 		</li>
 		<%- end -%>
 	</ul>

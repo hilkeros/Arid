@@ -686,6 +686,14 @@ li.fan a{
 	text-align:left;
 }
 
+li.videos{
+	width:180px;
+	height:145px;
+}
+li.videos a{
+	text-align:left;
+}
+
 /* Media list (photos & videos, used on profile pages & concert pages)
 --------------------------------------------- */
 
