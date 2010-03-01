@@ -8,7 +8,7 @@
 		<dt><%= t('gigs.time') %>:</dt>
 		<dd><%= @gig.time.strftime('%H:%M') %> </dd>
 		<dt><%= t('gigs.venue') %>:</dt>
-		<dd><%= link_to @gig.venue, @gig.venue_url %> (<%= gig_ticket_link(@gig) %>) %> </dd>
+		<dd><%= link_to @gig.venue, @gig.venue_url %> (<%= gig_ticket_link(@gig) %>)</dd>
 		<dt><%= t('gigs.city') %>:</dt>
 		<dd><%= @gig.city %> </dd>
 		<dt><%= t('gigs.country') %>:</dt>
