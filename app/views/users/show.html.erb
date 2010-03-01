@@ -1,7 +1,7 @@
 <div id="user-info">
 	<div id="user-profile">
 		<div id="follow-user">
-			<%= image_tag(@user.avatar.url(:small), :id => 'user-avatar') %>
+			<%= image_tag(@user.avatar.url(:profile), :id => 'user-avatar') %>
 	    <ul class="button_list">
 	      <li>
 	        <%= render :partial => 'follow' unless @user == current_user %>
@@ -73,7 +73,7 @@
       <ul class="listbox clearfix">
 				<% @user.friends.each do |friend| %>
         	<li>
-						<%= link_to "#{image_tag(friend.avatar.url(:thumb))}#{truncate(friend.name, 8, "..")}", profile_path(friend) %>
+						<%= link_to "#{image_tag(friend.avatar.url(:friends))}#{truncate(friend.name, 8, "..")}", profile_path(friend) %>
 	        </li>
 				<% end %>
       </ul>
