@@ -73,7 +73,7 @@
       <ul class="listbox clearfix">
 				<% @user.friends.each do |friend| %>
         	<li>
-						<%= link_to "#{image_tag(friend.avatar.url(:thumb))}#{friend.name}", profile_path(friend) %>
+						<%= link_to "#{image_tag(friend.avatar.url(:thumb))}#{truncate(friend.name, 8, "..")}", profile_path(friend) %>
 	        </li>
 				<% end %>
       </ul>
