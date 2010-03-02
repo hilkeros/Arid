@@ -719,6 +719,13 @@ li.videos a{
   text-align:center;
 }
 
+.photo_navigation .previous{
+	float:left;
+}
+.photo_navigation .next{
+	float:right;
+}
+
 /* Tour Calendar
 --------------------------------------------- */
 

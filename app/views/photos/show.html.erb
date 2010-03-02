@@ -6,6 +6,10 @@
 <div id="media-detail" class="box clearfix">
 	<%= image_tag(@photo.image.url(:medium)) %>
 </div>
+<div class="photo_navigation clearfix">
+	<p class="previous"><%= previous_link @photo, @user, @gig %></p>
+	<p class="next"><%= next_link @photo, @user, @gig %></p>
+</div>
 
 <%= content_tag(:p, link_to("#{t('photos.taken_by')} #{@photo.user.name}", user_photos_path(@photo.user))) if @gig.present? %>
 <%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}")) if @gig.blank? && @photo.gig.present? %>
