@@ -1,50 +1,13 @@
-<%- if @user.present? -%>
-	<%= title @photo.name unless @photo.gig.present? %>
-	<%= content_tag :p, link_to("#{t('gigs.back_to_gig')} #{@photo.user.name}'s photo's", [@photo.user, :photos]), :class => "go-back" unless @photo.gig.present? %>
-	
-	<%= render @photo.gig if @photo.gig.present? %>
-	
-	<div id="media-detail" class="box clearfix">
-		<%= image_tag(@photo.image.url(:medium)) %>
-  </div>
-	<p><%= link_to "#{@user.name}'s photos", user_photos_path(@user) %></p>
+<%= title @photo.name %>
+<p class="go-back"><%= photo_back_link @photo, @user, @gig %></p>
 
-	<%- if @photo.comments.present? -%>
-		<div id="comments">
-		  <h2><span class="comment_count"><%= pluralize(@photo.comments.size, "comment" )%></span></h2>
-				<% @photo.comments.each do |comment| %>
-					<div class="comment">
-			    	<p class="posted"><span class="author"><%= link_to comment.user.name, profile_path(comment.user) %></span> | <apsn class="date"><%= comment.created_at.strftime('%d/%m/%y') %></apsn></p>
-			      <div class="comment_content">
-							<p><%= comment.body %></p>
-			      </div>
-					</div>
-				<% end %>
-	    </div>
-	<% end %>
+<%= render :partial => 'gig' if @gig.present? %>
 
-  <div id="comment_form" class="box">
-	  <h2>Leave a comment</h2>
-		<div>
-			<% if current_user %>
-				<% form_for :comment, :url => user_photo_comments_path(current_user, @photo) do |form| %>
-					<%= form.hidden_field :photo_id, :value => @photo.id %>
-					<p>
-						<%= form.text_area :body %>
-					</p>
-					<p>
-						<%= form.submit 'Add Comment', :class => "input_submit" %>
-					</p>
-				<% end %>
-			<% else %>
-				You need to be logged in to comment. <%= link_to "Log in or Register", login_path %>.
-			<% end %>
-		</div>
-	</div>
-<%- else -%>
-	<%= content_tag :p, link_to("#{t('gigs.back_to_gig')} photo's", [:photos]), :class => "go-back" %>
-	<%= title @photo.name  %>
-	<div id="media-detail" class="box clearfix">
-		<%= image_tag(@photo.image.url(:medium)) %>
-	</div>
-<%- end -%>
+<div id="media-detail" class="box clearfix">
+	<%= image_tag(@photo.image.url(:medium)) %>
+</div>
+
+<%= content_tag(:p, link_to("#{t('photos.taken_by')} #{@photo.user.name}", user_photos_path(@photo.user))) if @gig.present? %>
+<%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}")) if @gig.blank? && @photo.gig.present? %>
+
+<%= render :partial => 'comments' %>

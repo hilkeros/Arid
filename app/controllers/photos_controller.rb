@@ -41,13 +41,20 @@ class PhotosController < ApplicationController
     redirect_to user_photos_path(current_user)
   end
   
+  protected
+  
   def selected_user
     @user = User.find_by_permalink(params[:user_id]) if params[:user_id].present?
   end
   
+  def selected_gig
+    @gig = Gig.find_by_permalink(params[:gig_id]) if params[:gig_id].present?
+  end
+  
   def scoped_photos
-    if selected_user
-      selected_user.photos
+    case
+    when selected_user  then selected_user.photos
+    when selected_gig   then selected_gig.photos
     else
       Photo.arid
     end

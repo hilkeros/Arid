@@ -3,7 +3,7 @@
     <h3>Concert photos <!-- <a href="concert-ab-photo-detail.html">(See all)</a> --></h3>
     <ul class="listbox clearfix">
 			<%- @gig.photos.each do |photo| -%>
-				<li><%= link_to image_tag(photo.image.url(:thumb)), [photo.user, photo] %></li>
+				<li><%= link_to image_tag(photo.image.url(:thumb)), [@gig, photo] %></li>
 			<%- end -%>
     </ul>
   </div>

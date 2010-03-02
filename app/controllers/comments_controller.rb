@@ -16,6 +16,6 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(params[:comment])
     @comment.save
-    redirect_to comment_path(@comment)
+    redirect_to :back
   end
 end
