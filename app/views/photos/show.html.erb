@@ -13,7 +13,7 @@
 	</div>
 
 	<%= content_tag(:p, link_to("#{t('photos.taken_by')} #{@photo.user.name}", user_photos_path(@photo.user))) if @gig.present? %>
-	<%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}", gig_photos_path(@photo.gig)))$ if @gig.blank? && @photo.gig.present? %>
+	<%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}", gig_photos_path(@photo.gig))) if @gig.blank? && @photo.gig.present? %>
 
 	<%= render :partial => 'comments' %>
 </div>
