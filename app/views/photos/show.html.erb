@@ -1,17 +1,19 @@
-<%= title @photo.name %>
-<p class="go-back"><%= photo_back_link @photo, @user, @gig %></p>
+<div class="photo_container">
+	<%= title @photo.name %>
+	<p class="go-back"><%= photo_back_link @photo, @user, @gig %></p>
 
-<%= render :partial => 'gig' if @gig.present? %>
+	<%= render :partial => 'gig' if @gig.present? %>
 
-<div id="media-detail" class="box clearfix">
-	<%= image_tag(@photo.image.url(:medium)) %>
+	<div id="media-detail" class="box clearfix">
+		<%= image_tag(@photo.image.url(:medium)) %>
+	</div>
+	<div class="photo_navigation clearfix">
+		<p class="previous"><%= previous_link @photo, @user, @gig %></p>
+		<p class="next"><%= next_link @photo, @user, @gig %></p>
+	</div>
+
+	<%= content_tag(:p, link_to("#{t('photos.taken_by')} #{@photo.user.name}", user_photos_path(@photo.user))) if @gig.present? %>
+	<%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}", gig_photos_path(@photo.gig))) if @gig.blank? && @photo.gig.present? %>
+
+	<%= render :partial => 'comments' %>
 </div>
-<div class="photo_navigation clearfix">
-	<p class="previous"><%= previous_link @photo, @user, @gig %></p>
-	<p class="next"><%= next_link @photo, @user, @gig %></p>
-</div>
-
-<%= content_tag(:p, link_to("#{t('photos.taken_by')} #{@photo.user.name}", user_photos_path(@photo.user))) if @gig.present? %>
-<%= content_tag(:p, link_to("#{t('photos.belongs_to')} #{@photo.gig.venue}")) if @gig.blank? && @photo.gig.present? %>
-
-<%= render :partial => 'comments' %>
