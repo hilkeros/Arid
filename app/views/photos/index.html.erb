@@ -18,6 +18,20 @@
 			<%- end -%>
 		</ul>
 	</div>
+<%- elsif @gig.present? -%>
+	<p class="go-back"><%= link_to "Back to #{@gig.venue}", [@gig] %></p>
+	
+	<%= title "#{@gig.venue}'s photo's" %>
+
+	<div id="photo-list-big">
+		<ul class="clearfix">
+			<%- @photos.each do |photo| -%>
+			<li>
+				<%= link_to "#{image_tag(photo.image.url(:small))}", [@gig, photo] %>
+			</li>
+			<%- end -%>
+		</ul>
+	</div>
 <%- else -%>
 	<%= title t('photos.arid_title') %>
 	<div id="photo-list-big">
