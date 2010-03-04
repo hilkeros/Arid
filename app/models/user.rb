@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ActiveRecord::Base
   acts_as_authentic do |user|
     user.login_field :email
@@ -66,6 +68,13 @@ class User < ActiveRecord::Base
     day_diff = date.day - dob.day
     month_diff = date.month - dob.month - (day_diff < 0 ? 1 : 0)
     date.year - dob.year - (month_diff < 0 ? 1 : 0)
+  end
+  
+  def fill_with_facebook(facebook_session)
+    self.birth_date = Date.parse(facebook_session.user.birthday) unless self.birth_date.present?
+    self.gender = facebook_session.user.sex.titleize unless self.gender.present?
+    self.avatar = open(facebook_session.user.pic) unless self.avatar.file?
+    self.save!
   end
   
 
