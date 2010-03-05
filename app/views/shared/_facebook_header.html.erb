@@ -1,0 +1,15 @@
+<%- if @photo.present? -%>
+	<link rel="image_src" href="<%= @photo.image.url(:medium) %>" />
+<%- elsif @video.present? -%>
+	<link rel="video_src" href="http://www.youtube.com/v/<%= @video.youtube_id %>"/>
+	<meta name="video_height" content="373" />
+	<meta name="video_width" content="620" />
+	<meta name="video_type" content="application/x-shockwave-flash" />
+	<link rel="image_src" href="<%= "http://i3.ytimg.com/vi/#{@video.youtube_id}/default.jpg" %>" />
+<%- elsif @gig.present? -%>
+	<meta name="description" content="Arid in action at <%= @gig.venue %>" />
+	<link rel="image_src" href="http://arid.be/images/body-bg-big.gif" />
+<%- else -%>
+	<meta name="description" content="Arid.be, The official Arid website" />
+	<link rel="image_src" href="http://arid.be/images/body-bg-big.gif" />
+<%- end -%>
