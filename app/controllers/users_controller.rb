@@ -31,11 +31,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.attributes = params[:user]
-    if @user.facebook_uid.present?
-      @user.save_with_validation(false) 
-    else
-      @user.save!
-    end
+    @user.save!
     flash[:notice] = "Succesfully updated settings."
     redirect_to profile_path(@user)
   rescue ActiveRecord::RecordInvalid

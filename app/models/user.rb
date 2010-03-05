@@ -1,8 +1,11 @@
 require 'open-uri'
 
 class User < ActiveRecord::Base
-  acts_as_authentic do |user|
-    user.login_field :email
+  acts_as_authentic do |usr|
+    usr.login_field :email
+    usr.validate_email_field = false
+    usr.validate_password_field = false
+    usr.validate_login_field = false
   end
   has_permalink :name
 
@@ -18,6 +21,14 @@ class User < ActiveRecord::Base
   
   has_many :shouts
   has_many :friend_shouts, :class_name => 'Shout', :foreign_key => 'friend_id'
+  
+  validates_presence_of :email, :if => :not_logged_in_with_facebook
+  validates_uniqueness_of :email, :if => :not_logged_in_with_facebook
+  
+  attr_accessor :password
+  validates_presence_of     :password,                   :if => :not_logged_in_with_facebook
+  validates_confirmation_of :password,                   :if => :not_logged_in_with_facebook
+  validates_length_of       :password, :within => 6..40, :if => :not_logged_in_with_facebook
   
   has_attached_file :avatar,
     :styles => { 
@@ -77,5 +88,10 @@ class User < ActiveRecord::Base
     self.save!
   end
   
+  protected
+  
+  def not_logged_in_with_facebook
+    self.facebook_uid.blank?
+  end
 
 end
