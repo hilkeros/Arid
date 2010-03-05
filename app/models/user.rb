@@ -82,9 +82,9 @@ class User < ActiveRecord::Base
   end
   
   def fill_with_facebook(facebook_session)
-    self.birth_date = Date.parse(facebook_session.user.birthday) unless self.birth_date.present?
-    self.gender = facebook_session.user.sex.titleize unless self.gender.present?
-    self.avatar = open(facebook_session.user.pic) unless self.avatar.file?
+    self.birth_date = Date.parse(facebook_session.user.birthday) if  self.birth_date.blank? && facebook_session.user.birth_date.present?
+    self.gender = facebook_session.user.sex.titleize if self.gender.blank? && facebook_session.user.sex.present?
+    self.avatar = open(facebook_session.user.pic) if !self.avatar.file? && facebook_session.user.pic.present?
     self.save!
   end
   
