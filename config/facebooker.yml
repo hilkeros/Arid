@@ -14,7 +14,7 @@ development:
  secret_key: 93ebbf3244e3295a711e6373dad81ac6
  canvas_page_name: 
  callback_url: http://arid.local/
- pretty_errors: true
+ pretty_errors: false
  set_asset_host_to_callback_url: false
  tunnel:
      public_host_username: 

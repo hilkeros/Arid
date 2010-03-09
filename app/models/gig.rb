@@ -21,4 +21,8 @@ class Gig < ActiveRecord::Base
     permalink
   end
   
+  def title
+    venue
+  end
+  
 end

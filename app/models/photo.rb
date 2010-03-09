@@ -23,4 +23,8 @@ class Photo < ActiveRecord::Base
       gig
     end
     
+    def title
+      name
+    end
+    
 end

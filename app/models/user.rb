@@ -88,6 +88,18 @@ class User < ActiveRecord::Base
     self.save!
   end
   
+  def facebook_connected?
+    facebook_uid.present?
+  end
+  
+  def facebook_user
+    Facebooker::User.new(facebook_uid, Facebooker::Session.create)
+  end
+  
+  def publish_to_facebook options
+    facebook_user.publish_to(facebook_user, options)
+  end
+  
   protected
   
   def not_logged_in_with_facebook
