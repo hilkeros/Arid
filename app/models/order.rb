@@ -43,4 +43,20 @@ class Order < ActiveRecord::Base
     OrderMailer.deliver_confirmed(self)
   end
   
+  def message
+    "Bought some cool stuff on http://arid.be, a #{products.map(&:name).to_sentence}"
+  end
+
+  def action_links url
+    [{:text => "Visit the shop", :href => url}]
+  end
+
+  def attachment url
+    attachment = Facebooker::Attachment.new
+    attachment.name  = products.first.name
+    attachment.href = url
+    attachment.add_image(products.first.image.url(:media), url)
+    return attachment
+  end
+  
 end

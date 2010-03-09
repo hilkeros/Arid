@@ -98,10 +98,9 @@ en:
           thanks: Thanks for your order.
           payment: |
                     Please transfer {{total_price}} to our bank account.
-                    \"Arid Merchandise - KBC 731-0094471-65\"
-                    Please mention the order code \"{{payment_code}}\"
-
-                    "We will ship your order after we've received your payment."
+                    "Arid Merchandise - KBC 731-0094471-65". 
+                    Please mention the order code "{{payment_code}}". 
+                    We will ship your order after we've received your payment.
           order_info: Your order information
           variant: Variant
           price: Order price
@@ -115,6 +114,7 @@ en:
         amount: Amount
         remove: remove
         details: Details
+        detail: Detail
         choose_variant: Choose a variant
         add: Add to basket
       finish: Finish Order
