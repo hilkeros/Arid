@@ -18,6 +18,12 @@
 		<%= form.file_field :image %>
 	</p>
 	
+	<%- if current_user.facebook_connected? -%>
+		<p>
+			<label><%= check_box_tag :post_to_facebook, 'yes', current_user.fb_post_photo %> Share on Facebook?</label>
+		</p>
+	<%- end -%>
+	
 	<p>
 		<%= form.submit :Upload, :class => 'input_submit' %>
 	</p>

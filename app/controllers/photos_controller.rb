@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.new(params[:photo])
     @photo.save!
+    current_user.publish_to_facebook(:message => @photo.message, :actions_links => @photo.action_links(user_photo_url(current_user, @photo)), :attachment => @photo.attachment(user_photo_url(current_user, @photo))) if params[:post_to_facebook] == 'yes'
     redirect_to user_photos_path(current_user)
   rescue ActiveRecord::RecordInvalid
     render :new

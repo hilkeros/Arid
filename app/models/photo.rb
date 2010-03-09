@@ -27,4 +27,20 @@ class Photo < ActiveRecord::Base
       name
     end
     
+    def message
+      "Uploaded a photo '#{self.name}' on http://arid.be"
+    end
+
+    def action_links url
+      [{:text => "Visit #{self.name}", :href => url}]
+    end
+
+    def attachment url
+      attachment = Facebooker::Attachment.new
+      attachment.name  = name
+      attachment.href = url
+      attachment.add_image(image.url(:media), url)
+      return attachment
+    end
+    
 end

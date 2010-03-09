@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.new(params[:comment])
     @comment.save
-    current_user.publish_to_facebook(:message => @comment.message, :actions_links => @comment.action_links(url_for(@comment)), :attachment => @comment.attachment(url_for(@comment))) if params[:post_to_facebook].present?
+    current_user.publish_to_facebook(:message => @comment.message, :actions_links => @comment.action_links(url_for(@comment)), :attachment => @comment.attachment(url_for(@comment))) if params[:post_to_facebook] == "yes"
     redirect_to :back
   end
 end
