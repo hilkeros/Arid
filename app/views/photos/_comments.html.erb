@@ -22,9 +22,9 @@
 					<%= form.text_area :body %>
 				</p>
 				<%- if current_user.facebook_connected? -%>
-				<p>
-					<label><%= check_box_tag :post_to_facebook, '', current_user.fb_post_comment %> Post this comment to Facebook?</label>
-				</p>
+					<p>
+						<label><%= check_box_tag :post_to_facebook, '', current_user.fb_post_comment %> Post this comment to Facebook?</label>
+					</p>
 				<%- end -%>
 				<p>
 					<%= form.submit 'Add Comment', :class => "input_submit" %>
