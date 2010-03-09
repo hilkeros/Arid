@@ -50,6 +50,26 @@
 			</p>
 	</fieldset>
 	
+	<%- if current_user.facebook_connected? -%>
+		<h3>Facebook Settings</h3>
+		<fieldset>
+			<p class="checkbox">
+				<%= form.check_box :fb_post_comment %>
+				<%= form.label :fb_post_comment, "Publish comment to Facebook?" %>
+			</p>
+			
+			<p class="checkbox">
+				<%= form.check_box :fb_post_photo %>
+				<%= form.label :fb_post_photo, "Publish to Facebook when uploaded a photo?" %>
+			</p>
+			
+			<p class="checkbox">
+				<%= form.check_box :fb_post_video %>
+				<%= form.label :fb_post_video, "Publish to Facebook when uploaded a video?" %>
+			</p>
+		</fieldset>
+	<%- end -%>
+	
 	<fieldset>
 		<h3>Avatar</h3>
 		<p>
