@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   attr_accessor :password
   validates_presence_of     :password,                   :if => :not_logged_in_with_facebook
   validates_confirmation_of :password,                   :if => :not_logged_in_with_facebook
-  validates_length_of       :password, :within => 6..40, :if => :not_logged_in_with_facebook
   
   has_attached_file :avatar,
     :styles => { 
