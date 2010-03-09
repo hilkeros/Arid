@@ -16,9 +16,9 @@
 
     <div id="user-socialmedia">
     	<ul class="clearfix">
-				<%= content_tag :li, link_to(image_tag('icons/social/IconMyspaceSml.png'), @user.myspace_uid) if @user.myspace_uid.present? %>
-				<%= content_tag :li, link_to(image_tag('icons/social/IconNetlogSml.png'), @user.netlog_uid) if @user.netlog_uid.present? %>
-				<%= content_tag :li, link_to(image_tag('icons/social/IconTwitterSml.png'), @user.twitter_uid) if @user.twitter_uid.present? %>
+				<%= content_tag :li, myspace_link(@user.myspace_uid) if @user.myspace_uid.present? %>
+				<%= content_tag :li, netlog_link(@user.netlog_uid) if @user.netlog_uid.present? %>
+				<%= content_tag :li, twitter_link(@user.twitter_uid) if @user.twitter_uid.present? %>
     	</ul>
     </div>
 
