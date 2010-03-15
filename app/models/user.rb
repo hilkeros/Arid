@@ -25,9 +25,8 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :if => :not_logged_in_with_facebook
   validates_uniqueness_of :email, :if => :not_logged_in_with_facebook
   
-  attr_accessor :password
-  validates_presence_of     :password,                   :if => :not_logged_in_with_facebook
-  validates_confirmation_of :password,                   :if => :not_logged_in_with_facebook
+  validates_presence_of     :password, :if => :not_logged_in_with_facebook
+  validates_confirmation_of :password, :if => :not_logged_in_with_facebook
   
   has_attached_file :avatar,
     :styles => { 
