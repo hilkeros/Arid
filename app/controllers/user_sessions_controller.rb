@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     @session = UserSession.new(params[:user_session])
     @session.save!
-    if facebook_session.present? && current_user.present?
+    if current_user.facebook_connected?
       current_user.fill_with_facebook(facebook_session)
     end
     redirect_to root_path

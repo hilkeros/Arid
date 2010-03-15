@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
     reset_perishable_token!  
     Notifier.deliver_password_reset_instructions(self)  
   end
-
+  
   def before_connect(facebook_session)
     self.name = facebook_session.user.name
     self.send(:create_unique_permalink)
