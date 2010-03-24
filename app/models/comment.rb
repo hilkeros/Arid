@@ -10,7 +10,7 @@ class Comment < ActiveRecord::Base
   end
   
   def message
-    "Made a comment on '#{self.target.title.titleize}' on http://arid.be"
+    "Made a comment on '#{self.target.title.titleize}' on http://arid.be: #{body}"
   end
   
   def action_links url
