@@ -311,6 +311,9 @@ ul.button_list{
 	float:left;
 	margin-right:10px;
 }
+.share{
+	clear:left;
+}
 
 /* Buttons */
 

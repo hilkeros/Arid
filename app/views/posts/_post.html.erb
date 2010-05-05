@@ -10,7 +10,7 @@
 		<%- else -%>
 			<%= raw (post.body) %>
 			
-			<ul class="button_list clearfix">
+			<ul class="button_list clearfix share">
 				<li id="sharethis_btn"><%=  raw addthis_share_button(post_url(post)){t('posts.share')} %></li>
 				<li><%= link_to t('comments.add_comment'), post_path(post, :anchor => "comments") %></a></li>
 			</ul>
