@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title("Arid news feed.")
-  feed.updated(@gigs.last.updated_at)
+  feed.updated(@gigs.last.updated_at) if @gigs.present?
   
   for gig in @gigs
     feed.entry(gig) do |entry|
