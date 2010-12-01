@@ -15,8 +15,11 @@
 			</p>
 			
 			<p>
-        <b>Post:</b>
-        <%= @comment.post.title %>
+        <b>Type:</b>
+        <%= @comment.source %>: 
+        <%= @comment.post.title if @comment.post.present? %>
+			  <%= @comment.gig.title if @comment.gig.present? %>
+			  <%= @comment.photo.image_file_name if @comment.photo.present? %>
       </p>
 
 			<p>
