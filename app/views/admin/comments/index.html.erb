@@ -12,7 +12,8 @@
         <tr>             
 					<th class="first">Comment</th>
 					<th>Created at</th>
-					<th>Post</th>
+					<th>Type</th>
+					<th>Where</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @comments.each do |comment| -%>
@@ -20,7 +21,12 @@
 	
           <td class="first"><%= link_to truncate(comment.body), admin_comment_path(comment) %></td>
 					<td><%= comment.created_at %></td>
-					<td><%= link_to comment.post.title, admin_post_path(comment.post) %></td>
+					<td><%= comment.source %></td>
+					<td>
+					  <%= link_to comment.post.title, admin_post_path(comment.post) if comment.post.present? %>
+					  <%= link_to comment.gig.title, admin_gig_path(comment.gig) if comment.gig.present? %>
+					  <%= link_to comment.photo.image_file_name, admin_photo_path(comment.photo) if comment.photo.present? %>
+					</td>
 						
           <td class="last">
             <%= link_to 'show', admin_comment_path(comment) %> |

@@ -25,4 +25,14 @@ class Comment < ActiveRecord::Base
     attachment.add_image(photo.image.url(:media), url)
     return attachment
   end
+  
+  def source
+    case
+    when post.present?; "Post"
+    when gig.present?; "Gig"
+    when photo.present?; "Photo"
+    else
+      "Unknown source"
+    end
+  end
 end
