@@ -19,10 +19,10 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
-  config.gem 'paperclip'
-  config.gem 'will_paginate'
-  config.gem 'responds_to_parent'
-  config.gem 'state_machine'
+  config.gem 'paperclip', :version => '2.3.1.1'
+  config.gem 'will_paginate', :version => '2.3.12'
+  config.gem 'responds_to_parent', :version => "1.0.20091013"
+  config.gem 'state_machine', :version => "0.8.0"
   config.gem 'i18n', :version => '>= 0.3'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
